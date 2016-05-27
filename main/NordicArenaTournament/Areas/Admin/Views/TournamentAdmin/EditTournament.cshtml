@@ -1,0 +1,65 @@
+﻿@model NordicArenaTournament.Areas.Admin.ViewModels.EditTournamentViewModel
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+@using NordicArenaDomainModels.Models
+
+@{
+    ViewBag.Title = NaHtml.PageTitle(Text.EditTournamentPageTitle);
+}
+
+<h1>@Model.Tournament.Name</h1>
+<h2>@Text.EditTournamentPageTitle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>@Text.GeneralSettings</legend>
+        @Html.HiddenFor(model => model.Tournament.Id)
+        @Html.ValidatedEditPairFor(model => model.Tournament.Name, valueCssClass: "long-text")
+        @Html.DisplayPairFor(model => model.Tournament.Status)
+        @Html.EditPairFor(model => model.Tournament.ShufflePlayerList)
+        <br/>
+       <input type="submit" value="@Text.Save" name="action:SaveTournament" />
+       @if (Model.Tournament.Status == TournamentStatus.Prestart)
+        {
+            <input id="startButon" type="submit" value="@Text.Start" name="action:StartTournament" />
+        }
+        
+    </fieldset>
+
+    <fieldset>
+        <legend>@Text.Rounds</legend>
+        <div style="display:inline-block"> @* Needed for proper alignment of arrow between rounds *@
+            <p id="new-round-insert-point">
+                <button type="button" class="dis" onclick="nordicArena.editTournament.addRound(this, @Model.Tournament.Id)">@Text.AddNewRound</button>
+            </p>
+            @for (Model.RoundIx = 0; Model.RoundIx < Model.RoundList.Count; Model.RoundIx++)
+            {
+                Html.RenderPartial(MVC.Admin.TournamentAdmin.Views.ViewNames.EditTournamentRound, Model);
+            }
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>@Text.JudgingCriterions</legend>
+        <div class="input-container">
+            @foreach (var criterion in Model.Tournament.JudgingCriteria)
+            {
+                Html.RenderPartial(MVC.Admin.TournamentAdmin.Views.ViewNames.EditTournamentJudgingCriterion, criterion);
+            }
+        </div>
+    </fieldset>
+
+    <p>
+        <input type="submit" value="@Text.Save" name="action:SaveTournament" />
+    </p>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@section jqueryonload
+{
+    nordicArena.disableIfTrue('@Model.IsStarted.ForJavascript()', ".dis input,button.dis");
+}

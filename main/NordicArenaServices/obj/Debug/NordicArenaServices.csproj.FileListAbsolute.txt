@@ -1,0 +1,16 @@
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\NordicArenaServices.dll.config
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\NordicArenaServices.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\NordicArenaServices.pdb
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\EntityFramework.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\NordicArenaDataAccess.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\NordicArenaDomainModels.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\NordicArenaDataAccess.pdb
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\NordicArenaDomainModels.pdb
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\EntityFramework.xml
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\obj\Debug\NordicArenaServices.csprojResolveAssemblyReference.cache
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\obj\Debug\NordicArenaServices.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaServices\obj\Debug\NordicArenaServices.pdb

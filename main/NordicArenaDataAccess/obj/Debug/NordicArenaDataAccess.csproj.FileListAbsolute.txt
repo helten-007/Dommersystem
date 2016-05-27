@@ -1,0 +1,16 @@
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\NordicArenaDataAccess.dll.config
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\NordicArenaDataAccess.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\NordicArenaDataAccess.pdb
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\NordicArenaDomainModels.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\NordicArenaDomainModels.pdb
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\obj\Debug\NordicArenaDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\obj\Debug\NordicArenaTournament.Database.Initial.resources
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\obj\Debug\NordicArenaDataAccess.csproj.GenerateResource.Cache
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\obj\Debug\NordicArenaDataAccess.dll
+C:\Users\tommy\Desktop\Dommersystem\nordicarena\nordicarena\main\NordicArenaDataAccess\obj\Debug\NordicArenaDataAccess.pdb

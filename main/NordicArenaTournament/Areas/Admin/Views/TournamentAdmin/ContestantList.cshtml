@@ -1,0 +1,84 @@
+﻿@model NordicArenaTournament.Areas.Admin.ViewModels.ContestantListAndCreate
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+@using Links
+@using NordicArenaTournament.Areas.Admin.Controllers
+
+@{
+    ViewBag.Title = NaHtml.PageTitle(Text.ContestantListPageTitle);
+}
+
+<div class="center">
+    <img id="playerImage" src="@Content.images.espen_kick_jpg" class="hidden"/>
+</div>
+
+<div id="contestant-container" class="input-container">
+    <div id="contestant-list">
+        <h1>@Text.ContestantList</h1>
+        @if (!Model.IsRegistrationClosed)
+        {
+            @Html.ActionLink(Text.AddContestant, MVC.Admin.TournamentAdmin.ContestantList(Model.TournamentId), new { @class = "add selected" })<br />
+        }
+        @foreach (var item in Model.Contestants)
+        {
+            @Html.ActionLink(item.Name, MVC.Admin.TournamentAdmin.ContestantList(Model.TournamentId, item.Id), Html.ClassIfTrue("selected", item.Id == Model.Contestant.Id))<br />
+        }
+    </div>
+
+    <div id="contestant-edit">
+        <h1>@Text.Contestant</h1>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(p => p.IsRegistrationClosed)
+            @Html.HiddenFor(p => p.Contestant.Id)
+            @Html.ValidatedEditPairFor(p => p.Contestant.Name, "", "long-text focus")<br />
+            @Html.ValidatedEditPairFor(p => p.Contestant.Sponsors, "", "long-text")<br />
+            @Html.ValidatedEditPairFor(p => p.Contestant.Location, "", "long-text")<br />
+            @Html.ValidatedEditPairFor(p => p.Contestant.DateOfBirth, "", "long-text")<br />
+            <p>
+                @if (!Model.IsRegistrationClosed)
+                {
+                    <input type="submit" value="@Model.UpdateButtonText" id="save-contestant-button" />
+                }
+            </p>
+        }
+        @if (Model.Contestant.Id > 0 && !Model.Contestant.IsRemoved)
+        {
+            if (!Model.IsDeletionClosed)
+            {
+                using (Html.BeginForm(MVC.Admin.TournamentAdmin.DeleteContestant(Model.TournamentId, Model.Contestant.Id)))
+                {
+                    <input type="Submit" value="@Text.Delete" style="float:right"></input>
+                }
+            }
+            else
+            {
+                using (Html.BeginForm(MVC.Admin.TournamentAdmin.RemoveContestant(Model.TournamentId, Model.Contestant.Id)))
+                {
+                    <input type="Submit" value="@Text.RemoveContestant" style="float:right"></input>
+                }
+            }
+        }
+        <input type="submit" value="Last opp bilde" id="upload-photo-button" onclick="fakeImageUpload()"  style="float: right"/>
+        <input type="Submit" value="Bilde fra webcam"  id="upload-photo-button" onclick="fakeImageUpload()" style="float: right"/>
+    </div>
+</div>
+
+
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+    <script> /* Demo purposes only. To be removed */
+        function fakeImageUpload() {
+            $("#playerImage").addClass("scaleNull");
+            $("#playerImage").show();
+            $("#playerImage").addClass("popIn");
+        }
+    </script>
+}
+
+@section jqueryonload {
+    if ($("#IsRegistrationClosed").val() == "True" ) {
+    nordicArena.disableForm("form");
+    }
+}

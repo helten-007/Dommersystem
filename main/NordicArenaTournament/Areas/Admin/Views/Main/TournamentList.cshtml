@@ -1,0 +1,38 @@
+﻿@model NordicArenaTournament.Areas.Admin.ViewModels.TournamentListViewModel
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+@{
+    ViewBag.Title = NaHtml.PageTitle(Text.TournamentListPageTitle);
+}
+
+<h2>@Text.TournamentListPageTitle</h2>
+
+<p>
+    @Html.ActionLink(Text.CreateNew, MVC.Admin.Main.CreateTournament()) 
+</p>
+
+@if (Model.Tournaments.Count() > 0) { 
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>@Text.Name</th>
+            <th>@Html.LabelFor(p => p.Tournaments.FirstOrDefault().Status)</th>
+        </tr>
+
+        @foreach (var tournament in Model.Tournaments)
+        {
+            <tr>
+                <td>
+                    @tournament.Id
+                </td>
+                <td>
+                    @Html.ActionLink(@tournament.Name, MVC.Admin.TournamentAdmin.EditTournament(tournament.Id))
+                </td>
+                <td>
+                    @NaHtml.EnumValueFor(tournament.Status)
+                </td>
+            </tr>
+        }
+
+    </table>
+}

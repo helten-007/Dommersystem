@@ -1,0 +1,197 @@
+﻿/* Judge-page-Wspecific styles
+-----------------------------------------------------------*/
+.banner {
+    display: none;
+}
+
+.ui-slider-vertical {
+    width: 60px;
+    height: 300px;
+    background: #232323;
+}
+
+.secondary-header-bar {
+    padding: .5em 0 .5em 0;
+    background: white;
+}
+
+.input-container {
+    margin: 0;
+    padding: .5em;
+}
+
+section.main-content {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-slider-handle {
+    width: 71px !important;
+    height: 15px !important;
+    left: -10px !important;
+    background: #e84e4e 50% 50% repeat-x !important;
+    border-radius: 10px;
+}
+
+.ui-slider-handle:after {
+    content: '|||';
+    color: #ffd1d1;
+    left: calc(28.5px);
+    top: -3px;
+    position: relative;
+}
+
+.ui-slider-range {
+    background: linear-gradient(to top, #232323 0%, #e84e4e 100%);
+}
+
+/* Outer container box for all sliders*/
+.slider-container {
+    margin: auto;
+    text-align: center;
+}
+
+/* Slider containing box -including text field */
+.na-slider {
+    margin: 0em .7em 1em .7em;
+    text-align: center;
+    display: inline-block;
+    /* Text box */
+    /* The actual slider bar with knob */
+}
+
+.na-slider > div {
+    margin: .5em;
+}
+
+.na-slider > div.slider {
+    margin: auto;
+}
+
+.ui-state-active {
+    background: #e84e4e !important;
+}
+
+.label-value-pair {
+    width: 95px;
+}
+
+.criteria-name {
+    display: block;
+    padding: .3em;
+}
+
+.score {
+    width: 85px;
+    text-align: center;
+    border: 1px gray solid;
+    padding: 4px !important;
+    margin: 0px 0px !important;
+    left: 0px;
+    position: relative;
+}
+
+.score.disabled {
+    background: none;
+    border: 1px #e84e4e solid;
+}
+
+#judging-container.disabled .ui-slider-handle {
+    background: gray !important;
+}
+
+#judging-container.disabled .ui-slider-range {
+    background: #262626 !important;
+}
+
+#judging-footer {
+    text-align: right;
+}
+
+.logged-in-as-box {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    margin: .5em;
+}
+
+#contestant-name {
+    text-align: left;
+    widtH: 100%;
+    padding-left: 4em;
+    Color: #393939;
+}
+
+.judge-contestant-selector {
+    display: inline-block;
+    margin: 0;
+    padding: .5em;
+    font-size: 150%;
+    min-width: 200px;
+    border: 1px gray solid;
+    background: white;
+    color: #666;
+}
+
+.judge-contestant-selector.selected {
+    background: #e84e4e;
+    color: #ffffff;
+}
+
+.averageBox {
+    display: inline-block;
+    margin: 40px;
+    font-size: 80px;
+}
+
+.averageBox .avg-label {
+    font-size: 80%;
+    display: block;
+}
+
+.averageBox .avg-value {
+    font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+    .averageBox {
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 790px) {
+    .averageBox {
+        font-size: 35px;
+        margin: 10px 40px;
+    }
+}
+
+.slider-left {
+    float: left;
+}
+
+.slider-right {
+    float: right;
+}
+
+@media (max-width: 1023px) {
+    .ui-slider-vertical {
+        width: 48px;
+    }
+
+    .ui-slider-handle {
+        width: 56.800000000000004px !important;
+    }
+
+    .ui-slider-handle:after {
+        left: calc(21.400000000000002px);
+    }
+
+    .label-value-pair {
+        width: 76px;
+    }
+
+    .score {
+        width: 66px;
+    }
+}
