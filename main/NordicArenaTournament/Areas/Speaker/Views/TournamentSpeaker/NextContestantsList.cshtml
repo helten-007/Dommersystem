@@ -1,0 +1,51 @@
+﻿@model NordicArenaTournament.Areas.Speaker.ViewModels.SpeakerViewModel
+@using NordicArenaDomainModels.Resources
+
+<h2>@Text.NextContestants</h2>
+@* Multiple heats *@
+@if (Model.HasHeats)
+{
+    int i = 1;
+    foreach (var heat in Model.Heats)
+    {
+        <fieldset>
+            <legend>Heat @heat.HeatNo</legend>
+            <table width="100%">
+                <tr>
+                    <th style="width:1px">#</th>
+                    <th>@PropertyNames.Contestant_Name</th>
+                    <th style="width: 100px">@PropertyNames.RoundContestant_TotalScore</th>
+                </tr>
+                @foreach (var contestant in heat.Contestants)
+                {
+                    <tr>
+                        <td>@(i++)</td>
+                        <td>@contestant.Name</td>
+                        <td>@contestant.TotalScore</td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+}
+@*Single heat / Not heats *@
+else
+{
+    int i = 1;
+    <table width="100%">
+        <tr>
+            <th style="width:1px">#</th>
+            <th>@PropertyNames.Contestant_Name</th>
+            <th style="width: 100px">@PropertyNames.RoundContestant_TotalScore</th>
+        </tr>
+        @foreach (var contestant in Model.ContestantsFlat)
+        {
+            <tr>
+                <td>@(i++)</td>
+                <td>@contestant.Name</td>
+                <td>@contestant.TotalScore</td>
+            </tr>
+
+        }
+    </table>
+}

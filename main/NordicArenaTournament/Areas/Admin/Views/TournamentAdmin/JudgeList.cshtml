@@ -1,0 +1,73 @@
+﻿@model NordicArenaTournament.Areas.Admin.ViewModels.JudgeListAndCreate
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+@{
+    ViewBag.Title = NaHtml.PageTitle(Text.JudgeListPageTitle);
+}
+
+<h1>@Text.Judges</h1>
+
+@if (!Model.IsRegistrationClosed)
+{
+    <div class="input-container">
+        <h2>@Text.NewJudge</h2>
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @Html.ValidatedEditPairFor(p => p.NewJudge.Name, valueCssClass: "long-text focus")
+            <p>
+                <input type="submit" value="@Text.Create" />
+            </p>
+        }
+    </div>
+}
+<h2>@Text.JudgeList</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewJudge.Name)
+        </th>
+        <th style="text-align:Center">
+            @Html.DisplayNameFor(model => model.NewJudge.LoginCode)
+        </th>
+        @if (!Model.IsRegistrationClosed)
+        {
+            <th></th>
+        }
+    </tr>
+
+
+
+    @foreach (var item in Model.Judges)
+    {
+        var rowClass = item.Id == Model.IdToHighlight ? "row-highlight-flash" : String.Empty;
+        <tr class="@rowClass">
+            <td>
+                @if (Model.IsRegistrationClosed)
+                {
+                    @Html.ActionLink(item.Name, MVC.Judge.TournamentJudge.JudgeIndex(Model.TournamentId, item.Id));
+                }
+                else
+                {
+                    @item.Name    
+                }
+            </td>
+            <td style="text-align:Center">
+                @Html.ValueFor(modelItem => item.LoginCode)
+            </td>
+            @if (!Model.IsRegistrationClosed)
+            {
+                <td>
+                    @Html.ActionLink(Text.Delete, MVC.Admin.TournamentAdmin.DeleteJudge(Model.TournamentId, item.Id))
+                </td>
+            }
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

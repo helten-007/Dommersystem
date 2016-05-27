@@ -1,0 +1,25 @@
+﻿@model NordicArenaTournament.Areas.Admin.ViewModels.EditTournamentViewModel
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+
+@{
+    ViewBag.Title = NaHtml.PageTitle(Text.CreateTournamentPageTitle);
+}
+
+<h1>@Text.CreateTournamentPageTitle</h1>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>@Text.Tournament</legend>
+        @Html.ValidatedEditPairFor(model => model.Tournament.Name, valueCssClass: "long-text")
+        <p>
+            <input type="submit" value="@Text.Create" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

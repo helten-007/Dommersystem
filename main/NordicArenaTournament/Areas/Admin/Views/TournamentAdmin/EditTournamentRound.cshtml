@@ -1,0 +1,48 @@
+﻿@model NordicArenaTournament.Areas.Admin.ViewModels.EditTournamentViewModel
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+@using NordicArenaDomainModels.Models
+
+@{
+    int i = Model.RoundIx;
+    int RoundNo = @Model.RoundList[i].RoundNo;
+}
+
+<div id="round-@RoundNo" class="round">
+    <div class="input-container">
+        <h2>@Text.Round @RoundNo</h2>
+        <div class="round-data">
+            @Html.Hidden("RoundList.Index", i)
+            @Html.HiddenFor(p => p.RoundList[i].Id)
+            @Html.HiddenFor(p => p.RoundList[i].RoundNo)
+            @Html.ValidatedEditPairFor(p => p.RoundList[i].Title, "", "dis")<br />
+            @Html.ValidatedEditPairFor(p => p.RoundList[i].MaxContestants, "", "short-number dis")<br />
+            @Html.ValidatedEditPairFor(p => p.RoundList[i].ContestantsPerHeat, "", "short-number dis")<br />
+            @Html.ValidatedEditPairFor(p => p.RoundList[i].RunsPerContestant, "", "short-number dis")<br />
+            @Html.ValidatedEditPairFor(p => p.RoundList[i].SecondsPerRun, "", "short-number dis")<br />
+            @{ String disableDeleteButton = RoundNo < Model.RoundCount && !Model.IsStarted ? String.Empty : "disabled=\"disabled\""; }
+            @{ String disableResetButton = Model.RoundList[i].Status != TournamentStatus.Prestart ? String.Empty : "disabled=\"disabled\""; }
+        </div>
+        <div class="round-buttons">
+            <button @Html.Raw(disableDeleteButton)
+                    class="delete-symbol-button inlineblock"
+                    type="button"
+                    style="display:table-cell"
+                    onclick="nordicArena.editTournament.deleteRound(@Model.RoundList[i].RoundNo)"></button>
+            @if (Model.Tournament != null && Model.Tournament.Status != TournamentStatus.Prestart)
+            {
+                @Html.ActionLink(Text.Whatever, MVC.Admin.TournamentAdmin.ResetRound(Model.Tournament.Id, @RoundNo), new { @class = "hidden", id="resetRoundLink-" + RoundNo });
+                <button 
+                        @Html.Raw(disableResetButton)
+                        class="reset-symbol-button inlineblock"
+                        type="button"
+                        style="display: table-cell"
+                        onclick="nordicArena.common.confirmClickLink('#resetRoundLink-@RoundNo', '@Text.ConfirmResetRound')"></button>
+            }
+        </div>
+    </div>
+    @if (RoundNo < Model.RoundCount)
+    {
+        <div class="round-progress-arrow"></div>
+    }
+</div>

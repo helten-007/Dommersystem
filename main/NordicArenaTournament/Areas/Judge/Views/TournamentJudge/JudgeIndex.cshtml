@@ -1,0 +1,20 @@
+﻿@model NordicArenaTournament.Areas.Judge.ViewModels.JudgeViewModel
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+@{
+    ViewBag.Title = NaHtml.PageTitle(Text.JudgePageTitle);
+}
+@section htmlheader {
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+}
+<div id="judge-main-container">
+    @Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent)
+</div>
+@section Scripts {
+    @Styles.Render("~/bundles/judge-styles")
+    @Scripts.Render("~/bundles/judge-scripts")
+    @Scripts.Render("~/signalr/hubs")
+} 
+@section jqueryonload {
+    nordicArena.judge.reloadUrl = '@Html.Raw(Url.Action(MVC.Judge.TournamentJudge.JudgeIndexContent(Model.Tournament.Id, Model.Judge.Id)))';    
+}

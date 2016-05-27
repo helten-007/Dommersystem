@@ -1,0 +1,197 @@
+﻿@import "common.less";
+/* Judge-page-Wspecific styles
+-----------------------------------------------------------*/
+@labelbox-width: 95px;
+@handle-width: 71px;
+@slider-width: 60px;
+
+.banner {
+    display: none;
+}
+
+.ui-slider-vertical {
+    width: @slider-width;
+    height: 300px;
+    background: @footer-bg;
+}
+
+.secondary-header-bar {
+    padding: .5em 0 .5em 0;
+    background: white;
+}
+
+.input-container {
+    margin: 0;
+    padding: .5em;
+}
+
+section.main-content {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-slider-handle {
+    width: @handle-width !important;
+    height: 15px !important;
+    left: -10px !important;
+    background: @highlighted 50% 50% repeat-x !important;
+    border-radius: 10px;
+}
+
+.ui-slider-handle:after {
+    content: '|||';
+    color: #ffd1d1;
+    left: calc(@handle-width/2-7px);
+    top: -3px;
+    position: relative;
+}
+
+.ui-slider-range {
+    background: linear-gradient(to top, @footer-bg 0%, @highlighted 100%);
+}
+
+/* Outer container box for all sliders*/
+.slider-container {
+    margin: auto;
+    text-align: center;
+}
+
+/* Slider containing box -including text field */
+.na-slider {
+    margin: 0em .7em 1em .7em;
+    text-align: center;
+    display: inline-block;
+    /* Text box */
+    >div {
+        margin: .5em;
+    }
+        /* The actual slider bar with knob */
+        >div.slider {
+            margin: auto;
+        }
+}
+
+.ui-state-active {
+    background: @highlighted !important;
+}
+
+
+.label-value-pair {
+    width: @labelbox-width;
+}
+
+.criteria-name {
+    display: block;
+    padding: .3em;
+}
+
+.score {
+    width: @labelbox-width - 10px;
+    text-align: center;
+    border: 1px gray solid;
+    padding: 4px !important;
+    margin: 0px 0px !important;
+    left: 0px;
+    position: relative;
+}
+
+    .score.disabled {
+        background: none;
+        border: 1px @highlighted solid;
+    }
+
+#judging-container.disabled {
+    .ui-slider-handle {
+        background: gray !important;
+    }
+
+    .ui-slider-range {
+        background: #262626 !important;
+    }
+}
+
+#judging-footer {
+    text-align: right;
+}
+
+.logged-in-as-box {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    margin: .5em;
+}
+
+#contestant-name {
+    text-align: left;
+    widtH: 100%;
+    padding-left: 4em;
+    Color: @text;
+}
+.judge-contestant-selector {
+    display:inline-block;
+    margin: 0;
+    padding: .5em;
+    font-size: 150%;
+    min-width: 200px;
+    border: 1px gray solid;
+    background: white;
+    color: #666;
+}
+.judge-contestant-selector.selected {
+    background: @highlighted;
+    color: @highlighted-fg;
+}
+
+.averageBox {
+    display: inline-block; 
+    margin: 40px;
+    font-size: 80px;
+    .avg-label {
+        font-size: 80%;    
+        display:block;
+    }
+    .avg-value {
+        font-weight: bold;
+    }
+}
+@media (max-width: 1000px) {
+    .averageBox {
+        font-size: 55px;
+    }
+}
+@media (max-width: 790px) {
+    .averageBox {
+        font-size: 35px;
+        margin: 10px 40px;
+    }
+}
+
+.slider-left {
+    float: left;
+}
+
+.slider-right {
+    float: right;
+}
+
+
+@media (max-width: 1023px) {
+    @factor: 0.8;
+    .ui-slider-vertical {
+        width: @slider-width * @factor ;
+    }
+    
+    .ui-slider-handle {
+        width: @handle-width * @factor  !important;
+    }
+
+    .ui-slider-handle:after {
+        left: calc(@handle-width * @factor /2-7px);
+    }
+    .label-value-pair {
+        width: @labelbox-width * @factor ;
+    }
+    .score {
+        width: @labelbox-width * @factor - 10px;
+    }
+}
