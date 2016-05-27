@@ -907,7 +907,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60235</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/NordicArenaTournament</IISUrl>
+          <IISUrl>http://localhost/Dommer</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
