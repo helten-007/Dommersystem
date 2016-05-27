@@ -125,6 +125,5 @@ C:\Users\tommy\Desktop\Dommersystem\git\Dommersystem\main\NordicArenaTournament\
 C:\Users\tommy\Desktop\Dommersystem\git\Dommersystem\main\NordicArenaTournament\bin\System.Web.WebPages.Razor.xml
 C:\Users\tommy\Desktop\Dommersystem\git\Dommersystem\main\NordicArenaTournament\bin\System.Net.Http.Formatting.xml
 C:\Users\tommy\Desktop\Dommersystem\git\Dommersystem\main\NordicArenaTournament\bin\ja\System.Net.Http.Formatting.resources.dll
-C:\Users\tommy\Desktop\Dommersystem\git\Dommersystem\main\NordicArenaTournament\obj\Debug\NordicArenaTournament.csprojResolveAssemblyReference.cache
 C:\Users\tommy\Desktop\Dommersystem\git\Dommersystem\main\NordicArenaTournament\obj\Debug\NordicArenaTournament.dll
 C:\Users\tommy\Desktop\Dommersystem\git\Dommersystem\main\NordicArenaTournament\obj\Debug\NordicArenaTournament.pdb
