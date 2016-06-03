@@ -16,10 +16,10 @@ namespace NordicArenaTournament.Areas.Admin.ViewModels
         public JudgeListAndCreate()
         {
             Judges = new List<NordicArenaDomainModels.Models.Judge>();
-            NewJudge = new NordicArenaDomainModels.Models.Judge();            
+            NewJudge = new NordicArenaDomainModels.Models.Judge();
         }
 
-        public JudgeListAndCreate(Tournament tournament) 
+        public JudgeListAndCreate(Tournament tournament)
         {
             IsRegistrationClosed = tournament.Status != TournamentStatus.Prestart;
             Judges = tournament.Judges.ToList();
