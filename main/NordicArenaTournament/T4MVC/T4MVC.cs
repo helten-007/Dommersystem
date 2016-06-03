@@ -28,6 +28,8 @@ public static partial class MVC
     public static AdminClass Admin { get { return s_Admin; } }
     static readonly JudgeClass s_Judge = new JudgeClass();
     public static JudgeClass Judge { get { return s_Judge; } }
+    static readonly MainJudgeClass s_MainJudge = new MainJudgeClass();
+    public static MainJudgeClass MainJudge { get { return s_MainJudge; } }
     static readonly PublicClass s_Public = new PublicClass();
     public static PublicClass Public { get { return s_Public; } }
     static readonly SpeakerClass s_Speaker = new SpeakerClass();
@@ -53,6 +55,11 @@ namespace T4MVC
         public readonly string Name = "Judge";
         public NordicArenaTournament.Areas.Judge.Controllers.TournamentJudgeController TournamentJudge = new NordicArenaTournament.Areas.Judge.Controllers.T4MVC_TournamentJudgeController();
         public T4MVC.Judge.SharedController Shared = new T4MVC.Judge.SharedController();
+    }
+    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+    public class MainJudgeClass
+    {
+        public readonly string Name = "MainJudge";
     }
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
     public class PublicClass
