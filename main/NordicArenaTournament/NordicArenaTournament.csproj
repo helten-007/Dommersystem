@@ -195,7 +195,7 @@
     <Compile Include="Areas\Admin\ViewModels\ContestantRoundResultViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ResultsViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\TournamentListViewModel.cs" />
-    <Compile Include="Areas\MainJudge\MainJudgeRegistration.cs" />
+    <Compile Include="Areas\HeadJudge\HeadJudgeRegistration.cs" />
     <Compile Include="Areas\Judge\ViewModels\JudgementListViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\JudgeViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\ContestantRunViewModel.cs" />
@@ -860,10 +860,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\HeadJudge\Controllers\" />
+    <Folder Include="Areas\HeadJudge\ViewModels\" />
+    <Folder Include="Areas\HeadJudge\Views\" />
     <Folder Include="Areas\Judge\Views\Shared\" />
-    <Folder Include="Areas\MainJudge\Controllers\" />
-    <Folder Include="Areas\MainJudge\ViewModels\" />
-    <Folder Include="Areas\MainJudge\Views\" />
     <Folder Include="Areas\Public\Models\" />
     <Folder Include="Areas\Public\Views\Shared\" />
     <Folder Include="Areas\Speaker\Models\" />

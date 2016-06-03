@@ -1,14 +1,14 @@
 ﻿using System.Web.Mvc;
 
-namespace NordicArenaTournament.Areas.MainJudge
+namespace NordicArenaTournament.Areas.HeadJudge
 {
-	public class MainJudgeRegistration : AreaRegistration
+	public class HeadJudgeRegistration : AreaRegistration
 	{
 		public override string AreaName
 		{
 			get
 			{
-				return "MainJudge";
+				return "HeadJudge";
 			}
 		}
 
