@@ -18,6 +18,7 @@ namespace NordicArenaDomainModels.Models
         [Required]
         public String Name { get; set; }
         public String LoginCode { get; private set;  }
+		public bool IsHeadJudge { get; set; }
 
         // Navigation / ID's
         [Required]

@@ -16,6 +16,7 @@
             @Html.ValidationSummary(true)
 
             @Html.ValidatedEditPairFor(p => p.NewJudge.Name, valueCssClass: "long-text focus")
+			@Html.ValidatedEditPairFor(p => p.NewJudge.IsHeadJudge, valueCssClass: "long-text focus")
             <p>
                 <input type="submit" value="@Text.Create" />
             </p>
