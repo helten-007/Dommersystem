@@ -26,8 +26,6 @@ public static partial class MVC
 {
     static readonly AdminClass s_Admin = new AdminClass();
     public static AdminClass Admin { get { return s_Admin; } }
-    static readonly HeadJudgeClass s_HeadJudge = new HeadJudgeClass();
-    public static HeadJudgeClass HeadJudge { get { return s_HeadJudge; } }
     static readonly JudgeClass s_Judge = new JudgeClass();
     public static JudgeClass Judge { get { return s_Judge; } }
     static readonly PublicClass s_Public = new PublicClass();
@@ -48,11 +46,6 @@ namespace T4MVC
         public NordicArenaTournament.Areas.Admin.Controllers.MainController Main = new NordicArenaTournament.Areas.Admin.Controllers.T4MVC_MainController();
         public NordicArenaTournament.Areas.Admin.Controllers.TestingController Testing = new NordicArenaTournament.Areas.Admin.Controllers.T4MVC_TestingController();
         public NordicArenaTournament.Areas.Admin.Controllers.TournamentAdminController TournamentAdmin = new NordicArenaTournament.Areas.Admin.Controllers.T4MVC_TournamentAdminController();
-    }
-    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public class HeadJudgeClass
-    {
-        public readonly string Name = "HeadJudge";
     }
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
     public class JudgeClass
