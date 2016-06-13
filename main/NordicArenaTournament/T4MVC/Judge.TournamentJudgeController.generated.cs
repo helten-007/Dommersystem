@@ -128,10 +128,12 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string HeadJudgeIndex = "HeadJudgeIndex";
                 public readonly string JudgeIndex = "JudgeIndex";
                 public readonly string JudgeIndexContent = "JudgeIndexContent";
                 public readonly string JudgementList = "JudgementList";
             }
+            public readonly string HeadJudgeIndex = "~/Areas/Judge/Views/TournamentJudge/HeadJudgeIndex.cshtml";
             public readonly string JudgeIndex = "~/Areas/Judge/Views/TournamentJudge/JudgeIndex.cshtml";
             public readonly string JudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/JudgeIndexContent.cshtml";
             public readonly string JudgementList = "~/Areas/Judge/Views/TournamentJudge/JudgementList.cshtml";
