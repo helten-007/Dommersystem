@@ -302,4 +302,7 @@
   <data name="Whatever" xml:space="preserve">
     <value>.</value>
   </data>
+  <data name="HeadJudgeIndexPageTitle" xml:space="preserve">
+    <value>Hoveddommer</value>
+  </data>
 </root>

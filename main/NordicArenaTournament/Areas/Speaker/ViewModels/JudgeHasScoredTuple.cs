@@ -46,11 +46,14 @@ namespace NordicArenaTournament.Areas.Speaker.ViewModels
             var contestantIds = heatContestants.Select(p => p.Id).ToList();
             foreach (var judge in t.Judges)
             {
-                var judgementCount = judge.RunJudgings.Count(p => p.RunNo == runNo && contestantIds.Contains(p.RoundContestantId));
-                var tuplet = new JudgeHasScoredTuple();
-                tuplet.JudgeName = judge.Name;
-                tuplet.HasJudged = judgementCount == expectedJudgementCount;
-                list.Add(tuplet);
+				if (!judge.IsHeadJudge)
+				{
+					var judgementCount = judge.RunJudgings.Count(p => p.RunNo == runNo && contestantIds.Contains(p.RoundContestantId));
+					var tuplet = new JudgeHasScoredTuple();
+					tuplet.JudgeName = judge.Name;
+					tuplet.HasJudged = judgementCount == expectedJudgementCount;
+					list.Add(tuplet);
+				}
             }
             return list;
         }

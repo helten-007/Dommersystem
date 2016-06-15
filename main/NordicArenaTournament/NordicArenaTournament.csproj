@@ -237,6 +237,7 @@
     <Content Include="CleanupAfterPublish.cmd" />
     <Content Include="Areas\Speaker\Views\TournamentSpeaker\NextContestantsList.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent.cshtml" />
+    <Content Include="Areas\Judge\Views\TournamentJudge\HeadJudgeIndex.cshtml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
