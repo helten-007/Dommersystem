@@ -53,7 +53,7 @@ namespace Tests
             // Act & Assert
             contextMock.Object.ReplaceRunJudgings(model.TournamentId, model.RoundContestantId, model.Scores);
 
-            rcMock.Verify(p => p.CalculateTotalScore(expectedJudgementCountPerRun, round.RunsPerContestant));
+			rcMock.Verify(p => p.CalculateTotalScore(expectedJudgementCountPerRun, round.RunsPerContestant));
             Assert.AreEqual(2, contextMock.Object.RunJudgings.Count());
         }
     }

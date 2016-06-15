@@ -139,8 +139,8 @@ namespace Tests.Helpers
                         foreach (var crit in tourney.JudgingCriteria)
                         {
                             var rj = new RunJudging(rc, judge, crit, runNo, score++);
-                            rc.ReplaceRunJudging(rj); 
-                            rc.CalculateTotalScore(judgementCount, round.RunsPerContestant);
+                            rc.ReplaceRunJudging(rj);
+							rc.CalculateTotalScore(judgementCount, round.RunsPerContestant);
                         }
                     }
                 }

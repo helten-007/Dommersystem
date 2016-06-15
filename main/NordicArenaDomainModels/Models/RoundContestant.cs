@@ -36,10 +36,15 @@ namespace NordicArenaDomainModels.Models
         /// <summary>
         /// Returns true if the contestant is judged given the count of judges and runs
         /// </summary>
-        public bool IsJudged(int expectedJudgementCount)
+		public bool IsJudged(int expectedJudgementCount)
         {
-            return RunJudgings.Count == expectedJudgementCount;
+			return RunJudgings.Count == expectedJudgementCount;
         }
+
+		public bool IsJudged(int expectedJudgementCount, int maxJudgementCount)
+		{
+			return RunJudgings.Count == expectedJudgementCount || RunJudgings.Count == maxJudgementCount;
+		}
 
         public bool IsJudgedBy(Judge judge, int runNo, int criteriaCount)
         {
@@ -56,10 +61,10 @@ namespace NordicArenaDomainModels.Models
         /// Calculates average score if all judges have set their score
         /// </summary>
         /// <param name="expectedJudgmentCount">Number of judge entries expected per run</param>
-        public virtual void CalculateTotalScore(int expectedJudgementCountPerRun, int runsPerContestant)
+        public virtual void CalculateTotalScore(int expectedJudgementCountPerRun, /*int roundNo,*/ int runsPerContestant)
         {
-            int expectedJudgementCount = expectedJudgementCountPerRun * runsPerContestant;
-            if (IsJudged(expectedJudgementCount))
+			int expectedJudgementCount = expectedJudgementCountPerRun;// * roundNo;
+			if (IsJudged(expectedJudgementCount, expectedJudgementCountPerRun * runsPerContestant))
             {
                 var scoreList = GetRunScores(expectedJudgementCountPerRun, runsPerContestant).Where(p => p.HasValue);
                 if (scoreList.Count() > 0)
@@ -70,6 +75,25 @@ namespace NordicArenaDomainModels.Models
                 }
             }
         }
+
+		/// <summary>
+		/// Use this one instead of the above one. The above one will be removed before release!!!
+		/// Only kept the old one because I didn't bother to change all the references in the Test-project.
+		/// </summary>
+		public virtual void CalculateTotalScore(int expectedJudgementCountPerRun, int roundNo, int runsPerContestant)
+		{
+			int expectedJudgementCount = expectedJudgementCountPerRun * roundNo;
+			if (IsJudged(expectedJudgementCount, expectedJudgementCountPerRun * runsPerContestant))
+			{
+				var scoreList = GetRunScores(expectedJudgementCountPerRun, runsPerContestant).Where(p => p.HasValue);
+				if (scoreList.Count() > 0)
+				{
+					var dummy1 = Round;
+					var dummy2 = Contestant; // Trigger lazy loading or else ... TODO: Find a better solution
+					TotalScore = scoreList.Max(p => p.Value);
+				}
+			}
+		}
 
         /// <summary>
         /// Calculates average score if all judges have set their score

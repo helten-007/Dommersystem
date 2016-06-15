@@ -290,7 +290,7 @@ namespace Tests.Models
             cont.RunJudgings.Add(new RunJudging() { Score = 5, RunNo = 1 });
             cont.RunJudgings.Add(new RunJudging() { Score = 10, RunNo = 1 });
 
-            cont.CalculateTotalScore(2,1 );
+            cont.CalculateTotalScore(2, 1);
 
             Assert.AreEqual(7.5M, cont.TotalScore);
         }
