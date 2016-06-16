@@ -61,9 +61,9 @@ namespace NordicArenaDomainModels.Models
         /// Calculates average score if all judges have set their score
         /// </summary>
         /// <param name="expectedJudgmentCount">Number of judge entries expected per run</param>
-        public virtual void CalculateTotalScore(int expectedJudgementCountPerRun, /*int roundNo,*/ int runsPerContestant)
+        public virtual void CalculateTotalScore(int expectedJudgementCountPerRun, int runsPerContestant)
         {
-			int expectedJudgementCount = expectedJudgementCountPerRun;// * roundNo;
+			int expectedJudgementCount = expectedJudgementCountPerRun * runsPerContestant;
 			if (IsJudged(expectedJudgementCount, expectedJudgementCountPerRun * runsPerContestant))
             {
                 var scoreList = GetRunScores(expectedJudgementCountPerRun, runsPerContestant).Where(p => p.HasValue);
@@ -90,7 +90,7 @@ namespace NordicArenaDomainModels.Models
 				{
 					var dummy1 = Round;
 					var dummy2 = Contestant; // Trigger lazy loading or else ... TODO: Find a better solution
-					TotalScore = scoreList.Max(p => p.Value);
+					TotalScore = Math.Round(scoreList.Max(p => p.Value), 2, MidpointRounding.ToEven); //scoreList.Max(p => p.Value);
 				}
 			}
 		}
