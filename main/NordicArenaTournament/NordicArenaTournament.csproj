@@ -195,6 +195,7 @@
     <Compile Include="Areas\Admin\ViewModels\ContestantRoundResultViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ResultsViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\TournamentListViewModel.cs" />
+    <Compile Include="Areas\Judge\ViewModels\HeadJudgeViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\JudgementListViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\JudgeViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\ContestantRunViewModel.cs" />
@@ -238,6 +239,10 @@
     <Content Include="Areas\Speaker\Views\TournamentSpeaker\NextContestantsList.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\HeadJudgeIndex.cshtml" />
+    <Content Include="Content\judge.css.map">
+      <DependentUpon>judge.css</DependentUpon>
+    </Content>
+    <Content Include="Areas\Judge\Views\TournamentJudge\HeadJudgeIndexContent.cshtml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />

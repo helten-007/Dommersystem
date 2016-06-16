@@ -557,6 +557,7 @@ namespace Links
         public static readonly string judge_less = Url("judge.less");
         public static readonly string judge_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/judge.min.css") ? Url("judge.min.css") : Url("judge.css");
              
+        public static readonly string judge_css_map = Url("judge.css.map");
         public static readonly string judge_min_css = Url("judge.min.css");
         public static readonly string site_less = Url("site.less");
         public static readonly string site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/site.min.css") ? Url("site.min.css") : Url("site.css");

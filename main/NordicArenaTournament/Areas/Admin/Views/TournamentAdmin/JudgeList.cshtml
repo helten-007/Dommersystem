@@ -48,9 +48,14 @@
 			<td>
 				@if (Model.IsRegistrationClosed)
 				{
-					var judgeTxt = item.IsHeadJudge ? item.Name + " (HOVEDDOMMER)" : item.Name;
-					@Html.ActionLink(judgeTxt, MVC.Judge.TournamentJudge.JudgeIndex(Model.TournamentId, item.Id));
-					
+					if (item.IsHeadJudge)
+					{
+						@Html.ActionLink(item.Name + " (HOVEDDOMMER)", MVC.Judge.TournamentJudge.HeadJudgeIndex(Model.TournamentId, item.Id));
+					}
+					else
+					{
+						@Html.ActionLink(item.Name, MVC.Judge.TournamentJudge.JudgeIndex(Model.TournamentId, item.Id));
+					}
 				}
 				else
 				{

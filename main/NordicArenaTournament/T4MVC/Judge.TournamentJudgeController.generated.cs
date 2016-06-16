@@ -49,6 +49,12 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult HeadJudgeIndex()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.HeadJudgeIndex);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult JudgeIndexContent()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.JudgeIndexContent);
@@ -76,6 +82,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
         public class ActionNamesClass
         {
             public readonly string JudgeIndex = "JudgeIndex";
+            public readonly string HeadJudgeIndex = "HeadJudgeIndex";
             public readonly string JudgeIndexContent = "JudgeIndexContent";
             public readonly string JudgementList = "JudgementList";
         }
@@ -84,6 +91,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
         public class ActionNameConstants
         {
             public const string JudgeIndex = "JudgeIndex";
+            public const string HeadJudgeIndex = "HeadJudgeIndex";
             public const string JudgeIndexContent = "JudgeIndexContent";
             public const string JudgementList = "JudgementList";
         }
@@ -98,6 +106,15 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             public readonly string tournamentId = "tournamentId";
             public readonly string judgeId = "judgeId";
             public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_HeadJudgeIndex s_params_HeadJudgeIndex = new ActionParamsClass_HeadJudgeIndex();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_HeadJudgeIndex HeadJudgeIndexParams { get { return s_params_HeadJudgeIndex; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_HeadJudgeIndex
+        {
+            public readonly string tournamentId = "tournamentId";
+            public readonly string judgeId = "judgeId";
         }
         static readonly ActionParamsClass_JudgeIndexContent s_params_JudgeIndexContent = new ActionParamsClass_JudgeIndexContent();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -129,11 +146,13 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             public class _ViewNamesClass
             {
                 public readonly string HeadJudgeIndex = "HeadJudgeIndex";
+                public readonly string HeadJudgeIndexContent = "HeadJudgeIndexContent";
                 public readonly string JudgeIndex = "JudgeIndex";
                 public readonly string JudgeIndexContent = "JudgeIndexContent";
                 public readonly string JudgementList = "JudgementList";
             }
             public readonly string HeadJudgeIndex = "~/Areas/Judge/Views/TournamentJudge/HeadJudgeIndex.cshtml";
+            public readonly string HeadJudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/HeadJudgeIndexContent.cshtml";
             public readonly string JudgeIndex = "~/Areas/Judge/Views/TournamentJudge/JudgeIndex.cshtml";
             public readonly string JudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/JudgeIndexContent.cshtml";
             public readonly string JudgementList = "~/Areas/Judge/Views/TournamentJudge/JudgementList.cshtml";
@@ -155,6 +174,19 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "tournamentId", tournamentId);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "judgeId", judgeId);
             JudgeIndexOverride(callInfo, tournamentId, judgeId);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void HeadJudgeIndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long tournamentId, long? judgeId);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult HeadJudgeIndex(long tournamentId, long? judgeId)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.HeadJudgeIndex);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "tournamentId", tournamentId);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "judgeId", judgeId);
+            HeadJudgeIndexOverride(callInfo, tournamentId, judgeId);
             return callInfo;
         }
 

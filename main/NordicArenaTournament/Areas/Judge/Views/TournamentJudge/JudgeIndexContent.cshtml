@@ -47,16 +47,17 @@ else
                 <div class="slider-container">
                     @{
                         var critIx = 0;
-                        var positioningClass = "slider-left";
+						var positioningClass = "na-slider";//"slider-left";
                     }
+					<span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>
                     @foreach (JudgingCriterion crit in Model.Criteria)
                     {
                         var compoundIndex = contIx + "_" + critIx;
-                        if (critIx == Model.Criteria.Count/2)
+                        /*if (critIx == Model.Criteria.Count/2)
                         {
-                            positioningClass = "slider-right";
-                            <span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>
-                        }
+                            //positioningClass = "slider-right";
+                            <!--<span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>-->
+                        }*/
                         <div id="meter_@compoundIndex" class="na-slider @positioningClass">
                             <div class="label-value-pair">
                                 <div class="editor-label criteria-name">@crit.Title</div>

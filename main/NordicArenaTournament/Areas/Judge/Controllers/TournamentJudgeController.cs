@@ -23,6 +23,26 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             return View(model);
         }
 
+		public virtual ActionResult HeadJudgeIndex(long tournamentId, long? judgeId = null)
+		{
+			if (judgeId == null) return this.RedirectToAction(MVC.Admin.TournamentAdmin.JudgeList(tournamentId));
+			var model = GetModelForJudgeIndex(tournamentId, judgeId);
+			return View(model);
+		}
+
+		private HeadJudgeViewModel GetModelForHeadJudge(long tournamentId, long? judgeId = null)
+		{
+			var tourney = TournamentService.GetTournamentGuarded(tournamentId);
+			var judges = tourney.Judges;
+
+			foreach (var j in judges)
+				if (j.Id == judgeId)
+					judges.Remove(j);
+
+			var model = new HeadJudgeViewModel(tourney, judges);
+			return model;
+		}
+
         public virtual ActionResult JudgeIndexContent(long tournamentId, long judgeId)
         {
             var model = GetModelForJudgeIndex(tournamentId, judgeId);
