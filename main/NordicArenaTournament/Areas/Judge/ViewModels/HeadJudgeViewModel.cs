@@ -16,6 +16,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
         public List<JudgingCriterion> Criteria { get; set; }
         public bool CanJudge { get; set; }
 		public ICollection<NordicArenaDomainModels.Models.Judge> Judges { get; set; }
+		public NordicArenaDomainModels.Models.Judge Judge { get; set; }
 		public List<JudgeHasScoredTuple> JudgeStatus { get; set; }
 
 
@@ -24,18 +25,15 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
         /// <summary>
         /// Instantiates a new HeadJudgeViewModel by loading necessary properties from Tournament..
         /// </summary>
-        public HeadJudgeViewModel(Tournament tourney, ICollection<NordicArenaDomainModels.Models.Judge> judges)
+		public HeadJudgeViewModel(Tournament tourney, NordicArenaDomainModels.Models.Judge judge, ICollection<NordicArenaDomainModels.Models.Judge> judges)
         {
             Tournament = tourney;
             Criteria =  tourney.JudgingCriteria.OrderBy(p => p.Id).ToList();
             Judges = judges;
+			Judge = judge;
             Contestants = ContestantRunViewModel.CreateListOfCurrentConestants(tourney, judge.Id);
-            CanJudge = Contestants.Count > 0 && Contestants[0].Scores.All(p => p.Score == null);
-
-			if (round.Status == TournamentStatus.Running)
-			{
-				m.JudgeStatus = JudgeHasScoredTuple.GetJudgeStatusListForCurrentHeat(tournament);
-			}
+			CanJudge = Contestants.Count > 0 && Contestants[0].Scores.All(p => p.Score == null);
+			JudgeStatus = JudgeHasScoredTuple.GetJudgeStatusListForCurrentHeat(tourney);
         }
     }
 }

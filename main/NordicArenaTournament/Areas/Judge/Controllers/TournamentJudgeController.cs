@@ -36,10 +36,15 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
 			var judges = tourney.Judges;
 
 			foreach (var j in judges)
+			{
 				if (j.Id == judgeId)
+				{
 					judges.Remove(j);
-
-			var model = new HeadJudgeViewModel(tourney, judges);
+					break;
+				}
+			}
+			var judge = TournamentService.GetJudgeGuarded(judgeId.Value);
+			var model = new HeadJudgeViewModel(tourney, judge, judges);
 			return model;
 		}
 
