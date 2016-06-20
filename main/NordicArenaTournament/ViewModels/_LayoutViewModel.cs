@@ -25,8 +25,10 @@ namespace NordicArenaTournament.ViewModels
         {
             try
             {
-                SponsorImageUrl1 = Content.images.sponsors.dnb_small_png;
-                SponsorImageUrl2 = Content.images.sponsors.samsung_png;
+                //SponsorImageUrl1 = Content.images.sponsors.dnb_small_png;
+                //SponsorImageUrl2 = Content.images.sponsors.samsung_png;
+				SponsorImageUrl1 = null;
+				SponsorImageUrl2 = null;
                 BannerImageUrl = Content.images.banner2_jpg;
             }
             catch (TypeInitializationException ex)

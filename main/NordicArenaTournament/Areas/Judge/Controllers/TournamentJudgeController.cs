@@ -26,7 +26,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
 		public virtual ActionResult HeadJudgeIndex(long tournamentId, long? judgeId = null)
 		{
 			if (judgeId == null) return this.RedirectToAction(MVC.Admin.TournamentAdmin.JudgeList(tournamentId));
-			var model = GetModelForJudgeIndex(tournamentId, judgeId);
+			var model = GetModelForHeadJudge(tournamentId, judgeId);
 			return View(model);
 		}
 
