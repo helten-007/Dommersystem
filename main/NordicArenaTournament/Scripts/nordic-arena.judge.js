@@ -63,9 +63,19 @@ nordicArena.judge.initScreenHeight = function () {
     nordicArena.judge.resetHeight();
 };
 
+nordicArena.judge.reloadPanels = function (tournamentId) {
+	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
+	// Some optimization potential here... reload entire model in one request instead of three. 
+	nordicArena.common.get(nordicArena.judge.judgeStatusReloadUrl).done(function (data) {
+		//$("#judge-status-container").html(data);
+		$('.main-content').html(data);
+	});
+};
+
 nordicArena.judge.initSignalRHub = function () {
     nordicArena.log("nordicArena.judge.initSignalRHub() begin");
-    // Set up client functions
+	// Set up client functions
+    $.connection.naHub.client.judgeStatusUpdated = nordicArena.judge.reloadPanels;
     $.connection.naHub.client.currentContestantChanged = nordicArena.judge.loadContestant;
     $.connection.naHub.client.runCompleted = nordicArena.judge.onRunCompleted;
     $.connection.hub.error(nordicArena.judge.signalRError); // attach event listener

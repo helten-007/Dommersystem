@@ -32,6 +32,10 @@
 {
 	<h2>@Text.TourneyNotRunning</h2>
 }
+else if (!Model.CanJudge)
+{
+	
+}
 else
 {
 	using (Html.BeginForm(MVC.Judge.TournamentJudge.JudgeIndex(), FormMethod.Post, new { autocomplete = "off" }))
@@ -63,7 +67,7 @@ else
 						<div id="meter_@compoundIndex" class="na-slider @positioningClass">
 							<div class="label-value-pair">
 								<div class="editor-label criteria-name">@crit.Title</div>
-								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@Model.Contestants[contIx].Scores[critIx].Score.ForJavascript()" readonly />
+								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@Model.AverageCriteriaScore[(Model.Criteria.Count() * contIx) + critIx].ForJavascript()" readonly />
 							</div>
 							@Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].CriterionId)
 							@Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].JudgeId)

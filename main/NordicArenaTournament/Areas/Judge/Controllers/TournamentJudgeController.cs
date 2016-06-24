@@ -4,6 +4,11 @@ using NordicArenaTournament.Areas.Judge.ViewModels;
 using NordicArenaTournament.Common;
 using NordicArenaTournament.Controllers;
 using NordicArenaTournament.SignalR;
+using System;
+using System.Collections.Generic;
+using NordicArenaDomainModels.Models;
+using NordicArenaTournament.Areas.Speaker.ViewModels;
+using NordicArenaTournament.ViewModels;
 
 namespace NordicArenaTournament.Areas.Judge.Controllers
 {
@@ -94,6 +99,15 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             TournamentService.ReplaceAllRunJudgings(judgements, tourney);
             return RedirectToAction(MVC.Judge.TournamentJudge.JudgementList(model.TournamentId, model.RoundNo));
         }
+
+		[OutputCacheAttribute(Duration = 0, NoStore = true)]
+		public virtual ActionResult JudgeStatus(long tournamentId, int runNo)
+		{
+			if (runNo == 0) throw new ArgumentException("runNo must be set");
+			var tourney = TournamentService.GetTournamentGuarded(tournamentId);
+			List<JudgeHasScoredTuple> list = JudgeHasScoredTuple.GetJudgeStatusListForCurrentHeat(tourney);
+			return PartialView(list);
+		}
     }
 }
 

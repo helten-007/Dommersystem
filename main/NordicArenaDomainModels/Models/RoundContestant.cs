@@ -80,7 +80,7 @@ namespace NordicArenaDomainModels.Models
 		/// Use this one instead of the above one. The above one will be removed before release!!!
 		/// Only kept the old one because I didn't bother to change all the references in the Test-project.
 		/// </summary>
-		public virtual void CalculateTotalScore(int expectedJudgementCountPerRun, int roundNo, int runsPerContestant)
+		/*public virtual void CalculateTotalScore(int expectedJudgementCountPerRun, int roundNo, int runsPerContestant)
 		{
 			int expectedJudgementCount = expectedJudgementCountPerRun * roundNo;
 			if (IsJudged(expectedJudgementCount, expectedJudgementCountPerRun * runsPerContestant))
@@ -93,7 +93,7 @@ namespace NordicArenaDomainModels.Models
 					TotalScore = Math.Round(scoreList.Max(p => p.Value), 2, MidpointRounding.ToEven); //scoreList.Max(p => p.Value);
 				}
 			}
-		}
+		}*/
 
         /// <summary>
         /// Calculates average score if all judges have set their score
