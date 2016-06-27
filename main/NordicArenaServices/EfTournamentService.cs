@@ -113,7 +113,7 @@ namespace NordicArenaServices
                 RunJudgings.Replace(score);
             }
             var expectedJudgeEntriesPerRun = tourney.GetExpectedJudgementCountPerRun();
-            contestant.CalculateTotalScore(expectedJudgeEntriesPerRun, /*contestant.Round.RoundNo,*/ contestant.Round.RunsPerContestant);
+            contestant.CalculateTotalScore(expectedJudgeEntriesPerRun, contestant.Round.RoundNo, contestant.Round.RunsPerContestant);
             SaveChanges();
         }
 
@@ -143,7 +143,7 @@ namespace NordicArenaServices
             foreach (long rcId in rcIds)
             {
                 RoundContestant contestant = GetRoundContestantGuarded(rcId);
-				contestant.CalculateTotalScore(expectedJudgeEntriesPerRun, /*contestant.Round.RoundNo,*/ contestant.Round.RunsPerContestant);
+				contestant.CalculateTotalScore(expectedJudgeEntriesPerRun, contestant.Round.RoundNo, contestant.Round.RunsPerContestant);
             }
             SaveChanges();
         }
