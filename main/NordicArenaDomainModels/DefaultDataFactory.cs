@@ -12,7 +12,7 @@ namespace NordicArenaDomainModels.Common
     {
         public static HashSet<JudgingCriterion> GetJudgingCriteria()
         {
-            String[] names = new String[] { "Trick", "Teknisk", "Stil", "ikke bruk", "Fart" };
+			String[] names = new String[] { "Trick", "Teknisk", "Stil", "Variasjon", "Fart" };
             var set = new HashSet<JudgingCriterion>();
             var template = new JudgingCriterion()
             {

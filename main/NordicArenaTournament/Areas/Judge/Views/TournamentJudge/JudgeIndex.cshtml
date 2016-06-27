@@ -17,11 +17,13 @@
 		</div>
 	</div>
 }
+@if ((Model.Judge.IsHeadJudge && Model.CanJudge) || !Model.Judge.IsHeadJudge)
+{
+	<div id="judge-main-container">
+		@Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent)
+	</div>
+}
 
-
-<div id="judge-main-container">
-    @Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent)
-</div>
 @section Scripts {
     @Styles.Render("~/bundles/judge-styles")
     @Scripts.Render("~/bundles/judge-scripts")

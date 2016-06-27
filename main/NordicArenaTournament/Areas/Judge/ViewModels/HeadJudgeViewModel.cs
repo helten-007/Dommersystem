@@ -16,6 +16,8 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
         public List<ContestantRunViewModel> Contestants { get; set; }
         public List<JudgingCriterion> Criteria { get; set; }
         public bool CanJudge { get; set; }
+
+
 		public ICollection<NordicArenaDomainModels.Models.Judge> Judges { get; set; }
 		public NordicArenaDomainModels.Models.Judge Judge { get; set; }
 		public List<JudgeHasScoredTuple> JudgeStatus { get; set; }
