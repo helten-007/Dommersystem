@@ -52,8 +52,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 					if (!j.HasJudged)
 						CanJudge = false;
 
-				if (CanJudge)
-					SetAverageScores();
+				SetAverageScores();
 			}
         }
 

@@ -8,21 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 }
 
-@if(Model.Judge.IsHeadJudge)
-{
-	<div class="speaker-control-container">
-		<div class="header derp">@Text.JudgeStatus:</div><br />
-		<div id="judge-status-container">
-			@{ Html.RenderPartial(MVC.Speaker.TournamentSpeaker.Views.JudgeStatus, Model.JudgeStatus);}
-		</div>
-	</div>
-}
-@if ((Model.Judge.IsHeadJudge && Model.CanJudge) || !Model.Judge.IsHeadJudge)
-{
-	<div id="judge-main-container">
-		@Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent)
-	</div>
-}
+<div id="judge-main-container">
+	@Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent)
+</div>
 
 @section Scripts {
     @Styles.Render("~/bundles/judge-styles")
@@ -31,4 +19,5 @@
 } 
 @section jqueryonload {
     nordicArena.judge.reloadUrl = '@Html.Raw(Url.Action(MVC.Judge.TournamentJudge.JudgeIndexContent(Model.Tournament.Id, Model.Judge.Id)))';    
+	nordicArena.judge.judgeStatusReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.JudgeStatus, new { tournamentId = Model.Tournament.Id, runNo = Model.Tournament.GetRoundCounter().GetRunNo() }))';
 }

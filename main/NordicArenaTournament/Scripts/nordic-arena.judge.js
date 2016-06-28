@@ -66,7 +66,7 @@ nordicArena.judge.initScreenHeight = function () {
 nordicArena.judge.reloadPanels = function (tournamentId) {
 	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 	nordicArena.common.get(nordicArena.judge.judgeStatusReloadUrl).done(function (data) {
-		$('.main-content').html(data);
+		$('#judge-status-container').html(data);
 	});
 };
 
@@ -85,7 +85,6 @@ nordicArena.judge.initSignalRHub = function () {
 };
 
 nordicArena.judge.loadContestant = function () {
-	nordicArena.judge.reloadPanels();
     nordicArena.log("Judge Reload Page start. URL:" + nordicArena.judge.reloadUrl);
     nordicArena.common.get(nordicArena.judge.reloadUrl).done(function (data) {
         nordicArena.log("Judge Reload Page data received");

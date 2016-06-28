@@ -243,6 +243,7 @@
       <DependentUpon>judge.css</DependentUpon>
     </Content>
     <Content Include="Areas\Judge\Views\TournamentJudge\HeadJudgeIndexContent.cshtml" />
+    <Content Include="Areas\Judge\Views\TournamentJudge\JudgeStatus.cshtml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />

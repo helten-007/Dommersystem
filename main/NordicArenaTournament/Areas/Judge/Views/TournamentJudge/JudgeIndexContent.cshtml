@@ -11,6 +11,18 @@
 <span id="ContestantNoScoreWarning" class="hidden">@Text.ContestantNoScoreWarning</span>
 <progress class="hidden"></progress>
 
+
+@if (Model.Judge.IsHeadJudge)
+{
+	<div class="speaker-control-container">
+		<div class="header">@Text.JudgeStatus:</div><br />
+		<div id="judge-status-container">
+			@{ Html.RenderPartial(MVC.Speaker.TournamentSpeaker.Views.JudgeStatus, Model.JudgeStatus);}
+		</div>
+	</div>
+}
+
+
 <div id="judge-contestant-container">
     @if (Model.Contestants.Count > 0)
     {

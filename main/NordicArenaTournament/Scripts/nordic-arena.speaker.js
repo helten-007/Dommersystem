@@ -30,7 +30,7 @@ nordicArena.speaker.initTimer = function (totalSeconds) {
 
 nordicArena.speaker.reloadPanels = function (tournamentId) {
     if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
-    // Some optimization potential here... reload entire model in one request instead of three. 
+	// Some optimization potential here... reload entire model in one request instead of three. 
     nordicArena.common.get(nordicArena.speaker.judgeStatusReloadUrl).done(function (data) {
         $("#judge-status-container").html(data);
     });

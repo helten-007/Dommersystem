@@ -117,6 +117,25 @@ namespace NordicArenaDomainModels.Models
             return score;
         }
 
+		/// <summary>
+		/// Calculates average score if all judges have set their score
+		/// </summary>
+		/// <param name="expectedJudgmentCount">Number of judge entries expected per run</param>
+		public decimal? GetRunScore(int runNo)
+		{
+			decimal? score = null;
+			var thisRunJudgings = RunJudgings.Where(p => p.RunNo == runNo).ToList();
+
+			foreach (var run in thisRunJudgings)
+			{
+				if (run.Judge.IsHeadJudge)
+				{
+					score = run.Score;
+				}
+			}
+			return score;
+		}
+
         /// <summary>
         /// returns average score for judge/run 
         /// </summary>
@@ -138,7 +157,7 @@ namespace NordicArenaDomainModels.Models
             var list = new List<decimal?>();
             for (int i = 1; i <= runsPerContestant; i++)
             {
-                var score = GetRunScore(i, expectedJudgementCountPerRun);
+				var score = GetRunScore(i);//, expectedJudgementCountPerRun);
                 list.Add(score);
             }
             return list;
