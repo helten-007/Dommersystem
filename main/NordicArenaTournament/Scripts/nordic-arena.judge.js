@@ -65,6 +65,8 @@ nordicArena.judge.initScreenHeight = function () {
 
 nordicArena.judge.reloadPanels = function (tournamentId) {
 	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
+
+	nordicArena.judge.loadContestant();
 	nordicArena.common.get(nordicArena.judge.judgeStatusReloadUrl).done(function (data) {
 		$('#judge-status-container').html(data);
 	});
