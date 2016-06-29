@@ -167,12 +167,14 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
                 public readonly string JudgeIndex = "JudgeIndex";
                 public readonly string JudgeIndexContent = "JudgeIndexContent";
                 public readonly string JudgementList = "JudgementList";
+                public readonly string JudgeStatus = "JudgeStatus";
             }
             public readonly string HeadJudgeIndex = "~/Areas/Judge/Views/TournamentJudge/HeadJudgeIndex.cshtml";
             public readonly string HeadJudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/HeadJudgeIndexContent.cshtml";
             public readonly string JudgeIndex = "~/Areas/Judge/Views/TournamentJudge/JudgeIndex.cshtml";
             public readonly string JudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/JudgeIndexContent.cshtml";
             public readonly string JudgementList = "~/Areas/Judge/Views/TournamentJudge/JudgementList.cshtml";
+            public readonly string JudgeStatus = "~/Areas/Judge/Views/TournamentJudge/JudgeStatus.cshtml";
         }
     }
 
