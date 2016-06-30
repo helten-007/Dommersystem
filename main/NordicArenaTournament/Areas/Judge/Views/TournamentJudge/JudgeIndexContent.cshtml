@@ -73,7 +73,7 @@ else
                         <div id="meter_@compoundIndex" class="na-slider @positioningClass">
                             <div class="label-value-pair">
                                 <div class="editor-label criteria-name">@crit.Title</div>
-								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@if(Model.Judge.IsHeadJudge){@Model.AverageCriteriaScore[(Model.Criteria.Count() * contIx) + critIx].ForJavascript()}else{@Model.Contestants[contIx].Scores[critIx].Score.ForJavascript()}" readonly />
+								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@if(Model.Judge.IsHeadJudge && !Model.HasHeadJudgeJudged){@Model.AverageCriteriaScore[(Model.Criteria.Count() * contIx) + critIx].ForJavascript()}else{@Model.Contestants[contIx].Scores[critIx].Score.ForJavascript()}" readonly />
                             </div>
                             @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].CriterionId)
                             @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].JudgeId)

@@ -123,17 +123,17 @@ namespace NordicArenaDomainModels.Models
 		/// <param name="expectedJudgmentCount">Number of judge entries expected per run</param>
 		public decimal? GetRunScore(int runNo)
 		{
-			decimal? score = null;
+			var score = new List<decimal?>();
 			var thisRunJudgings = RunJudgings.Where(p => p.RunNo == runNo).ToList();
 
 			foreach (var run in thisRunJudgings)
 			{
-				if (run.Judge.IsHeadJudge)
+				if (run.Judge.IsHeadJudge && run.Score != null)
 				{
-					score = run.Score;
+					score.Add(run.Score);
 				}
 			}
-			return score;
+			return score.Average(p => p);
 		}
 
         /// <summary>

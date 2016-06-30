@@ -25,6 +25,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 		public List<JudgeViewModel> JudgeViewModels { get; set; }
 		public List<decimal?> AverageCriteriaScore { get; set; }
 		public List<JudgeHasScoredTuple> JudgeStatus { get; set; }
+		public bool HasHeadJudgeJudged { get; set; }
 
 
         public JudgeViewModel() { }
@@ -52,9 +53,19 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 					if (!j.HasJudged)
 						CanJudge = false;
 
-				SetAverageScores();
+				HasHeadJudgeJudged = SetHasHeadJudgeJudged();
+				if (!HasHeadJudgeJudged)
+					SetAverageScores();
 			}
         }
+
+		private bool SetHasHeadJudgeJudged()
+		{
+			foreach (var runJ in Judge.RunJudgings)
+				if (runJ.Score != null)
+					return true;
+			return false;
+		}
 
 		private void RemoveHeadJudgeFromJudgeList(ICollection<NordicArenaDomainModels.Models.Judge> judges, long? judgeId)
 		{
@@ -84,9 +95,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 			var judgeCount = JudgeViewModels.Count();
 			var contestantCount = JudgeViewModels[0].Contestants.Count();
 			var critCount = JudgeViewModels[0].Contestants[0].Scores.Count();
-
 			var counter = 0;
-
 
 			for (var i = 0; i < contestantCount; i++)
 			{
@@ -104,7 +113,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 					if (counter > 0)
 						AverageCriteriaScore.Add(score / counter);
 					else
-						AverageCriteriaScore.Add(0.0m);
+						AverageCriteriaScore.Add(null/*0.0m*/);
 					counter = 0;
 					score = 0;
 				}
