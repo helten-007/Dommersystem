@@ -225,7 +225,6 @@
     <Content Include="Content\svg\angle-right.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ping.html" />
     <Compile Include="ViewModels\LabelEditorPair.cs" />
     <Content Include="Content\common.css">
       <DependentUpon>common.less</DependentUpon>
