@@ -24,6 +24,7 @@
     <RestorePackages>true</RestorePackages>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -270,7 +271,7 @@
     <Compile Include="Areas\Admin\Controllers\MainController.cs" />
     <Compile Include="Areas\Admin\ViewModels\EditTournamentViewModel.cs" />
     <Compile Include="Areas\Judge\Controllers\TournamentJudgeController.cs" />
-    <Compile Include="Areas\Judge\Views\JudgeAreaRegistration.cs" />
+    <Compile Include="Areas\Judge\JudgeAreaRegistration.cs" />
     <Compile Include="Areas\Public\Controllers\TournamentPublicController.cs" />
     <Compile Include="Areas\Speaker\Controllers\TournamentSpeakerController.cs" />
     <Compile Include="Areas\Speaker\SpeakerAreaRegistration.cs" />
