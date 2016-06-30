@@ -246,6 +246,12 @@
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeStatus.cshtml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Turneringssystem - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Turneringssystem - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Turneringssystem - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Turneringssystem - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Turneringssystem - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Turneringssystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
