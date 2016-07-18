@@ -127,12 +127,8 @@ namespace NordicArenaDomainModels.Models
 			var thisRunJudgings = RunJudgings.Where(p => p.RunNo == runNo).ToList();
 
 			foreach (var run in thisRunJudgings)
-			{
 				if (run.Judge.IsHeadJudge && run.Score != null)
-				{
 					score.Add(run.Score);
-				}
-			}
 			return score.Average(p => p);
 		}
 
