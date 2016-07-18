@@ -20,5 +20,5 @@
 @section jqueryonload {
     nordicArena.judge.reloadUrl = '@Html.Raw(Url.Action(MVC.Judge.TournamentJudge.JudgeIndexContent(Model.Tournament.Id, Model.Judge.Id)))';    
 	nordicArena.judge.newjudgeStatusReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.JudgeStatus, new { tournamentId = Model.Tournament.Id, runNo = Model.Tournament.GetRoundCounter().GetRunNo() }))';
-	nordicArena.judge.isHeadJudge = 'derp';
+	nordicArena.judge.isHeadJudge = '@Html.Raw("derp")';
 }
