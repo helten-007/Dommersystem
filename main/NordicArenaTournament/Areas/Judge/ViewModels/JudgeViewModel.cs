@@ -62,10 +62,12 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 
 		private bool SetHasHeadJudgeJudged()
 		{
-			foreach (var runJ in Judge.RunJudgings)
+			/*foreach (var runJ in Judge.RunJudgings)
 				if (runJ.Score != null)
 					return true;
-			return false;
+			return false;*/
+
+			return Contestants.Count > 0 && Contestants[0].Scores.All(p => p.Score != null);
 		}
 
 		private void RemoveHeadJudgeFromJudgeList(ICollection<NordicArenaDomainModels.Models.Judge> judges, long? judgeId)
