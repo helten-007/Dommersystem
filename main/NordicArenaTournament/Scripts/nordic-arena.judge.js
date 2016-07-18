@@ -67,6 +67,9 @@ nordicArena.judge.reloadPanels = function (tournamentId) {
 	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 
 	nordicArena.judge.loadContestant();
+
+	console.log('nordicArena.judge.newjudgeStatusReloadUrl: ' + nordicArena.judge.newjudgeStatusReloadUrl);
+
 	nordicArena.common.get(nordicArena.judge.newjudgeStatusReloadUrl).done(function (data) {
 		$('#judge-status-container').html(data);
 	});
