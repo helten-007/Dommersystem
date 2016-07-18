@@ -38,7 +38,6 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 			Criteria = tourney.JudgingCriteria.OrderBy(p => p.Id).ToList();
 			Judge = judge;
 			Contestants = ContestantRunViewModel.CreateListOfCurrentConestants(tourney, judge.Id);
-			CanJudge = Contestants.Count > 0 && Contestants[0].Scores.All(p => p.Score == null);
 
 			if (Judge.IsHeadJudge)
 			{
@@ -57,6 +56,8 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 				if (!HasHeadJudgeJudged)
 					SetAverageScores();
 			}
+			else
+				CanJudge = Contestants.Count > 0 && Contestants[0].Scores.All(p => p.Score == null);
         }
 
 		private bool SetHasHeadJudgeJudged()

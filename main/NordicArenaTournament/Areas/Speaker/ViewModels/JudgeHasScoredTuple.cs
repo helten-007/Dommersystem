@@ -11,6 +11,7 @@ namespace NordicArenaTournament.Areas.Speaker.ViewModels
         public String JudgeName { get; set; }
         public bool HasJudged { get; set; }
         public long JudgeId { get; set; }
+		public bool IsHeadJudge { get; set; }
 
         internal static List<JudgeHasScoredTuple> GetJudgeStatusListFor(Tournament t, RoundContestant rc, int runNo)
         {
@@ -46,14 +47,12 @@ namespace NordicArenaTournament.Areas.Speaker.ViewModels
             var contestantIds = heatContestants.Select(p => p.Id).ToList();
             foreach (var judge in t.Judges)
             {
-				if (!judge.IsHeadJudge)
-				{
-					var judgementCount = judge.RunJudgings.Count(p => p.RunNo == runNo && contestantIds.Contains(p.RoundContestantId));
-					var tuplet = new JudgeHasScoredTuple();
-					tuplet.JudgeName = judge.Name;
-					tuplet.HasJudged = judgementCount == expectedJudgementCount;
-					list.Add(tuplet);
-				}
+				var judgementCount = judge.RunJudgings.Count(p => p.RunNo == runNo && contestantIds.Contains(p.RoundContestantId));
+				var tuplet = new JudgeHasScoredTuple();
+				tuplet.IsHeadJudge = judge.IsHeadJudge;
+				tuplet.JudgeName = judge.Name;
+				tuplet.HasJudged = judgementCount == expectedJudgementCount;
+				list.Add(tuplet);
             }
             return list;
         }
