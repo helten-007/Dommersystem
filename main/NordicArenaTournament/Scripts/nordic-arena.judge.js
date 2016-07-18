@@ -67,10 +67,7 @@ nordicArena.judge.reloadPanels = function (tournamentId) {
 	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 
 	nordicArena.judge.loadContestant();
-
-	console.log('nordicArena.judge.newjudgeStatusReloadUrl: ' + nordicArena.judge.newjudgeStatusReloadUrl);
-
-	nordicArena.common.get(nordicArena.judge.newjudgeStatusReloadUrl).done(function (data) {
+	nordicArena.common.get(nordicArena.judge.judgeStatusReloadUrl).done(function (data) {
 		$('#judge-status-container').html(data);
 	});
 };
@@ -79,7 +76,8 @@ nordicArena.judge.initSignalRHub = function () {
     nordicArena.log("nordicArena.judge.initSignalRHub() begin");
 	// Set up client functions
     console.log('Is head judge: ' + nordicArena.judge.isHeadJudge);
-    $.connection.naHub.client.judgeStatusUpdated = nordicArena.judge.reloadPanels;
+    if (nordicArena.judge.isHeadJudge === 'derp')
+		$.connection.naHub.client.judgeStatusUpdated = nordicArena.judge.reloadPanels;
     $.connection.naHub.client.currentContestantChanged = nordicArena.judge.loadContestant;
     $.connection.naHub.client.runCompleted = nordicArena.judge.onRunCompleted;
     $.connection.hub.error(nordicArena.judge.signalRError); // attach event listener
