@@ -49,11 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\NordicArenaDataContext.cs" />
-    <Compile Include="Migrations\NordicArenaMigrationConfig.cs" />
-    <Compile Include="Migrations\201401151432566_Initial.cs" />
-    <Compile Include="Migrations\201401151432566_Initial.Designer.cs">
-      <DependentUpon>201401151432566_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201607191001309_AddDetails.cs" />
+    <Compile Include="Migrations\201607191001309_AddDetails.Designer.cs">
+      <DependentUpon>201607191001309_AddDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\NordicArenaMigrationConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,8 +67,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201401151432566_Initial.resx">
-      <DependentUpon>201401151432566_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607191001309_AddDetails.resx">
+      <DependentUpon>201607191001309_AddDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

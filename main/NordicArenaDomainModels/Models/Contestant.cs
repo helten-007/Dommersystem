@@ -17,6 +17,7 @@ namespace NordicArenaDomainModels.Models
         public String Name { get; set; }
         public String Sponsors { get; set; }
         public String Location { get; set; }
+		public String Stance { get; set; }
         [DataType(DataType.Date)]
         // http://stackoverflow.com/questions/18546971/mvc-4-how-to-validate-a-non-us-date-with-client-validation
         public DateTime? DateOfBirth { get; set; }

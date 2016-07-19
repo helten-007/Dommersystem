@@ -386,7 +386,7 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ferdig.
+        ///   Looks up a localized string similar to Send.
         /// </summary>
         public static string JudgeSubmitButtonText {
             get {
