@@ -17,12 +17,12 @@
 
         public Counter GetHeatCounter()
         {
-            return Counters[0];
+            return Counters[1];
         }
 
         public Counter GetRunCounter()
         {
-            return Counters[1];
+            return Counters[0];
         }
     }
 }

@@ -17,8 +17,11 @@ namespace NordicArenaDomainModels.TournamentProgression
             if (!contestants.Any()) throw new InvalidOperationException("Round must have at least one contestant when initializing RoundHeatCounterSet");
             var heatCounter = new Counter(contestants.Max(p => p.HeatNo));
             var runCounter = new Counter(round.RunsPerContestant);
-            AddCounter(heatCounter);
-            AddCounter(runCounter);
+            //AddCounter(heatCounter);
+            //AddCounter(runCounter);
+
+			AddCounter(runCounter);
+			AddCounter(heatCounter);
         }
 
         /// <summary>
