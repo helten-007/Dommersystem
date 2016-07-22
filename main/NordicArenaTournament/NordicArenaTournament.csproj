@@ -203,10 +203,19 @@
     <Compile Include="Areas\Judge\ViewModels\RunJudgementViewModel.cs" />
     <Compile Include="Areas\Speaker\ViewModels\JudgeHasScoredTuple.cs" />
     <Compile Include="Areas\Speaker\ViewModels\NextContestantViewModel.cs" />
+    <Content Include="Content\results.css.map">
+      <DependentUpon>results.css</DependentUpon>
+    </Content>
     <None Include="Content\results.less" />
     <Compile Include="Controllers\LayoutControllerBase.cs" />
     <Compile Include="Controllers\TournamentControllerBase.cs" />
     <Compile Include="Common\TestDataFactory.cs" />
+    <Content Include="Content\results.css">
+      <DependentUpon>results.less</DependentUpon>
+    </Content>
+    <Content Include="Content\results.min.css">
+      <DependentUpon>results.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\nordic-arena.results.js" />
     <Compile Include="ViewModels\LoggedElmahErrorViewModel.cs" />
     <Compile Include="ViewModels\_LayoutViewModel.cs" />

@@ -503,6 +503,7 @@ namespace Links
         public static readonly string nordic_arena_jquery_val_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/nordic-arena.jquery-val.min.js") ? Url("nordic-arena.jquery-val.min.js") : Url("nordic-arena.jquery-val.js");
         public static readonly string nordic_arena_judge_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/nordic-arena.judge.min.js") ? Url("nordic-arena.judge.min.js") : Url("nordic-arena.judge.js");
         public static readonly string nordic_arena_main_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/nordic-arena.main.min.js") ? Url("nordic-arena.main.min.js") : Url("nordic-arena.main.js");
+        public static readonly string nordic_arena_results_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/nordic-arena.results.min.js") ? Url("nordic-arena.results.min.js") : Url("nordic-arena.results.js");
         public static readonly string nordic_arena_speaker_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/nordic-arena.speaker.min.js") ? Url("nordic-arena.speaker.min.js") : Url("nordic-arena.speaker.js");
     }
 
@@ -541,7 +542,7 @@ namespace Links
             public static readonly string circeled_plus_png = Url("circeled-plus.png");
             public static readonly string espen_kick_jpg = Url("espen-kick.jpg");
             public static readonly string logo_png = Url("logo.png");
-            public static readonly string pil_høyre_png = Url("pil-høyre.png");
+            public static readonly string pil_hoyre_png = Url("pil-hoyre.png");
             public static readonly string pil_venstre_png = Url("pil-venstre.png");
             [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
             public static class sponsors {
@@ -559,6 +560,11 @@ namespace Links
              
         public static readonly string judge_css_map = Url("judge.css.map");
         public static readonly string judge_min_css = Url("judge.min.css");
+        public static readonly string results_less = Url("results.less");
+        public static readonly string results_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/results.min.css") ? Url("results.min.css") : Url("results.css");
+             
+        public static readonly string results_css_map = Url("results.css.map");
+        public static readonly string results_min_css = Url("results.min.css");
         public static readonly string site_less = Url("site.less");
         public static readonly string site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/site.min.css") ? Url("site.min.css") : Url("site.css");
              

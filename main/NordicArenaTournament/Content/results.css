@@ -1,0 +1,35 @@
+﻿.result-table {
+  background: #696969;
+  border: none;
+  font-size: 200%;
+  font-weight: bold;
+}
+.result-table tr th {
+  background: white;
+  border-top: none;
+  border-right: none;
+  border-bottom: 5px solid white;
+  border-left: none;
+  color: #696969;
+  font-weight: bold;
+}
+.result-table tr td {
+  background: #696969;
+  border-top: none;
+  border-right: none;
+  border-bottom: 5px solid white;
+  border-left: none;
+  color: white;
+  font-weight: bold;
+}
+.first {
+  border-right: 5px solid white !important;
+}
+.tourney-name {
+  font-weight: bold;
+  font-size: 250%;
+  font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+  margin-bottom: -1.5em;
+  color: #696969;
+}
+/*# sourceMappingURL=results.css.map */

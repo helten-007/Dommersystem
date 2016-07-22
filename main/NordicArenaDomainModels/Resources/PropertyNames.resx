@@ -178,7 +178,7 @@
     <value>Intervall</value>
   </data>
   <data name="RoundContestant_TotalScore" xml:space="preserve">
-    <value>Karakter</value>
+    <value>Best score</value>
   </data>
   <data name="Contestant_AgeYears" xml:space="preserve">
     <value>Alder</value>

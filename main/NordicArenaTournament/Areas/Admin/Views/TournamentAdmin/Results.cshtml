@@ -15,35 +15,45 @@
         <button name="roundNo" type="submit" class="nav-button-grey next-grey" value="@(Model.RoundNo + 1)" @Html.DisableIf(!Model.HasNextRound)></button><br />
     }
 </div>
-<h1>@Html.ValueFor(model => model.TournamentName) - @Html.ValueFor(model => model.RoundTitle)</h1>
-<h2>@Text.ResultsPageTitle</h2>
+<h1 class="tourney-name">@Html.ValueFor(model => model.TournamentName)<!-- - @Html.ValueFor(model => model.RoundTitle)--></h1>
+
+<!--h2>@Text.ResultsPageTitle</h2-->
 
 @if (Model.Contestants.Count > 0)
 {
-    <table>
-        <tr>
-            <th>#</th>
-            <th>@PropertyNames.Contestant_Name</th>
-            @for (int i = 1; i <= Model.RunCount; i++)
-            {
-                <th>@Text.Run @i</th>
-            }
-            <th>@PropertyNames.RoundContestant_TotalScore</th>
-        </tr>
-        @{ int position = 1;}
-        @foreach (var c in Model.Contestants)
-        {
-            <tr>
-                <td>@(position++)</td>
-                <td>@c.Name</td>
-                @for (int i = 0; i < Model.RunCount; i++)
-                {
-                    <td>@c.RunScore[i].Decimals(2)</td>
-                }
-                <td>@c.TotalScore.Decimals(2)</td>
-            </tr>
-        }
-    </table>
+	<table class="result-table" style="width: 100%;">
+		<tr>
+			<!--th class="first" style="width: 5%; text-align: center;">#</th>-->
+			<th class="first" style="width: 5%; text-align: center;"></th>
+			<th><!--@PropertyNames.Contestant_Name--></th>
+			@for (int i = 1; i <= Model.RunCount; i++)
+			{
+				<th style="width: 8%; text-align: center;">@Text.Run @i</th>
+			}
+			<th style="width: 17%; text-align: center;">@PropertyNames.RoundContestant_TotalScore</th>
+		</tr>
+		@{
+			int position = 1;
+			int maxVisible = 10;
+			int counter = 0;
+		}
+		@foreach (var c in Model.Contestants)
+		{
+			if (counter < maxVisible)
+			{
+				<tr>
+					<td class="first" style="text-align: center;">@(position++)</td>
+					<td style="padding-left: 3em;">@c.Name</td>
+					@for (int i = 0; i < Model.RunCount; i++)
+					{
+						<td style="text-align: center;">@c.RunScore[i].Decimals(2)</td>
+					}
+					<td style="text-align: center;">@c.TotalScore.Decimals(2)</td>
+				</tr>
+				counter++;
+			}
+		}
+	</table>
 }
 
 @section Scripts {

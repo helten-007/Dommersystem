@@ -1,1 +1,42 @@
-﻿
+﻿@mainColor: #696969;
+@mainBorderBottom: 5px solid white;
+@fontColor: white;
+
+.result-table {
+	background: @mainColor;
+	border: none;
+	font-size: 200%;
+	font-weight: bold;
+}
+
+.result-table tr th {
+	background: @fontColor;
+	border-top: none;
+	border-right: none;
+	border-bottom: @mainBorderBottom;
+	border-left: none;
+	color: @mainColor;
+	font-weight: bold;
+}
+
+.result-table tr td {
+	background: @mainColor;
+	border-top: none;
+	border-right: none;
+	border-bottom: @mainBorderBottom;
+	border-left: none;
+	color: @fontColor;
+	font-weight: bold;
+}
+
+.first {
+	border-right: @mainBorderBottom !important;
+}
+
+.tourney-name {
+	font-weight: bold;
+	font-size: 250%;
+	font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+	margin-bottom: -1.5em;
+	color: @mainColor;
+}
