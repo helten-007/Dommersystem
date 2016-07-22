@@ -35,6 +35,10 @@ namespace NordicArenaTournament
                         "~/Scripts/jquery-ui-{version}.js",
                         "~/Scripts/nordic-arena.judge.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/results-scripts").Include(
+						"~/Scripts/jquery.signalR-{version}.js",
+						"~/Scripts/nordic-arena.results.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -59,6 +63,10 @@ namespace NordicArenaTournament
             bundles.Add(new StyleBundle("~/bundles/judge-styles").Include(
                         "~/Content/themes/base/jquery-ui.css",
                         "~/Content/judge.css"));
+
+			bundles.Add(new StyleBundle("~/bundles/results-styles").Include(
+						"~/Content/themes/base/jquery-ui.css",
+						"~/Content/results.css"));
         }
     }
 }

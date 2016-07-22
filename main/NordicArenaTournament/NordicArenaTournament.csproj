@@ -203,9 +203,11 @@
     <Compile Include="Areas\Judge\ViewModels\RunJudgementViewModel.cs" />
     <Compile Include="Areas\Speaker\ViewModels\JudgeHasScoredTuple.cs" />
     <Compile Include="Areas\Speaker\ViewModels\NextContestantViewModel.cs" />
+    <None Include="Content\results.less" />
     <Compile Include="Controllers\LayoutControllerBase.cs" />
     <Compile Include="Controllers\TournamentControllerBase.cs" />
     <Compile Include="Common\TestDataFactory.cs" />
+    <Content Include="Scripts\nordic-arena.results.js" />
     <Compile Include="ViewModels\LoggedElmahErrorViewModel.cs" />
     <Compile Include="ViewModels\_LayoutViewModel.cs" />
     <Content Include="Content\images\banner1.jpg" />

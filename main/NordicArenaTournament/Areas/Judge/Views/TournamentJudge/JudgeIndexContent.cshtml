@@ -17,7 +17,7 @@
 	<div class="speaker-control-container">
 		<div class="header">@Text.JudgeStatus:</div><br />
 		<div id="judge-status-container">
-			@{ Html.RenderPartial(/*MVC.Speaker.TournamentSpeaker.Views.JudgeStatus*/MVC.Judge.TournamentJudge.Views.JudgeStatus, Model.JudgeStatus);}
+			@{ Html.RenderPartial(MVC.Judge.TournamentJudge.Views.JudgeStatus, Model.JudgeStatus);}
 		</div>
 	</div>
 }
@@ -73,13 +73,13 @@ else
                         <div id="meter_@compoundIndex" class="na-slider @positioningClass">
                             <div class="label-value-pair">
                                 <div class="editor-label criteria-name">@crit.Title</div>
-								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@if(Model.Judge.IsHeadJudge && !Model.HasHeadJudgeJudged){@Model.AverageCriteriaScore[(Model.Criteria.Count() * contIx) + critIx].ForJavascript()}else{@Model.Contestants[contIx].Scores[critIx].Score.ForJavascript()}" readonly />
+								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@if(Model.Judge.IsHeadJudge && !Model.HasHeadJudgeJudged && @Model.AverageCriteriaScore.Count > 0){@Model.AverageCriteriaScore[(Model.Criteria.Count() * contIx) + critIx].ForJavascript()}else{@Model.Contestants[contIx].Scores[critIx].Score.ForJavascript()}" readonly />
                             </div>
                             @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].CriterionId)
                             @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].JudgeId)
                             @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].RunNo)
                             @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].RoundContestantId)
-                            <div class="slider" id="slider_@compoundIndex" contIx="@contIx" labelref="amount_@compoundIndex" min="@crit.Min.ForJavascript()" max="@crit.Max.ForJavascript()" step="@crit.Step.ForJavascript()" decimals="@crit.NumDecimals"></div>
+							<div class="slider" id="slider_@compoundIndex" contix="@contIx" labelref="amount_@compoundIndex" min="@crit.Min.ForJavascript()" max="@crit.Max.ForJavascript()" step="@crit.Step.ForJavascript()" decimals="@if(Model.Judge.IsHeadJudge){@(crit.NumDecimals + 1)}else{@crit.NumDecimals}"></div>
                         </div>
                         critIx++;
                     }

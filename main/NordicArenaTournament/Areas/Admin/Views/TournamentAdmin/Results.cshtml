@@ -6,6 +6,8 @@
     ViewBag.Title = NaHtml.PageTitle(Text.ResultsPageTitle);
 }
 
+<input type="hidden" id="tournamentId" value="@Model.Tournament.Id">
+
 <div class="floatright noprint">
     @using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
     {
@@ -42,4 +44,13 @@
             </tr>
         }
     </table>
+}
+
+@section Scripts {
+	@Styles.Render("~/bundles/results-styles")
+	@Scripts.Render("~/bundles/results-scripts")
+	@Scripts.Render("~/signalr/hubs")
+}
+@section jqueryonload {
+	nordicArena.results.reloadUrl = '@Html.Raw(Url.Action(MVC.Admin.TournamentAdmin.Results(Model.Tournament.Id, Model.RoundNo)))';
 }

@@ -7,6 +7,7 @@ namespace NordicArenaTournament.Areas.Admin.ViewModels
 {
     public class ResultsViewModel : _LayoutViewModel
     {
+		public Tournament Tournament { get; set; }
         public String TournamentName { get; set; }
         public String RoundTitle { get; set; }
         public int RoundNo { get; set; }
@@ -17,6 +18,7 @@ namespace NordicArenaTournament.Areas.Admin.ViewModels
 
         public ResultsViewModel(Tournament tourney, int roundNo)
         {
+			Tournament = tourney;
             Contestants = new List<ContestantRoundResultViewModel>();
             var round = tourney.GetRoundNoGuarded(roundNo);
             RoundNo = roundNo;

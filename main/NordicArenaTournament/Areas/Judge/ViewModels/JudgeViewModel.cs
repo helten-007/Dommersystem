@@ -53,7 +53,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 						CanJudge = false;
 
 				HasHeadJudgeJudged = SetHasHeadJudgeJudged();
-				if (!HasHeadJudgeJudged)
+				if (!HasHeadJudgeJudged && JudgeStatus.Count > 0)
 					SetAverageScores();
 			}
 			else

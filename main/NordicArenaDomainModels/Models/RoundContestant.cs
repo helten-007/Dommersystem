@@ -85,8 +85,8 @@ namespace NordicArenaDomainModels.Models
 			if (roundNo < 1)
 				roundNo = 1;
 			int expectedJudgementCount = expectedJudgementCountPerRun * roundNo;
-			if (IsJudged(expectedJudgementCount, expectedJudgementCountPerRun * runsPerContestant))
-			{
+			//if (IsJudged(expectedJudgementCount, expectedJudgementCountPerRun * runsPerContestant))
+			//{
 				var scoreList = GetRunScores(expectedJudgementCountPerRun, runsPerContestant).Where(p => p.HasValue);
 				if (scoreList.Count() > 0)
 				{
@@ -94,7 +94,7 @@ namespace NordicArenaDomainModels.Models
 					var dummy2 = Contestant; // Trigger lazy loading or else ... TODO: Find a better solution
 					TotalScore = Math.Round(scoreList.Max(p => p.Value), 2, MidpointRounding.ToEven); //scoreList.Max(p => p.Value);
 				}
-			}
+			//}
 		}
 
         /// <summary>
@@ -127,8 +127,12 @@ namespace NordicArenaDomainModels.Models
 			var thisRunJudgings = RunJudgings.Where(p => p.RunNo == runNo).ToList();
 
 			foreach (var run in thisRunJudgings)
+			{
 				if (run.Judge.IsHeadJudge && run.Score != null)
+				{
 					score.Add(run.Score);
+				}
+			}
 			return score.Average(p => p);
 		}
 

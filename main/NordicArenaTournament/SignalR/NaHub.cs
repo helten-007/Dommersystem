@@ -35,6 +35,12 @@ namespace NordicArenaTournament.SignalR
             _context.Clients.All.judgeStatusUpdated(tournamentId);
         }
 
+		public virtual void HeadJudgeScoreSubmitted(long tournamentId)
+		{
+			if (_context == null) throw new ArgumentException("This method must be called from the server");
+			_context.Clients.All.resultsUpdated(tournamentId);
+		}
+
         public virtual void SetCurrentRunDone(long tournamentId)
         {
             var tourney = _tournamentService.GetTournamentGuarded(tournamentId);
