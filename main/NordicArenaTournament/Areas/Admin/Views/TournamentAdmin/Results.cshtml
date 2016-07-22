@@ -46,9 +46,9 @@
 					<td style="padding-left: 3em;">@c.Name</td>
 					@for (int i = 0; i < Model.RunCount; i++)
 					{
-						<td style="text-align: center;">@c.RunScore[i].Decimals(2)</td>
+						<td style="text-align: center;">@if(c.RunScore[i] == -1){ <p class="dns">DNS</p> }else { @c.RunScore[i].Decimals(2) }</td>
 					}
-					<td style="text-align: center;">@c.TotalScore.Decimals(2)</td>
+					<td style="text-align: center;">@if(@c.TotalScore == -1){ <p class="dns">DNS</p> } else { @c.TotalScore.Decimals(2) }</td>
 				</tr>
 				counter++;
 			}

@@ -277,6 +277,40 @@ nordicArena.judge.isInOffZone = function (val, min, max) {
     return val <= zoneStart;
 };
 
+nordicArena.judge.getSliderDataForDidNotSkate = function (contestantIx, criteriaIx) {
+	var slider = {};
+	var index = "_" + contestantIx + "_" + criteriaIx;
+	slider.sliderSelector = "#slider" + index;
+	slider.amountSelector = "#amount" + index;
+	var sliderElem = $(slider.sliderSelector);
+	slider.max = nordicArena.common.parseFloat(sliderElem.attr("max"));
+	slider.min = nordicArena.common.parseFloat(sliderElem.attr("min"));
+	slider.step = nordicArena.common.parseFloat(sliderElem.attr("step"));
+	$(slider.amountSelector).val(-1);
+};
+
+nordicArena.judge.setDidNotSkateScore = function () {
+	var sliderCount = $("#criteriaCount").val();
+	var contestantCount = $("#contestantCount").val();
+	for (var contIx = 0; contIx < contestantCount; contIx++) {
+		for (var critIx = 0; critIx < sliderCount; critIx++) {
+			var sliderData = nordicArena.judge.getSliderDataForDidNotSkate(contIx, critIx);
+		}
+	}
+	return true;
+};
+
+nordicArena.judge.didNotSkate = function () {
+	nordicArena.judge.setDidNotSkateScore();
+	nordicArena.judge.enableSliders(false);
+	nordicArena.judge.showProgressBar(true);
+	nordicArena.postForm("form", {
+		success: nordicArena.judge.onSubmitScoreSuccess,
+		error: nordicArena.judge.onSubmitScoreError,
+		timeout: 10000
+	});
+};
+
 nordicArena.judge.submitScores = function () {
     var ok = nordicArena.judge.validateScores();
     if (ok) {

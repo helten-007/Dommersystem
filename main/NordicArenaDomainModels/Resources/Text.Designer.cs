@@ -250,6 +250,15 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Did Not Skate.
+        /// </summary>
+        public static string DidNotSkate {
+            get {
+                return ResourceManager.GetString("DidNotSkate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rediger.
         /// </summary>
         public static string Edit {
