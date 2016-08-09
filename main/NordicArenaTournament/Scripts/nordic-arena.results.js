@@ -3,10 +3,17 @@
 // On load
 $(function () {
 	nordicArena.results.initSignalRHub();
+	nordicArena.results.initScroll();
 	$("header").hide(); // Optimizing view for tablet
 	$(".banner").hide();
 	$(".floatright.noprint").hide();
 	$("footer").hide();
+
+	$(".main-content").css("padding-bottom", "0em");
+	if ($('#body-container').innerHeight() > $(window).height()) {
+		$(".main-content").css("padding-bottom", "5em");
+	}
+
 });
 
 nordicArena.results.initSignalRHub = function () {
@@ -28,6 +35,31 @@ nordicArena.results.update = function (tournamentId) {
 	});
 };
 
+nordicArena.results.initScroll = function () {
+	setTimeout(function () { nordicArena.results.scroll(); }, 2000);
+};
+
 nordicArena.results.scroll = function () {
-	$("body").animate({ scrollTop: 120 }, "slow");
+	var div = $('body');
+	var direction = 1;
+	var minWait = 50;
+	var maxWait = 3000;
+	var wait = minWait;
+
+	var myFunction = function () {
+		wait = minWait;
+		clearInterval(interval);
+		
+		var pos = div.scrollTop();
+		pos += direction;
+		div.scrollTop(pos);
+
+		if (div[0].scrollHeight - div.scrollTop() == div.outerHeight() || div.scrollTop() <= 0) {
+			direction *= -1;
+			wait = maxWait;
+			console.log("VENTER!!!");
+		}
+		interval = setInterval(myFunction, wait);
+	}
+	var interval = setInterval(myFunction, wait);
 };

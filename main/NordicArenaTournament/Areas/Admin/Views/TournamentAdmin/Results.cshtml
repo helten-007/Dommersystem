@@ -34,7 +34,7 @@
 		</tr>
 		@{
 			int position = 1;
-			int maxVisible = Int32.MaxValue;
+			int maxVisible = 10;//Int32.MaxValue;
 			int counter = 0;
 		}
 		@foreach (var c in Model.Contestants)
@@ -44,13 +44,22 @@
 				<tr>
 					<td class="first" style="text-align: center;">@(position++)</td>
 					<td style="padding-left: 3em;">@c.Name</td>
+
 					@for (int i = 0; i < Model.RunCount; i++)
 					{
-						<td style="text-align: center;">@if(c.RunScore[i] == -1){ <p class="dns">DNS</p> }else { @c.RunScore[i].Decimals(2) }</td>
+						<td style="text-align: center;">
+							@if (c.RunScore[i] == -1) { <p class="dns">DNS</p> } else { @c.RunScore[i].Decimals(2) }
+						</td>
 					}
-					<td style="text-align: center;">@if(@c.TotalScore == -1){ <p class="dns">DNS</p> } else { @c.TotalScore.Decimals(2) }</td>
+					<td style="text-align: center;">
+						@if (@c.TotalScore == -1){ <p class="dns">DNS</p> } else { @c.TotalScore.Decimals(2) }
+					</td>
 				</tr>
 				counter++;
+			}
+			else
+			{
+				break;
 			}
 		}
 	</table>
