@@ -22,13 +22,12 @@ nordicArena.results.initSignalRHub = function () {
 };
 
 nordicArena.results.update = function (tournamentId) {
-	if (!nordicArena.common.isCurrentTournament(tournamentId))
-	{
-		console.log("funker ikke helt");
-		return;
-	}
-	console.log('nordicArena.results.reloadUrl: ' + nordicArena.results.reloadUrl);
+	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 	nordicArena.common.get(nordicArena.results.reloadUrl).done(function (data) {
 		$('.main-content').html(data);
 	});
+};
+
+nordicArena.results.scroll = function () {
+	$("body").animate({ scrollTop: 120 }, "slow");
 };
