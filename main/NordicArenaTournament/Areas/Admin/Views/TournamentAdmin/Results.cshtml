@@ -40,8 +40,6 @@
 
 		@foreach (var c in Model.Contestants)
 		{
-			for (var tall = 0; tall < 2; tall++)
-			{
 			if (counter < maxVisible)
 			{
 				<tr>
@@ -63,7 +61,6 @@
 			else
 			{
 				break;
-			}
 			}
 		}
 	</table>
