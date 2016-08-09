@@ -34,13 +34,14 @@
 		</tr>
 		@{
 			int position = 1;
-			int maxVisible = 10;//Int32.MaxValue;
+			int maxVisible = Int32.MaxValue;
 			int counter = 0;
 		}
-		@for (var tall = 0; tall < 2; tall++)
+
+		@foreach (var c in Model.Contestants)
 		{
-		foreach (var c in Model.Contestants)
-		{
+			for (var tall = 0; tall < 2; tall++)
+			{
 			if (counter < maxVisible)
 			{
 				<tr>
@@ -63,7 +64,7 @@
 			{
 				break;
 			}
-		}
+			}
 		}
 	</table>
 }
