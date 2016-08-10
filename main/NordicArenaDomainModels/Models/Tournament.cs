@@ -21,6 +21,11 @@ namespace NordicArenaDomainModels.Models
         public String Name { get; set; }
         public TournamentStatus Status { get; set; }
 
+		/// <summary>
+		/// Number of contestants visible on the scoreboard
+		/// </summary>
+		public int ContestantsOnScoreboard { get; set; }
+
         /// <summary>
         /// Serialization of CounterSet
         /// </summary>

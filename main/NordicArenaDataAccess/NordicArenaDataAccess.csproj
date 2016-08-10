@@ -49,9 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\NordicArenaDataContext.cs" />
-    <Compile Include="Migrations\201607191001309_AddDetails.cs" />
-    <Compile Include="Migrations\201607191001309_AddDetails.Designer.cs">
-      <DependentUpon>201607191001309_AddDetails.cs</DependentUpon>
+    <Compile Include="Migrations\201608101948466_ContestantsOnScoreboard.cs" />
+    <Compile Include="Migrations\201608101948466_ContestantsOnScoreboard.Designer.cs">
+      <DependentUpon>201608101948466_ContestantsOnScoreboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\NordicArenaMigrationConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,8 +67,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201607191001309_AddDetails.resx">
-      <DependentUpon>201607191001309_AddDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608101948466_ContestantsOnScoreboard.resx">
+      <DependentUpon>201608101948466_ContestantsOnScoreboard.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

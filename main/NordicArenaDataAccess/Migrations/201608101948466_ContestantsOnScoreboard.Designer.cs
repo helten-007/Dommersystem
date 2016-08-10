@@ -7,13 +7,13 @@ namespace NordicArenaTournament.Database
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
-    public sealed partial class AddDetails : IMigrationMetadata
+    public sealed partial class ContestantsOnScoreboard : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDetails));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ContestantsOnScoreboard));
         
         string IMigrationMetadata.Id
         {
-            get { return "201607191001309_AddDetails"; }
+            get { return "201608101948466_ContestantsOnScoreboard"; }
         }
         
         string IMigrationMetadata.Source

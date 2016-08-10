@@ -3,7 +3,7 @@ namespace NordicArenaTournament.Database
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddDetails : DbMigration
+    public partial class ContestantsOnScoreboard : DbMigration
     {
         public override void Up()
         {
@@ -69,6 +69,7 @@ namespace NordicArenaTournament.Database
                         Id = c.Long(nullable: false, identity: true),
                         Name = c.String(nullable: false),
                         Status = c.Int(nullable: false),
+                        ContestantsOnScoreboard = c.Int(nullable: false),
                         CurrentRun = c.String(),
                         IsCurrentRunDone = c.Boolean(nullable: false),
                         ShufflePlayerList = c.Boolean(nullable: false),
