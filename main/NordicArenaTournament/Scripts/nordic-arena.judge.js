@@ -255,21 +255,39 @@ nordicArena.judge.updateLabelForSlider = function (sliderSelector) {
 };
 
 nordicArena.judge.updateAverageValue = function (contestantIx, decimals) {
-    var slidersWithValueCount = 0;
-    var sum = 0;
-    for (var i = 0; i < nordicArena.judge.sliderCount; i++) {
-        var sliderData = nordicArena.judge.getSliderDataFor(contestantIx, i);
-        if (sliderData.value != "") {
-            slidersWithValueCount++;
-            sum += sliderData.valueFloat;
-        }
-    }
-    var average = sum / slidersWithValueCount;
-    average = Globalize.format(parseFloat(average), "N" + decimals);
+	var average = nordicArena.judge.getAverageValue(contestantIx, decimals);
     var selector = "#average_" + contestantIx;
     if (average == "NaN") average = String.fromCharCode(160);// &nbsp;
     $(selector).text(average);
+
+    nordicArena.judge.updateCloseOpponents(average, contestantIx, decimals);
 };
+
+nordicArena.judge.getAverageValue = function (contestantIx, decimals) {
+	var slidersWithValueCount = 0;
+	var sum = 0;
+	for (var i = 0; i < nordicArena.judge.sliderCount; i++) {
+		var sliderData = nordicArena.judge.getSliderDataFor(contestantIx, i);
+		if (sliderData.value != "") {
+			slidersWithValueCount++;
+			sum += sliderData.valueFloat;
+		}
+	}
+	var average = sum / slidersWithValueCount;
+	average = Globalize.format(parseFloat(average), "N" + decimals);
+	return average;
+};
+
+nordicArena.judge.updateCloseOpponents = function (inAverage, contestantIx, decimals) {
+	setTimeout(function () {
+		var newAverage = nordicArena.judge.getAverageValue(contestantIx, decimals);
+		if (inAverage == newAverage) {
+			console.log("Oppdater listen over deltakere med nærmest score!");
+		} else {
+			return;
+		}
+	}, 2000);
+}
 
 nordicArena.judge.isInOffZone = function (val, min, max) {
     var distance = max - min;
