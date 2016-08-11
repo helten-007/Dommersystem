@@ -187,6 +187,15 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Antall deltaker på resultatlisten.
+        /// </summary>
+        public static string ContestantsOnScoreBoard {
+            get {
+                return ResourceManager.GetString("ContestantsOnScoreBoard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utøver {0} har ennå ikke kjørt og/eller blitt karatersatt..
         /// </summary>
         public static string ContestantXNotScored {

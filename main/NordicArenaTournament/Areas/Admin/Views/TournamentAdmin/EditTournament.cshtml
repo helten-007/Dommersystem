@@ -28,6 +28,15 @@
         
     </fieldset>
 
+	<fieldset>
+		<legend>@Text.ContestantsOnScoreBoard</legend>
+		<div class="input-container">
+			<div>
+				@Html.ValidatedEditPairFor(p => p.Tournament.ContestantsOnScoreboard, valueCssClass: "")
+			</div>
+		</div>
+	</fieldset>
+
     <fieldset>
         <legend>@Text.Rounds</legend>
         <div style="display:inline-block"> @* Needed for proper alignment of arrow between rounds *@

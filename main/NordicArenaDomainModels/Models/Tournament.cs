@@ -24,7 +24,7 @@ namespace NordicArenaDomainModels.Models
 		/// <summary>
 		/// Number of contestants visible on the scoreboard
 		/// </summary>
-		public int ContestantsOnScoreboard { get; set; }
+		public int? ContestantsOnScoreboard { get; set; }
 
         /// <summary>
         /// Serialization of CounterSet

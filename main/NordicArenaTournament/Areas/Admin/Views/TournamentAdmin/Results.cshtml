@@ -34,7 +34,7 @@
 		</tr>
 		@{
 			int position = 1;
-			int maxVisible = Int32.MaxValue;
+			var maxVisible = (Model.Tournament.ContestantsOnScoreboard.HasValue) ? Model.Tournament.ContestantsOnScoreboard: Int32.MaxValue;
 			int counter = 0;
 		}
 

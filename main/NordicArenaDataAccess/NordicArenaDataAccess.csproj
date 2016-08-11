@@ -53,6 +53,10 @@
     <Compile Include="Migrations\201608101948466_ContestantsOnScoreboard.Designer.cs">
       <DependentUpon>201608101948466_ContestantsOnScoreboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608110717410_ContestantsOnScoreboardToNull.cs" />
+    <Compile Include="Migrations\201608110717410_ContestantsOnScoreboardToNull.Designer.cs">
+      <DependentUpon>201608110717410_ContestantsOnScoreboardToNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\NordicArenaMigrationConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +73,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608101948466_ContestantsOnScoreboard.resx">
       <DependentUpon>201608101948466_ContestantsOnScoreboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608110717410_ContestantsOnScoreboardToNull.resx">
+      <DependentUpon>201608110717410_ContestantsOnScoreboardToNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

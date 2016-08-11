@@ -308,4 +308,7 @@
   <data name="DidNotSkate" xml:space="preserve">
     <value>Did Not Skate</value>
   </data>
+  <data name="ContestantsOnScoreBoard" xml:space="preserve">
+    <value>Antall deltaker på resultatlisten</value>
+  </data>
 </root>

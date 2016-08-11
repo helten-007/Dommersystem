@@ -195,6 +195,7 @@ namespace NordicArenaServices
             var origStatus = dbTournament.Status;
             var updatedRoundList = updatedTournament.Rounds.ToList();
             dbTournament.Name = updatedTournament.Name;
+			dbTournament.ContestantsOnScoreboard = updatedTournament.ContestantsOnScoreboard;
             dbTournament.ShufflePlayerList = updatedTournament.ShufflePlayerList;
             dbTournament.Status = origStatus; // Status can only be changed through StartTournament
             if (dbTournament.Status == TournamentStatus.Prestart)

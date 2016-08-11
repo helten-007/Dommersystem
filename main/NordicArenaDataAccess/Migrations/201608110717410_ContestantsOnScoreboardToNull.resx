@@ -117,76 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Contestant_Location" xml:space="preserve">
-    <value>Bosted</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="Contestant_Name" xml:space="preserve">
-    <value>Navn</value>
-  </data>
-  <data name="Contestant_Sponsors" xml:space="preserve">
-    <value>Sponsorer</value>
-  </data>
-  <data name="EditTournamentViewModel_Name" xml:space="preserve">
-    <value>Navn</value>
-  </data>
-  <data name="Judge_LoginCode" xml:space="preserve">
-    <value>Innloggingskode</value>
-  </data>
-  <data name="Judge_Name" xml:space="preserve">
-    <value>Navn</value>
-  </data>
-  <data name="Round_ContestantsPerHeat" xml:space="preserve">
-    <value>Antall deltakere i hvert heat</value>
-  </data>
-  <data name="Round_MaxContestants" xml:space="preserve">
-    <value>Maks antall deltakere</value>
-  </data>
-  <data name="Round_RunsPerContestant" xml:space="preserve">
-    <value>Antall runs per deltaker per runde</value>
-  </data>
-  <data name="Round_SecondsPerRun" xml:space="preserve">
-    <value>Lengde per run i sekunder</value>
-  </data>
-  <data name="Round_Title" xml:space="preserve">
-    <value>Tittel</value>
-  </data>
-  <data name="TournamentStatus_Ended" xml:space="preserve">
-    <value>Avsluttet</value>
-  </data>
-  <data name="TournamentStatus_Prestart" xml:space="preserve">
-    <value>Ikke startet</value>
-  </data>
-  <data name="TournamentStatus_Running" xml:space="preserve">
-    <value>Pågår</value>
-  </data>
-  <data name="Tournament_Status" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="Contestant_DateOfBirth" xml:space="preserve">
-    <value>Fødselsdato</value>
-  </data>
-  <data name="Tournament_Name" xml:space="preserve">
-    <value>Navn</value>
-  </data>
-  <data name="JudgingCriterion_Min" xml:space="preserve">
-    <value>Min</value>
-  </data>
-  <data name="JudgingCriterion_Max" xml:space="preserve">
-    <value>Maks</value>
-  </data>
-  <data name="JudgingCriterion_Step" xml:space="preserve">
-    <value>Intervall</value>
-  </data>
-  <data name="RoundContestant_TotalScore" xml:space="preserve">
-    <value>Best score</value>
-  </data>
-  <data name="Contestant_AgeYears" xml:space="preserve">
-    <value>Alder</value>
-  </data>
-  <data name="Judge_IsHeadJudge" xml:space="preserve">
-    <value>Er hoveddommer</value>
-  </data>
-  <data name="Tournament_ContestantsOnScoreboard" xml:space="preserve">
-    <value>Antall deltakere på resultatlisten</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

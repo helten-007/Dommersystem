@@ -115,6 +115,15 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Er hoveddommer.
+        /// </summary>
+        public static string Judge_IsHeadJudge {
+            get {
+                return ResourceManager.GetString("Judge_IsHeadJudge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Innloggingskode.
         /// </summary>
         public static string Judge_LoginCode {
@@ -210,6 +219,15 @@ namespace NordicArenaDomainModels.Resources {
         public static string RoundContestant_TotalScore {
             get {
                 return ResourceManager.GetString("RoundContestant_TotalScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Antall deltakere på resultatlisten.
+        /// </summary>
+        public static string Tournament_ContestantsOnScoreboard {
+            get {
+                return ResourceManager.GetString("Tournament_ContestantsOnScoreboard", resourceCulture);
             }
         }
         
