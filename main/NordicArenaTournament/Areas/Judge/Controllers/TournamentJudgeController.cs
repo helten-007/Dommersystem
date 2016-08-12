@@ -115,7 +115,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
 		public virtual ActionResult ClosestContestants(long tournamentId, int roundNo = 1)
 		{
 			var tourney = TournamentService.GetTournamentGuarded(tournamentId);
-			var model = new ResultsViewModel(tourney, roundNo);
+			var model = new ClosestContestantsViewModel(tourney, roundNo);
 			return View(model);
 		}
     }
