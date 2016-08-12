@@ -9,6 +9,7 @@ namespace NordicArenaTournament.Areas.Admin.ViewModels
     /// </summary>
     public class ContestantRoundResultViewModel
     {
+		public int? Position { get; set; }
         public String Name { get; set; }
         public List<decimal?> RunScore { get; set; }
         public decimal? TotalScore { get; set; }

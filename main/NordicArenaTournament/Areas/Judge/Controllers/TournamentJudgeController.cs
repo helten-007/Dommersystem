@@ -111,6 +111,13 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
 			List<JudgeHasScoredTuple> list = JudgeHasScoredTuple.GetJudgeStatusListForCurrentHeat(tourney);
 			return PartialView(list);
 		}
+
+		public virtual ActionResult ClosestContestants(long tournamentId, int roundNo = 1)
+		{
+			var tourney = TournamentService.GetTournamentGuarded(tournamentId);
+			var model = new ResultsViewModel(tourney, roundNo);
+			return View(model);
+		}
     }
 }
 

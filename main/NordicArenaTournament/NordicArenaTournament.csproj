@@ -225,6 +225,7 @@
     <Compile Include="Areas\Admin\ViewModels\ContestantRoundResultViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ResultsViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\TournamentListViewModel.cs" />
+    <Compile Include="Areas\Judge\ViewModels\ClosestContestantsViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\HeadJudgeViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\JudgementListViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\JudgeViewModel.cs" />

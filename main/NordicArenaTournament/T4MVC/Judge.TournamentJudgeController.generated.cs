@@ -71,6 +71,12 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.JudgeStatus);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult ClosestContestants()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ClosestContestants);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public TournamentJudgeController Actions { get { return MVC.Judge.TournamentJudge; } }
@@ -92,6 +98,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             public readonly string JudgeIndexContent = "JudgeIndexContent";
             public readonly string JudgementList = "JudgementList";
             public readonly string JudgeStatus = "JudgeStatus";
+            public readonly string ClosestContestants = "ClosestContestants";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -102,6 +109,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             public const string JudgeIndexContent = "JudgeIndexContent";
             public const string JudgementList = "JudgementList";
             public const string JudgeStatus = "JudgeStatus";
+            public const string ClosestContestants = "ClosestContestants";
         }
 
 
@@ -151,6 +159,15 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
         {
             public readonly string tournamentId = "tournamentId";
             public readonly string runNo = "runNo";
+        }
+        static readonly ActionParamsClass_ClosestContestants s_params_ClosestContestants = new ActionParamsClass_ClosestContestants();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ClosestContestants ClosestContestantsParams { get { return s_params_ClosestContestants; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ClosestContestants
+        {
+            public readonly string tournamentId = "tournamentId";
+            public readonly string roundNo = "roundNo";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -269,6 +286,19 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "tournamentId", tournamentId);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "runNo", runNo);
             JudgeStatusOverride(callInfo, tournamentId, runNo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ClosestContestantsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long tournamentId, int roundNo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ClosestContestants(long tournamentId, int roundNo)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ClosestContestants);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "tournamentId", tournamentId);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "roundNo", roundNo);
+            ClosestContestantsOverride(callInfo, tournamentId, roundNo);
             return callInfo;
         }
 
