@@ -259,7 +259,6 @@ nordicArena.judge.updateAverageValue = function (contestantIx, decimals) {
     var selector = "#average_" + contestantIx;
     if (average == "NaN") average = String.fromCharCode(160);// &nbsp;
     $(selector).text(average);
-
     nordicArena.judge.updateCloseOpponents(average, contestantIx, decimals);
 };
 
@@ -278,15 +277,47 @@ nordicArena.judge.getAverageValue = function (contestantIx, decimals) {
 	return average;
 };
 
+nordicArena.judge.renderCloseOpponents = function (list, nameIndex, scoreIndex, name, average) {
+
+	var element = $('#closest-contestants ul');
+	element.empty();
+	
+	if (nameIndex > scoreIndex) {
+
+	}
+
+}
+
 nordicArena.judge.updateCloseOpponents = function (inAverage, contestantIx, decimals) {
 	setTimeout(function () {
 		var newAverage = nordicArena.judge.getAverageValue(contestantIx, decimals);
+
 		if (inAverage == newAverage) {
-			console.log("Oppdater listen over deltakere med nærmest score!");
-		} else {
-			return;
+			inAverage = nordicArena.common.parseFloat(inAverage);
+
+			var contestantName = $("#judge-contestant-container button:eq(" + contestantIx + ")").text().trim();
+			var list = $('#closest-contestants ul li');
+			var index = 0;
+			var scoreIndex = 0;
+			var nameIndex = 0;
+			var curScore = 0;
+
+			list.each(function () {
+				curScore = nordicArena.common.parseFloat($(this).find('.close-cont-score')[0].innerText);
+				curName = nordicArena.common.parseFloat($(this).find('.close-cont-name')[0].innerText);
+
+				if (inAverage <= curScore) {
+					scoreIndex++;
+				}
+
+				if (curName === contestantName) {
+					nameIndex = index;
+				}
+				index++;
+			});
+			nordicArena.judge.renderCloseOpponents(list, nameIndex, scoreIndex, contestantName, inAverage);
 		}
-	}, 2000);
+	}, 1000);
 }
 
 nordicArena.judge.isInOffZone = function (val, min, max) {

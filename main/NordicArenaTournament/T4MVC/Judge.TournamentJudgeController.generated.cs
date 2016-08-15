@@ -179,6 +179,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string ClosestContestants = "ClosestContestants";
                 public readonly string HeadJudgeIndex = "HeadJudgeIndex";
                 public readonly string HeadJudgeIndexContent = "HeadJudgeIndexContent";
                 public readonly string JudgeIndex = "JudgeIndex";
@@ -186,6 +187,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
                 public readonly string JudgementList = "JudgementList";
                 public readonly string JudgeStatus = "JudgeStatus";
             }
+            public readonly string ClosestContestants = "~/Areas/Judge/Views/TournamentJudge/ClosestContestants.cshtml";
             public readonly string HeadJudgeIndex = "~/Areas/Judge/Views/TournamentJudge/HeadJudgeIndex.cshtml";
             public readonly string HeadJudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/HeadJudgeIndexContent.cshtml";
             public readonly string JudgeIndex = "~/Areas/Judge/Views/TournamentJudge/JudgeIndex.cshtml";

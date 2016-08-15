@@ -5,7 +5,7 @@
 
 <input type="hidden" id="criteriaCount" value="@Model.Criteria.Count" />
 <input type="hidden" id="contestantCount" value="@Model.Contestants.Count" />
-<input type="hidden" id="isCurrentRunDone" value="@(Model.Tournament.IsCurrentRunDone.ForJavascript())"/>
+<input type="hidden" id="isCurrentRunDone" value="@(Model.Tournament.IsCurrentRunDone.ForJavascript())" />
 <input type="hidden" id="judgeId" name="TournamentId" value="@Model.Judge.Id" />
 <input type="hidden" id="tournamentRunning" value="@((Model.Tournament.Status == TournamentStatus.Running).ForJavascript())" />
 <span id="ContestantNoScoreWarning" class="hidden">@Text.ContestantNoScoreWarning</span>
@@ -21,60 +21,54 @@
 		</div>
 	</div>
 	<button id="did-not-skate" type="button" onclick="nordicArena.judge.didNotSkate()">@Text.DidNotSkate</button>
-	
-	
+
 	<div id="closest-contestants" style="display: inline-block;">
 		<!-- Legg til partial som viser finner og viser frem de to nærmeste konkurrentene. Husk å vente 1 sek før man oppdaterer listen. -->
-		<ul>
-			<li style="display: block;">2: Derp Derpington 7.89</li>
-			<li style="display: block;">3: Han du dømmer nå 7.55</li>
-			<li style="display: block;">4: Stick Figure 7.46</li>
-		</ul>
+		@{ Html.RenderPartial(MVC.Judge.TournamentJudge.Views.ClosestContestants, Model.ClosestContestants);}
 	</div>
-	
 }
 
 
 <div id="judge-contestant-container">
-    @if (Model.Contestants.Count > 0)
+	@if (Model.Contestants.Count > 0)
     {
-        int i = 0;  
+        int i = 0;
         foreach (var contestantModel in Model.Contestants)
         {
-            <button onclick="nordicArena.judge.selectContestant(@(i++))" class="judge-contestant-selector">
-                @contestantModel.ContestantName (@contestantModel.Stance)
-            </button>
+			<button onclick="nordicArena.judge.selectContestant(@(i++))" class="judge-contestant-selector">
+				@contestantModel.ContestantName (@contestantModel.Stance)
+			</button>
         }
     }
     else
     {
-        <span id="no-contestant" class="hidden">@Text.NoContestant</span>
+		<span id="no-contestant" class="hidden">@Text.NoContestant</span>
     }
 </div>
 
 @if (Model.Tournament.Status != TournamentStatus.Running)
 {
-    <h2>@Text.TourneyNotRunning</h2>
+	<h2>@Text.TourneyNotRunning</h2>
 }
 else
 {
-    using (Html.BeginForm(MVC.Judge.TournamentJudge.JudgeIndex(), FormMethod.Post, new { autocomplete = "off" })) 
-    {             
-        @Html.HiddenFor(p => p.Tournament.Id, new { id = "tournamentId" });
+    using (Html.BeginForm(MVC.Judge.TournamentJudge.JudgeIndex(), FormMethod.Post, new { autocomplete = "off" }))
+    {
+		@Html.HiddenFor(p => p.Tournament.Id, new { id = "tournamentId" });
         for (int contIx = 0; contIx < Model.Contestants.Count; contIx++)
         {
-            @Html.HiddenFor(p => p.Contestants[contIx].TournamentId);
-            @Html.HiddenFor(p => p.Contestants[contIx].RoundContestantId);
+			@Html.HiddenFor(p => p.Contestants[contIx].TournamentId);
+	@Html.HiddenFor(p => p.Contestants[contIx].RoundContestantId);
             var disabledClass = Model.CanJudge ? "" : "disabled";
             var display = contIx == 0 ? "block" : "none";
-            <div id="judging-container-@contIx" class="input-container @disabledClass" style="display:@display">
-                <div class="slider-container">
-                    @{
+			<div id="judging-container-@contIx" class="input-container @disabledClass" style="display:@display">
+				<div class="slider-container">
+					@{
                         var critIx = 0;
 						var positioningClass = "na-slider";//"slider-left";
-                    }
+					}
 					<span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>
-                    @foreach (JudgingCriterion crit in Model.Criteria)
+					@foreach (JudgingCriterion crit in Model.Criteria)
                     {
                         var compoundIndex = contIx + "_" + critIx;
                         /*if (critIx == Model.Criteria.Count/2)
@@ -82,26 +76,26 @@ else
                             //positioningClass = "slider-right";
                             <!--<span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>-->
                         }*/
-                        <div id="meter_@compoundIndex" class="na-slider @positioningClass">
-                            <div class="label-value-pair">
-                                <div class="editor-label criteria-name">@crit.Title</div>
+						<div id="meter_@compoundIndex" class="na-slider @positioningClass">
+							<div class="label-value-pair">
+								<div class="editor-label criteria-name">@crit.Title</div>
 								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@if(Model.Judge.IsHeadJudge && !Model.HasHeadJudgeJudged && @Model.AverageCriteriaScore.Count > 0){@Model.AverageCriteriaScore[(Model.Criteria.Count() * contIx) + critIx].ForJavascript()}else{@Model.Contestants[contIx].Scores[critIx].Score.ForJavascript()}" readonly />
-                            </div>
-                            @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].CriterionId)
-                            @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].JudgeId)
-                            @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].RunNo)
-                            @Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].RoundContestantId)
+							</div>
+							@Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].CriterionId)
+							@Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].JudgeId)
+							@Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].RunNo)
+							@Html.HiddenFor(p => p.Contestants[contIx].Scores[critIx].RoundContestantId)
 							<div class="slider" id="slider_@compoundIndex" contix="@contIx" labelref="amount_@compoundIndex" min="@crit.Min.ForJavascript()" max="@crit.Max.ForJavascript()" step="@crit.Step.ForJavascript()" decimals="@if(Model.Judge.IsHeadJudge){@(crit.NumDecimals + 1)}else{@crit.NumDecimals}"></div>
-                        </div>
+						</div>
                         critIx++;
                     }
-                </div>
-            </div>
+				</div>
+			</div>
         }
-        <div class="clearfix"></div>
-        <div id="judging-footer">
-            <button id="judge-submit" type="button" onclick="nordicArena.judge.submitScores()" @Html.DisableIf(!Model.CanJudge)>@Text.JudgeSubmitButtonText</button>
-        </div>
+		<div class="clearfix"></div>
+		<div id="judging-footer">
+			<button id="judge-submit" type="button" onclick="nordicArena.judge.submitScores()" @Html.DisableIf(!Model.CanJudge)>@Text.JudgeSubmitButtonText</button>
+		</div>
     }
-    <span class="logged-in-as-box">@Text.LoggedInAs: <b>@Model.Judge.Name</b></span>
+	<span class="logged-in-as-box">@Text.LoggedInAs: <b>@Model.Judge.Name</b></span>
 }

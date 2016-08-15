@@ -79,7 +79,6 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             }
 
 			_hub.HeadJudgeScoreSubmitted(model.Tournament.Id);
-
             _hub.JudgeScoresSubmitted(model.Tournament.Id);
             return new ContentResult();
         }
@@ -116,7 +115,7 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
 		{
 			var tourney = TournamentService.GetTournamentGuarded(tournamentId);
 			var model = new ClosestContestantsViewModel(tourney, roundNo);
-			return View(model);
+			return PartialView(model);
 		}
     }
 }

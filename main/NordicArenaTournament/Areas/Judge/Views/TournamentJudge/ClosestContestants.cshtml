@@ -1,0 +1,15 @@
+﻿@model NordicArenaTournament.Areas.Judge.ViewModels.ClosestContestantsViewModel
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+
+@if (Model != null)
+{
+	<ul>
+		@{ int id = 0; }
+		@foreach (var cont in Model.Contestants)
+		{
+			<li id="cont_@id" style="display: block;"><span class="close-cont-pos">@cont.Position:</span> <span class="close-cont-name">@cont.Name</span> <span class="close-cont-score">@cont.TotalScore</span></li>
+			id++;
+		}
+	</ul>
+}

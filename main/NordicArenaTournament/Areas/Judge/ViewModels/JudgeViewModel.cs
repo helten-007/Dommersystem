@@ -25,6 +25,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 		public List<JudgeViewModel> JudgeViewModels { get; set; }
 		public List<decimal?> AverageCriteriaScore { get; set; }
 		public List<JudgeHasScoredTuple> JudgeStatus { get; set; }
+		public ClosestContestantsViewModel ClosestContestants {get; set;}
 		public bool HasHeadJudgeJudged { get; set; }
 
 
@@ -38,6 +39,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 			Criteria = tourney.JudgingCriteria.OrderBy(p => p.Id).ToList();
 			Judge = judge;
 			Contestants = ContestantRunViewModel.CreateListOfCurrentConestants(tourney, judge.Id);
+			ClosestContestants = new ClosestContestantsViewModel(tourney, tourney.GetCurrentRound().RoundNo);
 
 			if (Judge.IsHeadJudge)
 			{
