@@ -27,20 +27,5 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
                 }
             }
         }
-
-		public List<ContestantRoundResultViewModel> GetClosestContestants(decimal? score)
-		{
-			var retList = new List<ContestantRoundResultViewModel>();
-			for (var i = 0; i < Contestants.Count; i++)
-			{
-				if (Contestants[i].TotalScore <= score)
-				{
-					if (i > 0) 
-						retList.Add(Contestants[i - 1]);
-					retList.Add(Contestants[i]);
-				}
-			}
-			return retList;
-		}
 	}
 }
