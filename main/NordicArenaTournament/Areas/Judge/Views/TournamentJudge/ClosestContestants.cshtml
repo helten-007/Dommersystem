@@ -4,12 +4,13 @@
 
 @if (Model != null)
 {
-	<ul>
+	<ul id="hidden-contestants">
 		@{ int id = 0; }
 		@foreach (var cont in Model.Contestants)
 		{
-			<li id="cont_@id" style="display: block;"><span class="close-cont-pos">@cont.Position:</span> <span class="close-cont-name">@cont.Name</span> <span class="close-cont-score">@cont.TotalScore</span></li>
+			<li style="display:none" id="cont_@id" style="display: block;"><span class="close-cont-pos">@cont.Position:</span> <span class="close-cont-name">@cont.Name</span> <span class="close-cont-score">@cont.TotalScore</span></li>
 			id++;
 		}
 	</ul>
+	<ul id="visible-contestants"></ul>
 }
