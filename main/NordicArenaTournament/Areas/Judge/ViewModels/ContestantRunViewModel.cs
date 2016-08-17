@@ -13,6 +13,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
         public long TournamentId { get; set; }
         public int RunNo { get; set; }
         public string ContestantName { get; set; }
+		public RoundContestant Contestant { get; set; }
 		public string Stance { get; set; }
         public long RoundContestantId { get; set; }
         public List<RunJudging> Scores { get; set; }
@@ -31,13 +32,13 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
         public ContestantRunViewModel(Tournament tourney, Round round, long judgeId, long roundContestantId) : this()
         {
             var counter = tourney.GetRoundCounter();
-            var contestant = round.GetRoundContestantGuarded(roundContestantId);
+			Contestant = round.GetRoundContestantGuarded(roundContestantId);
             TournamentId = tourney.Id;
             RunNo = counter.GetRunNo();
             RoundContestantId = roundContestantId;
-            ContestantName = contestant.Contestant.Name;
-			Stance = contestant.Contestant.Stance;
-            var scores = contestant.RunJudgings
+			ContestantName = Contestant.Contestant.Name;
+			Stance = Contestant.Contestant.Stance;
+			var scores = Contestant.RunJudgings
                 .Where(p => p.RunNo == RunNo && p.JudgeId == judgeId)
                 .OrderBy(p => p.CriterionId)
                 .ToList();

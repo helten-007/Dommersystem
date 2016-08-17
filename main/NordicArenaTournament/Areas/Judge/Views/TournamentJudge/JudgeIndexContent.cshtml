@@ -37,6 +37,11 @@
         {
 			<button onclick="nordicArena.judge.selectContestant(@(i++))" class="judge-contestant-selector">
 				@contestantModel.ContestantName (@contestantModel.Stance)
+
+				@if(@contestantModel.Contestant.TotalScore != null)
+				{
+					<span>(Beste score: @contestantModel.Contestant.TotalScore)</span>
+				}
 			</button>
         }
     }
