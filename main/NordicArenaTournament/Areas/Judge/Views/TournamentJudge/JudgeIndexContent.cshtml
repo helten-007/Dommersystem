@@ -69,14 +69,19 @@ else
 					}
 					<span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>
 					@foreach (JudgingCriterion crit in Model.Criteria)
-                    {
-                        var compoundIndex = contIx + "_" + critIx;
-                        /*if (critIx == Model.Criteria.Count/2)
-                        {
-                            //positioningClass = "slider-right";
-                            <!--<span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>-->
-                        }*/
+					{
+						var compoundIndex = contIx + "_" + critIx;
+						/*if (critIx == Model.Criteria.Count/2)
+						{
+							//positioningClass = "slider-right";
+							<!--<span class="averageBox"><span class="avg-label">Snitt:</span><span id="average_@contIx"></span></span>-->
+						}*/
+		 
 						<div id="meter_@compoundIndex" class="na-slider @positioningClass">
+							<div>
+								<button type="button" id="minus_@compoundIndex" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, -@crit.Step.ForJavascript())">-</button>
+								<button type="button" id="plus_@compoundIndex" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, @crit.Step.ForJavascript())">+</button>
+							</div>
 							<div class="label-value-pair">
 								<div class="editor-label criteria-name">@crit.Title</div>
 								<input class="editor-field score" type="text" name="@Html.NameFor(p => p.Contestants[contIx].Scores[critIx].Score)" id="amount_@compoundIndex" value="@if(Model.Judge.IsHeadJudge && !Model.HasHeadJudgeJudged && @Model.AverageCriteriaScore.Count > 0){@Model.AverageCriteriaScore[(Model.Criteria.Count() * contIx) + critIx].ForJavascript()}else{@Model.Contestants[contIx].Scores[critIx].Score.ForJavascript()}" readonly />

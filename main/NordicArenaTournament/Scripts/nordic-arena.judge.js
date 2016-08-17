@@ -193,6 +193,7 @@ nordicArena.judge.initSlider = function (slider, enableIt) {
         step: slider.step,
         value: sliderValue,
         slide: nordicArena.judge.onSliderUpdated,
+        change: nordicArena.judge.onSliderUpdated,
         start: null,
         stop: null,
         disabled: !enableIt
@@ -228,6 +229,15 @@ nordicArena.judge.onSliderUpdated = function (event, ui) {
     setTimeout(function () {
         nordicArena.judge.updateLabelForSlider("#" + sliderId);
     }, 10); // Workaround for laggy updating of the value property
+};
+
+nordicArena.judge.adjustSlider = function (element, amount) {
+	var splitTxt = amount > 0 ? 'plus' : 'minus';
+	var elem = element.id.split(splitTxt);
+	var sliderId = 'slider' + elem[1];
+	var slider = $("#" + sliderId);
+	slider.slider("value", slider.slider("value") + amount);
+	return false;
 };
 
 nordicArena.judge.updateLabelForSlider = function (sliderSelector) {
