@@ -79,7 +79,9 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
             }
 
 			if (model.Judge.IsHeadJudge)
+			{
 				_hub.HeadJudgeScoreSubmitted(model.Tournament.Id);
+			}
             _hub.JudgeScoresSubmitted(model.Tournament.Id);
             return new ContentResult();
         }
