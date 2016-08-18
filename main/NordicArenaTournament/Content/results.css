@@ -1,4 +1,10 @@
-﻿.result-table {
+﻿header {
+  display: none;
+}
+.banner {
+  display: none;
+}
+.result-table {
   background: #696969;
   border: none;
   font-size: 200%;

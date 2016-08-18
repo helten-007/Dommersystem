@@ -4,8 +4,8 @@
 $(function () {
 	nordicArena.results.initSignalRHub();
 	//nordicArena.results.initScroll();
-	$("header").hide(); // Optimizing view for tablet
-	$(".banner").hide();
+	//$("header").hide(); // Optimizing view for tablet
+	//$(".banner").hide();
 	$(".floatright.noprint").hide();
 	$("footer").hide();
 
@@ -31,7 +31,7 @@ nordicArena.results.initSignalRHub = function () {
 nordicArena.results.update = function (tournamentId) {
 	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 	nordicArena.common.get(nordicArena.results.reloadUrl).done(function (data) {
-		$('.main-content').html(data);
+		$('.body-container').html(data);
 	});
 };
 
