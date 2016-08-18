@@ -60,9 +60,9 @@ else
     using (Html.BeginForm(MVC.Judge.TournamentJudge.JudgeIndex(), FormMethod.Post, new { autocomplete = "off" }))
     {
 		@Html.HiddenFor(p => p.Tournament.Id, new { id = "tournamentId" });
+		@Html.HiddenFor(p => p.Judge.IsHeadJudge);
         for (int contIx = 0; contIx < Model.Contestants.Count; contIx++)
         {
-			@Html.HiddenFor(p => p.Judge.IsHeadJudge);
 			@Html.HiddenFor(p => p.Contestants[contIx].TournamentId);
 			@Html.HiddenFor(p => p.Contestants[contIx].RoundContestantId);
             var disabledClass = Model.CanJudge ? "" : "disabled";
