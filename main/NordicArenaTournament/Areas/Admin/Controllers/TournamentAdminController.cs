@@ -145,7 +145,6 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             return View(model);
         }
 
-
         public virtual ActionResult ResetRound(long tournamentId, int roundNo)
         {
             TournamentService.ResetRound(tournamentId, roundNo);

@@ -78,7 +78,8 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
                 TournamentService.ReplaceRunJudgings(model.Tournament.Id, contestantModel.RoundContestantId, contestantModel.Scores);
             }
 
-			_hub.HeadJudgeScoreSubmitted(model.Tournament.Id);
+			if (model.Judge.IsHeadJudge)
+				_hub.HeadJudgeScoreSubmitted(model.Tournament.Id);
             _hub.JudgeScoresSubmitted(model.Tournament.Id);
             return new ContentResult();
         }
