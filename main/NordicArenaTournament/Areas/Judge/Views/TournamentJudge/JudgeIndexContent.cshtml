@@ -62,8 +62,9 @@ else
 		@Html.HiddenFor(p => p.Tournament.Id, new { id = "tournamentId" });
         for (int contIx = 0; contIx < Model.Contestants.Count; contIx++)
         {
+			@Html.HiddenFor(p => p.Judge.IsHeadJudge);
 			@Html.HiddenFor(p => p.Contestants[contIx].TournamentId);
-	@Html.HiddenFor(p => p.Contestants[contIx].RoundContestantId);
+			@Html.HiddenFor(p => p.Contestants[contIx].RoundContestantId);
             var disabledClass = Model.CanJudge ? "" : "disabled";
             var display = contIx == 0 ? "block" : "none";
 			<div id="judging-container-@contIx" class="input-container @disabledClass" style="display:@display">

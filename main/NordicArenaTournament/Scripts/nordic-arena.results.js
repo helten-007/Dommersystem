@@ -3,7 +3,7 @@
 // On load
 $(function () {
 	nordicArena.results.initSignalRHub();
-	nordicArena.results.initScroll();
+	//nordicArena.results.initScroll();
 	$("header").hide(); // Optimizing view for tablet
 	$(".banner").hide();
 	$(".floatright.noprint").hide();
