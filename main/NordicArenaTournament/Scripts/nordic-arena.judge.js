@@ -231,7 +231,18 @@ nordicArena.judge.onSliderUpdated = function (event, ui) {
     }, 10); // Workaround for laggy updating of the value property
 };
 
-nordicArena.judge.adjustSlider = function (element, amount) {
+var intervalId;
+$('.slider-button').mousedown(function () {
+	var element = $(this)[0];
+	intervalId = setInterval(function () {
+		nordicArena.judge.adjustSlider(element, element.value);
+	}, 200);
+}).bind('mouseup mouseleave', function () {
+	clearTimeout(intervalId);
+});
+
+nordicArena.judge.adjustSlider = function (element, inAmount) {
+	var amount = parseFloat(inAmount);
 	var splitTxt = amount > 0 ? 'plus' : 'minus';
 	var elem = element.id.split(splitTxt);
 	var sliderId = 'slider' + elem[1];

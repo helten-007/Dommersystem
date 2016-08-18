@@ -40,7 +40,7 @@
 
 				@if(@contestantModel.Contestant.TotalScore != null)
 				{
-					<span>(Beste score: @contestantModel.Contestant.TotalScore)</span>
+					<span><br>(Beste run: @contestantModel.Contestant.TotalScore)</span>
 				}
 			</button>
         }
@@ -84,8 +84,8 @@ else
 		 
 						<div id="meter_@compoundIndex" class="na-slider @positioningClass">
 							<div>
-								<button type="button" id="minus_@compoundIndex" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, -@crit.Step.ForJavascript())">-</button>
-								<button type="button" id="plus_@compoundIndex" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, @crit.Step.ForJavascript())">+</button>
+								<button type="button" id="minus_@compoundIndex" value="-@crit.Step.ForJavascript()" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, -@crit.Step.ForJavascript())">-</button>
+								<button type="button" id="plus_@compoundIndex" value="@crit.Step.ForJavascript()" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, @crit.Step.ForJavascript())">+</button>
 							</div>
 							<div class="label-value-pair">
 								<div class="editor-label criteria-name">@crit.Title</div>
