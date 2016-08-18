@@ -1,8 +1,10 @@
 ﻿nordicArena.results = nordicArena.results || {};
+var timeOut = 0;
 
 // On load
 $(function () {
 	nordicArena.results.initSignalRHub();
+	clearInterval(timeOut);
 	nordicArena.results.initScroll();
 	$("header").hide(); // Optimizing view for tablet
 	$(".banner").hide();
@@ -36,7 +38,7 @@ nordicArena.results.update = function (tournamentId) {
 };
 
 nordicArena.results.initScroll = function () {
-	setTimeout(function () { nordicArena.results.scroll(); }, 2000);
+	var timeOut = setTimeout(function () { nordicArena.results.scroll(); }, 2000);
 };
 
 nordicArena.results.scroll = function () {
