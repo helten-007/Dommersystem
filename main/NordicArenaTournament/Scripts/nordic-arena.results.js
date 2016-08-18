@@ -31,7 +31,7 @@ nordicArena.results.initSignalRHub = function () {
 nordicArena.results.update = function (tournamentId) {
 	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 	nordicArena.common.get(nordicArena.results.reloadUrl).done(function (data) {
-		$('.body-container').html(data);
+		$('.main-content').html(data);
 	});
 };
 
