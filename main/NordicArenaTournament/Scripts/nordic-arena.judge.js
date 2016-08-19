@@ -375,7 +375,7 @@ nordicArena.judge.getSliderDataForDidNotSkate = function (contestantIx, criteria
 	var slider = {};
 	var judgingContainer = $("#judging-container-" + contestantIx);
 
-	console.log(judgingContainer.style);
+	console.log(judgingContainer);
 
 	var index = "_" + contestantIx + "_" + criteriaIx;
 	//slider.sliderSelector = "#slider" + index;
