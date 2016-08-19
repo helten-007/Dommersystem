@@ -4,8 +4,14 @@
   display: none;
 }
 .slider-button {
-  display: inline;
-  width: 30%;
+  display: inline-block;
+  height: 1.9em;
+  width: 1.9em;
+  padding: 0;
+  margin: 0;
+}
+.slider-button-minus {
+  margin-right: 0.3em;
 }
 .ui-slider-vertical {
   width: 60px;

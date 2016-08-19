@@ -85,8 +85,8 @@ else
 		 
 						<div id="meter_@compoundIndex" class="na-slider @positioningClass">
 							<div>
-								<button type="button" id="minus_@compoundIndex" value="-@crit.Step.ForJavascript()" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, -@crit.Step.ForJavascript())">-</button>
-								<button type="button" id="plus_@compoundIndex" value="@crit.Step.ForJavascript()" class="slider-button" onclick="nordicArena.judge.adjustSlider(this, @crit.Step.ForJavascript())">+</button>
+								<button type="button" id="minus_@compoundIndex" value="-@crit.Step.ForJavascript()" class="slider-button slider-button-minus" onclick="nordicArena.judge.adjustSlider(this, -@crit.Step.ForJavascript())">-</button>
+								<button type="button" id="plus_@compoundIndex" value="@crit.Step.ForJavascript()" class="slider-button slider-button-plus" onclick="nordicArena.judge.adjustSlider(this, @crit.Step.ForJavascript())">+</button>
 							</div>
 							<div class="label-value-pair">
 								<div class="editor-label criteria-name">@crit.Title</div>

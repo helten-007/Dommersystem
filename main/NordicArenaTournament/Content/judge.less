@@ -4,14 +4,22 @@
 @labelbox-width: 95px;
 @handle-width: 71px;
 @slider-width: 60px;
+@slider-button-size: 1.9em;
 
 .banner {
     display: none;
 }
 
 .slider-button {
-	display: inline;
-	width: 30%;
+	display: inline-block;
+	height: @slider-button-size;
+	width: @slider-button-size;
+	padding: 0;
+	margin: 0;
+}
+
+.slider-button-minus {
+	margin-right: 0.3em;
 }
 
 .ui-slider-vertical {
