@@ -240,6 +240,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Judge\Views\TournamentJudge\ClosestContestants.cshtml" />
+    <Content Include="Areas\Admin\Views\TournamentAdmin\ResultsContent.cshtml" />
     <None Include="Content\results.less" />
     <Compile Include="Controllers\LayoutControllerBase.cs" />
     <Compile Include="Controllers\TournamentControllerBase.cs" />

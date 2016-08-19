@@ -145,6 +145,13 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             return View(model);
         }
 
+		public virtual ActionResult ResultsContent(long tournamentId, int roundNo = 1)
+		{
+			var tourney = TournamentService.GetTournamentGuarded(tournamentId);
+			var model = new ResultsViewModel(tourney, roundNo);
+			return PartialView(model);
+		}
+
         public virtual ActionResult ResetRound(long tournamentId, int roundNo)
         {
             TournamentService.ResetRound(tournamentId, roundNo);

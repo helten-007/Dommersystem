@@ -1,0 +1,76 @@
+﻿@model NordicArenaTournament.Areas.Admin.ViewModels.ResultsViewModel
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+
+<input type="hidden" id="tournamentId" value="@Model.Tournament.Id">
+
+<!--<div class="floatright noprint">
+	using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
+	{
+		<button name="roundNo" type="submit" class="nav-button-grey previous-grey" value="(Model.RoundNo - 1)" Html.DisableIf(!Model.HasPreviousRound)></button>
+		<button name="roundNo" type="submit" class="nav-button-grey next-grey" value="(Model.RoundNo + 1)" Html.DisableIf(!Model.HasNextRound)></button><br />
+	}
+</div>-->
+<h1 class="tourney-name">@Html.ValueFor(model => model.TournamentName)<!-- - @Html.ValueFor(model => model.RoundTitle)--></h1>
+
+<!--h2>@Text.ResultsPageTitle</h2-->
+@if (Model.Contestants.Count > 0)
+{
+	<table class="result-table" style="width: 100%;">
+		<tr>
+			<!--th class="first" style="width: 5%; text-align: center;">#</th>-->
+			<th class="first" style="width: 5%; text-align: center;"></th>
+			<th><!--@PropertyNames.Contestant_Name--></th>
+			@for (int i = 1; i <= Model.RunCount; i++)
+			{
+				<th style="width: 8%; text-align: center;">@Text.Run @i</th>
+			}
+			<th style="width: 17%; text-align: center;">@PropertyNames.RoundContestant_TotalScore</th>
+		</tr>
+		@{
+			int position = 1;
+			var maxVisible = (Model.Tournament.ContestantsOnScoreboard.HasValue) ? Model.Tournament.ContestantsOnScoreboard : Int32.MaxValue;
+			int counter = 0;
+		}
+
+		@foreach (var c in Model.Contestants)
+		{
+			if (counter < maxVisible)
+			{
+				<tr>
+					<td class="first" style="text-align: center;">@(position++)</td>
+					<td style="padding-left: 3em;">@c.Name</td>
+
+					@for (int i = 0; i < Model.RunCount; i++)
+					{
+						<td style="text-align: center;">
+							@if (c.RunScore[i] == -1)
+							{
+								<p class="dns">DNS</p>
+							}
+							else
+							{
+								@c.RunScore[i].Decimals(2)
+							}
+						</td>
+					}
+					<td style="text-align: center;">
+						@if (@c.TotalScore == -1)
+						{
+							<p class="dns">DNS</p>
+						}
+						else
+						{
+							@c.TotalScore.Decimals(2)
+						}
+					</td>
+				</tr>
+						counter++;
+			}
+			else
+			{
+				break;
+			}
+		}
+	</table>
+}

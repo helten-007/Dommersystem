@@ -109,6 +109,12 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult ResultsContent()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ResultsContent);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult ResetRound()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ResetRound);
@@ -140,6 +146,7 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             public readonly string StartTournament = "StartTournament";
             public readonly string EditTournamentRound = "EditTournamentRound";
             public readonly string Results = "Results";
+            public readonly string ResultsContent = "ResultsContent";
             public readonly string ResetRound = "ResetRound";
         }
 
@@ -157,6 +164,7 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             public const string StartTournament = "StartTournament";
             public const string EditTournamentRound = "EditTournamentRound";
             public const string Results = "Results";
+            public const string ResultsContent = "ResultsContent";
             public const string ResetRound = "ResetRound";
         }
 
@@ -256,6 +264,15 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             public readonly string tournamentId = "tournamentId";
             public readonly string roundNo = "roundNo";
         }
+        static readonly ActionParamsClass_ResultsContent s_params_ResultsContent = new ActionParamsClass_ResultsContent();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ResultsContent ResultsContentParams { get { return s_params_ResultsContent; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ResultsContent
+        {
+            public readonly string tournamentId = "tournamentId";
+            public readonly string roundNo = "roundNo";
+        }
         static readonly ActionParamsClass_ResetRound s_params_ResetRound = new ActionParamsClass_ResetRound();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_ResetRound ResetRoundParams { get { return s_params_ResetRound; } }
@@ -281,6 +298,7 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
                 public readonly string EditTournamentRound = "EditTournamentRound";
                 public readonly string JudgeList = "JudgeList";
                 public readonly string Results = "Results";
+                public readonly string ResultsContent = "ResultsContent";
             }
             public readonly string ContestantList = "~/Areas/Admin/Views/TournamentAdmin/ContestantList.cshtml";
             public readonly string EditTournament = "~/Areas/Admin/Views/TournamentAdmin/EditTournament.cshtml";
@@ -288,6 +306,7 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             public readonly string EditTournamentRound = "~/Areas/Admin/Views/TournamentAdmin/EditTournamentRound.cshtml";
             public readonly string JudgeList = "~/Areas/Admin/Views/TournamentAdmin/JudgeList.cshtml";
             public readonly string Results = "~/Areas/Admin/Views/TournamentAdmin/Results.cshtml";
+            public readonly string ResultsContent = "~/Areas/Admin/Views/TournamentAdmin/ResultsContent.cshtml";
         }
     }
 
@@ -456,6 +475,19 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "tournamentId", tournamentId);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "roundNo", roundNo);
             ResultsOverride(callInfo, tournamentId, roundNo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ResultsContentOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long tournamentId, int roundNo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ResultsContent(long tournamentId, int roundNo)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ResultsContent);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "tournamentId", tournamentId);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "roundNo", roundNo);
+            ResultsContentOverride(callInfo, tournamentId, roundNo);
             return callInfo;
         }
 
