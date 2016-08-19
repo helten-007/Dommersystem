@@ -375,19 +375,23 @@ nordicArena.judge.getSliderDataForDidNotSkate = function (contestantIx, criteria
 	var slider = {};
 	var judgingContainer = $("#judging-container-" + contestantIx);
 
-	console.log(judgingContainer[0].style.display);
+	if (judgingContainer[0].style.display !== 'none') {
 
-	var index = "_" + contestantIx + "_" + criteriaIx;
-	//slider.sliderSelector = "#slider" + index;
-	slider.amountSelector = "#amount" + index;
-	/*
-	Det er mulig at disse linjene kan fjernes fullstendig!!
+		var index = "_" + contestantIx + "_" + criteriaIx;
 
-	var sliderElem = $(slider.sliderSelector);
-	slider.max = nordicArena.common.parseFloat(sliderElem.attr("max"));
-	slider.min = nordicArena.common.parseFloat(sliderElem.attr("min"));
-	slider.step = nordicArena.common.parseFloat(sliderElem.attr("step"));*/
-	$(slider.amountSelector).val(-1);
+		//slider.sliderSelector = "#slider" + index;
+
+		slider.amountSelector = "#amount" + index;
+
+		/*
+		Det er mulig at disse linjene kan fjernes fullstendig!!
+		var sliderElem = $(slider.sliderSelector);
+		slider.max = nordicArena.common.parseFloat(sliderElem.attr("max"));
+		slider.min = nordicArena.common.parseFloat(sliderElem.attr("min"));
+		slider.step = nordicArena.common.parseFloat(sliderElem.attr("step"));*/
+
+		$(slider.amountSelector).val(-1);
+	}
 };
 
 nordicArena.judge.setDidNotSkateScore = function () {
@@ -404,11 +408,11 @@ nordicArena.judge.didNotSkate = function () {
 	nordicArena.judge.setDidNotSkateScore();
 	nordicArena.judge.enableSliders(false);
 	nordicArena.judge.showProgressBar(true);
-	nordicArena.postForm("form", {
+	/*nordicArena.postForm("form", {
 		success: nordicArena.judge.onSubmitScoreSuccess,
 		error: nordicArena.judge.onSubmitScoreError,
 		timeout: 10000
-	});
+	});*/
 };
 
 nordicArena.judge.submitScores = function () {
