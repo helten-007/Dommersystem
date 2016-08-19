@@ -374,12 +374,15 @@ nordicArena.judge.isInOffZone = function (val, min, max) {
 nordicArena.judge.getSliderDataForDidNotSkate = function (contestantIx, criteriaIx) {
 	var slider = {};
 	var index = "_" + contestantIx + "_" + criteriaIx;
-	slider.sliderSelector = "#slider" + index;
-	slider.amountSelector = "#amount" + index;
+	//slider.sliderSelector = "#slider" + index;
+	slider.amountSelector = "#judging-container-" + contestantIx + " #amount" + index;
+	/*
+	Det er mulig at disse linjene kan fjernes fullstendig!!
+
 	var sliderElem = $(slider.sliderSelector);
 	slider.max = nordicArena.common.parseFloat(sliderElem.attr("max"));
 	slider.min = nordicArena.common.parseFloat(sliderElem.attr("min"));
-	slider.step = nordicArena.common.parseFloat(sliderElem.attr("step"));
+	slider.step = nordicArena.common.parseFloat(sliderElem.attr("step"));*/
 	$(slider.amountSelector).val(-1);
 };
 
@@ -391,7 +394,6 @@ nordicArena.judge.setDidNotSkateScore = function () {
 			var sliderData = nordicArena.judge.getSliderDataForDidNotSkate(contIx, critIx);
 		}
 	}
-	return true;
 };
 
 nordicArena.judge.didNotSkate = function () {

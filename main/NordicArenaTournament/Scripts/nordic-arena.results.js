@@ -37,7 +37,6 @@ nordicArena.results.update = function (tournamentId) {
 };
 
 nordicArena.results.initScroll = function () {
-	console.log("initScroll");
 	clearInterval(timeOut);
 	timeOut = setTimeout(function () { nordicArena.results.scroll(); }, 2000);
 };
@@ -60,7 +59,6 @@ nordicArena.results.scroll = function () {
 		if (div[0].scrollHeight - div.scrollTop() == div.outerHeight() || div.scrollTop() <= 0) {
 			direction *= -1;
 			wait = maxWait;
-			console.log("VENTER!!!");
 		}
 		interval = setInterval(myFunction, wait);
 	}
