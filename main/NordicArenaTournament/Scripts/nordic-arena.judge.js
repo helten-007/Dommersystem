@@ -373,9 +373,13 @@ nordicArena.judge.isInOffZone = function (val, min, max) {
 
 nordicArena.judge.getSliderDataForDidNotSkate = function (contestantIx, criteriaIx) {
 	var slider = {};
+	var judgingContainer = "#judging-container-" + contestantIx;
+
+	console.log(judgingContainer);
+
 	var index = "_" + contestantIx + "_" + criteriaIx;
 	//slider.sliderSelector = "#slider" + index;
-	slider.amountSelector = "#judging-container-" + contestantIx + " #amount" + index;
+	slider.amountSelector = "#amount" + index;
 	/*
 	Det er mulig at disse linjene kan fjernes fullstendig!!
 
