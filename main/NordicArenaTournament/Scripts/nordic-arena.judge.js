@@ -373,9 +373,9 @@ nordicArena.judge.isInOffZone = function (val, min, max) {
 
 nordicArena.judge.getSliderDataForDidNotSkate = function (contestantIx, criteriaIx) {
 	var slider = {};
-	var judgingContainer = "#judging-container-" + contestantIx;
+	var judgingContainer = $("#judging-container-" + contestantIx);
 
-	console.log(judgingContainer);
+	console.log(judgingContainer.style);
 
 	var index = "_" + contestantIx + "_" + criteriaIx;
 	//slider.sliderSelector = "#slider" + index;
