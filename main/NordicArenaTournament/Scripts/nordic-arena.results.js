@@ -33,6 +33,7 @@ nordicArena.results.update = function (tournamentId) {
 	nordicArena.common.get(nordicArena.results.reloadUrl).done(function (data) {
 		$('.main-content').html(data);
 	});
+	nordicArena.results.initScroll();
 };
 
 nordicArena.results.initScroll = function () {
