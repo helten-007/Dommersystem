@@ -1,11 +1,11 @@
 ﻿nordicArena.results = nordicArena.results || {};
+var timeOut = 0;
+var interval = 0;
 
 // On load
 $(function () {
 	nordicArena.results.initSignalRHub();
-	//nordicArena.results.initScroll();
-	$(".floatright.noprint").hide();
-	$("footer").hide();
+	nordicArena.results.initScroll();
 
 	$(".main-content").css("padding-bottom", "0em");
 	if ($('#body-container').innerHeight() > $(window).height()) {
@@ -27,6 +27,8 @@ nordicArena.results.initSignalRHub = function () {
 };
 
 nordicArena.results.update = function (tournamentId) {
+	clearInterval(timeOut);
+	clearInterval(interval);
 	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 	nordicArena.common.get(nordicArena.results.reloadUrl).done(function (data) {
 		$('.main-content').html(data);
@@ -34,8 +36,9 @@ nordicArena.results.update = function (tournamentId) {
 };
 
 nordicArena.results.initScroll = function () {
-	var timeOut = setTimeout(function () { nordicArena.results.scroll(); }, 2000);
+	console.log("initScroll");
 	clearInterval(timeOut);
+	timeOut = setTimeout(function () { nordicArena.results.scroll(); }, 2000);
 };
 
 nordicArena.results.scroll = function () {
@@ -60,5 +63,5 @@ nordicArena.results.scroll = function () {
 		}
 		interval = setInterval(myFunction, wait);
 	}
-	var interval = setInterval(myFunction, wait);
+	interval = setInterval(myFunction, wait);
 };

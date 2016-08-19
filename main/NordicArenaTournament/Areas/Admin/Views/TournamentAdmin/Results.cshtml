@@ -12,7 +12,7 @@
 <head>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>ViewBag.Title = NaHtml.PageTitle(Text.ResultsPageTitle);</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -21,13 +21,13 @@
 		<section class="main-content">
 			<input type="hidden" id="tournamentId" value="@Model.Tournament.Id">
 
-			<div class="floatright noprint">
+			<!--<div class="floatright noprint">
 				@using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
 				{
 					<button name="roundNo" type="submit" class="nav-button-grey previous-grey" value="@(Model.RoundNo - 1)" @Html.DisableIf(!Model.HasPreviousRound)></button>
 					<button name="roundNo" type="submit" class="nav-button-grey next-grey" value="@(Model.RoundNo + 1)" @Html.DisableIf(!Model.HasNextRound)></button><br />
 				}
-			</div>
+			</div>-->
 			<h1 class="tourney-name">@Html.ValueFor(model => model.TournamentName)<!-- - @Html.ValueFor(model => model.RoundTitle)--></h1>
 
 			<!--h2>@Text.ResultsPageTitle</h2-->
