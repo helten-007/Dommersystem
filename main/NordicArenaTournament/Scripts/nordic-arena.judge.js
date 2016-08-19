@@ -406,8 +406,8 @@ nordicArena.judge.setDidNotSkateScore = function () {
 
 nordicArena.judge.didNotSkate = function () {
 	nordicArena.judge.setDidNotSkateScore();
-	nordicArena.judge.enableSliders(false);
-	nordicArena.judge.showProgressBar(true);
+	//nordicArena.judge.enableSliders(false);
+	//nordicArena.judge.showProgressBar(true);
 	/*nordicArena.postForm("form", {
 		success: nordicArena.judge.onSubmitScoreSuccess,
 		error: nordicArena.judge.onSubmitScoreError,
