@@ -286,11 +286,9 @@
     <Content Include="CleanupAfterPublish.cmd" />
     <Content Include="Areas\Speaker\Views\TournamentSpeaker\NextContestantsList.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent.cshtml" />
-    <Content Include="Areas\Judge\Views\TournamentJudge\HeadJudgeIndex.cshtml" />
     <Content Include="Content\judge.css.map">
       <DependentUpon>judge.css</DependentUpon>
     </Content>
-    <Content Include="Areas\Judge\Views\TournamentJudge\HeadJudgeIndexContent.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeStatus.cshtml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - Web Deploy.pubxml" />
