@@ -34,7 +34,7 @@ nordicArena.editTournament.deleteRound = function (id) {
 
 
 nordicArena.common.parseFloat = function (floatString) {
-    if (floatString == null) return 0;
+    if (floatString == null || !floatString) return 0;
     return parseFloat(floatString.replace(",", "."));
 };
 

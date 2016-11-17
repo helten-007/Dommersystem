@@ -298,45 +298,76 @@ nordicArena.judge.getAverageValue = function (contestantIx, decimals) {
 	return average;
 };
 
-nordicArena.judge.renderCloseOpponents = function (list, nameIndex, scoreIndex, name, average) {
-	var hiddenElement = $('#closest-contestants #hidden-contestants li');
+nordicArena.judge.renderCloseOpponents = function (inAverage, contestantName) {
+	nordicArena.judge.sortCloseOpponents(inAverage, contestantName);
+
+	var hiddenElement = $('#closest-contestants #hidden-contestants li').clone();
 	var visibleElement = $('#closest-contestants #visible-contestants');
-	visibleElement.empty();
 
-	var copy = hiddenElement.clone();
-	var startIndex = scoreIndex > 0 ? (scoreIndex - 1) : 0;
+	var score = 0.0;
+	var name = "";
+	var position = "";
+	var array = [];
+	var tempElem = {};
 
-	if (nameIndex > scoreIndex) {
-		if ((scoreIndex + 1) >= copy.length)
-			copy.eq(startIndex - 1).show().appendTo(visibleElement);
+	hiddenElement.each(function () {
+		position = $(this).find('.close-cont-pos').first().text();
+		score = nordicArena.common.parseFloat($(this).find('.close-cont-score').text());
+		name = $(this).find('.close-cont-name').first().text();
 
-		if (scoreIndex > 0)
-			copy.eq(startIndex).show().appendTo(visibleElement);
+		if (name === contestantName)
+			if (inAverage > score)
+				score = inAverage;
 
-		var old = copy.eq(nameIndex).clone();
-		old.find('.close-cont-score')[0].innerText = Globalize.format(parseFloat(average), "N" + 2);
-		old.find('.close-cont-pos')[0].innerText = (scoreIndex + 1) + ":";
-		old.show().appendTo(visibleElement);
-		copy.splice(nameIndex, 1);
+		tempElem = {
+			position: position,
+			score: score,
+			name: name
+		};
+		array.push(tempElem);
+	});
 
-		if (scoreIndex < copy.length) {
-			var position = nordicArena.common.parseFloat(copy.eq(scoreIndex).find('.close-cont-pos')[0].innerText) + 1;
-			copy.eq(scoreIndex).find('.close-cont-pos')[0].innerText = position + ":";
-			copy.eq(scoreIndex).show().appendTo(visibleElement);
+	array = nordicArena.judge.sortCloseOpponents(array);
+	var nameIndex = 0;
+	$.each(array, function (index, value) {
+		if (value.name === contestantName)
+			nameIndex = index;
+	});
+
+	var newElement = $('#closest-contestants #hidden-contestants').clone();
+	newElement.empty();
+
+	var index = nameIndex - 5 >= 0 ? nameIndex - 5 : 0;
+	hiddenElement.each(function (i) {
+		if (index < (nameIndex + 5) || i < 10) {
+			$(this).find('.close-cont-pos').first().text((index + 1));
+			$(this).find('.close-cont-score').text(array[index].score);
+			$(this).find('.close-cont-name').first().text(array[index].name);
+
+			if (nameIndex === index)
+				$(this).css('background', '#03AAEC');
+
+			$(this).clone().show().appendTo(newElement);
+			index++;
+		} else {
+			return false;
 		}
+	});
 
-		if (scoreIndex == 0) {
-			var position = nordicArena.common.parseFloat(copy.eq(scoreIndex + 1).find('.close-cont-pos')[0].innerText) + 1;
-			copy.eq(scoreIndex + 1).find('.close-cont-pos')[0].innerText = position + ":";
-			copy.eq(scoreIndex + 1).show().appendTo(visibleElement);
-		}
-	} else {
-		if (nameIndex > 0)
-			copy.eq(nameIndex - 1).show().appendTo(visibleElement);
-		copy.eq(nameIndex).show().appendTo(visibleElement);
-		copy.eq(nameIndex + 1).show().appendTo(visibleElement);
-	}
+	visibleElement.html('');
+	newElement.show().children().appendTo(visibleElement);
 }
+
+nordicArena.judge.sortCloseOpponents = function (array) {
+	var results = [];
+	for (var i = 0; i < array.length ; i++) {
+		results.push(array[i]);
+	}
+	results.sort(function (a, b) {
+		return b.score - a.score;
+	});
+	return results;
+};
 
 nordicArena.judge.updateCloseOpponents = function (inAverage, contestantIx, decimals) {
 	setTimeout(function () {
@@ -344,26 +375,10 @@ nordicArena.judge.updateCloseOpponents = function (inAverage, contestantIx, deci
 		if (inAverage == newAverage) {
 			inAverage = nordicArena.common.parseFloat(inAverage);
 			var contestantName = $("#judge-contestant-container button:eq(" + contestantIx + ")").text().trim().split(' ')[0];
-			var list = $('#closest-contestants #hidden-contestants li');
-			var index = 0;
-			var scoreIndex = 0;
-			var nameIndex = 0;
-			var curScore = 0;
-
-			list.each(function () {
-				curScore = nordicArena.common.parseFloat($(this).find('.close-cont-score')[0].innerText);
-				curName = $(this).find('.close-cont-name')[0].innerText;
-
-				if (inAverage < curScore)
-					scoreIndex++;
-				if (curName === contestantName)
-					nameIndex = index;
-				index++;
-			});
-			nordicArena.judge.renderCloseOpponents(list, nameIndex, scoreIndex, contestantName, inAverage);
+			nordicArena.judge.renderCloseOpponents(inAverage, contestantName);
 		}
 	}, 1000);
-}
+};
 
 nordicArena.judge.isInOffZone = function (val, min, max) {
     var distance = max - min;
