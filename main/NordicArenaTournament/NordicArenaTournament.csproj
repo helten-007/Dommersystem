@@ -233,6 +233,15 @@
     <Compile Include="Areas\Judge\ViewModels\RunJudgementViewModel.cs" />
     <Compile Include="Areas\Speaker\ViewModels\JudgeHasScoredTuple.cs" />
     <Compile Include="Areas\Speaker\ViewModels\NextContestantViewModel.cs" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\ie\backgroundsize.min.htc" />
+    <Content Include="Content\ie\html5shiv.js" />
+    <Content Include="Content\ie\v8.css" />
+    <Content Include="Content\js\init.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\skel-layers.min.js" />
+    <Content Include="Content\js\skel.min.js" />
     <Content Include="Content\results.css.map">
       <DependentUpon>results.css</DependentUpon>
     </Content>
@@ -241,6 +250,11 @@
     </Content>
     <Content Include="Areas\Judge\Views\TournamentJudge\ClosestContestants.cshtml" />
     <Content Include="Areas\Admin\Views\TournamentAdmin\ResultsContent.cshtml" />
+    <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent.cshtml" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Content\results.less" />
     <Compile Include="Controllers\LayoutControllerBase.cs" />
     <Compile Include="Controllers\TournamentControllerBase.cs" />
@@ -251,6 +265,13 @@
     <Content Include="Content\results.min.css">
       <DependentUpon>results.css</DependentUpon>
     </Content>
+    <Content Include="Content\skel.css" />
+    <Content Include="Content\style-large.css" />
+    <Content Include="Content\style-medium.css" />
+    <Content Include="Content\style-small.css" />
+    <Content Include="Content\style-xlarge.css" />
+    <Content Include="Content\style-xsmall.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Scripts\ai.1.0.0-build00159.js" />
     <Content Include="Scripts\ai.1.0.0-build00159.min.js" />
     <Content Include="Scripts\nordic-arena.results.js" />
@@ -285,7 +306,7 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="CleanupAfterPublish.cmd" />
     <Content Include="Areas\Speaker\Views\TournamentSpeaker\NextContestantsList.cshtml" />
-    <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent.cshtml" />
+    <Content Include="Areas\Judge\Views\TournamentJudge\_JudgeIndexContent.cshtml" />
     <Content Include="Content\judge.css.map">
       <DependentUpon>judge.css</DependentUpon>
     </Content>

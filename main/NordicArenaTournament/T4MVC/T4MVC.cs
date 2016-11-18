@@ -518,6 +518,7 @@ namespace Links
         public static readonly string common_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/common.min.css") ? Url("common.min.css") : Url("common.css");
              
         public static readonly string common_min_css = Url("common.min.css");
+        public static readonly string font_awesome_min_css = Url("font-awesome.min.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class fonts {
             private const string URLPATH = "~/Content/fonts";

@@ -29,7 +29,7 @@
 }
 
 
-<div id="judge-contestant-container">
+<div id="judge-contestant-container" class="row">
 	@if (Model.Contestants.Count > 0)
 	{
 		int i = 0;
@@ -41,19 +41,23 @@
 			}
 			if (i == 0)
 			{
-				<button onclick="nordicArena.judge.selectContestant(@i)" class="judge-contestant-selector">@contestantModel.ContestantName</button>
-				<h1 style="display:inline-block;"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
+				<div class="2u">
+					<button onclick="nordicArena.judge.selectContestant(@i)" class="judge-contestant-selector">@contestantModel.ContestantName</button>
+				</div>
+				<h1 class="8u"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
 			}
 			else if (i == 1)
 			{
-				<h1 style="display:none;"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
-				<button onclick="nordicArena.judge.selectContestant(@i)" class="judge-contestant-selector right">@contestantModel.ContestantName</button>
+				<h1 style="display:none;" class="8u"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
+				<div class="2u">
+					<button onclick="nordicArena.judge.selectContestant(@i)" class="judge-contestant-selector">@contestantModel.ContestantName</button>
+				</div>
 			}
 			i++;
 		}
 	}
-	else
-	{
+ else
+ {
 		<span id="no-contestant" class="hidden">@Text.NoContestant</span>
 	}
 </div>
