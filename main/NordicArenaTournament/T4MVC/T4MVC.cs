@@ -523,11 +523,27 @@ namespace Links
             private const string URLPATH = "~/Content/fonts";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string fontawesome_webfont_eot = Url("fontawesome-webfont.eot");
+            public static readonly string fontawesome_webfont_svg = Url("fontawesome-webfont.svg");
+            public static readonly string fontawesome_webfont_ttf = Url("fontawesome-webfont.ttf");
+            public static readonly string fontawesome_webfont_woff = Url("fontawesome-webfont.woff");
+            public static readonly string FontAwesome_otf = Url("FontAwesome.otf");
             public static readonly string LeagueGothic_CondensedItalic_otf = Url("LeagueGothic-CondensedItalic.otf");
             public static readonly string LeagueGothic_CondensedRegular_otf = Url("LeagueGothic-CondensedRegular.otf");
             public static readonly string LeagueGothic_Italic_otf = Url("LeagueGothic-Italic.otf");
             public static readonly string LeagueGothic_Regular_otf = Url("LeagueGothic-Regular.otf");
             public static readonly string SIL_Open_Font_License_txt = Url("SIL Open Font License.txt");
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class ie {
+            private const string URLPATH = "~/Content/ie";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string backgroundsize_min_htc = Url("backgroundsize.min.htc");
+            public static readonly string html5shiv_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/html5shiv.min.js") ? Url("html5shiv.min.js") : Url("html5shiv.js");
+            public static readonly string v8_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/v8.min.css") ? Url("v8.min.css") : Url("v8.css");
+                 
         }
     
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -557,6 +573,17 @@ namespace Links
         
         }
     
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class js {
+            private const string URLPATH = "~/Content/js";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string init_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/init.min.js") ? Url("init.min.js") : Url("init.js");
+            public static readonly string jquery_min_js = Url("jquery.min.js");
+            public static readonly string skel_layers_min_js = Url("skel-layers.min.js");
+            public static readonly string skel_min_js = Url("skel.min.js");
+        }
+    
         public static readonly string judge_less = Url("judge.less");
         public static readonly string judge_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/judge.min.css") ? Url("judge.min.css") : Url("judge.css");
              
@@ -571,6 +598,20 @@ namespace Links
         public static readonly string site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/site.min.css") ? Url("site.min.css") : Url("site.css");
              
         public static readonly string site_min_css = Url("site.min.css");
+        public static readonly string skel_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skel.min.css") ? Url("skel.min.css") : Url("skel.css");
+             
+        public static readonly string style_large_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style-large.min.css") ? Url("style-large.min.css") : Url("style-large.css");
+             
+        public static readonly string style_medium_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style-medium.min.css") ? Url("style-medium.min.css") : Url("style-medium.css");
+             
+        public static readonly string style_small_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style-small.min.css") ? Url("style-small.min.css") : Url("style-small.css");
+             
+        public static readonly string style_xlarge_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style-xlarge.min.css") ? Url("style-xlarge.min.css") : Url("style-xlarge.css");
+             
+        public static readonly string style_xsmall_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style-xsmall.min.css") ? Url("style-xsmall.min.css") : Url("style-xsmall.css");
+             
+        public static readonly string style_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style.min.css") ? Url("style.min.css") : Url("style.css");
+             
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class svg {
             private const string URLPATH = "~/Content/svg";
