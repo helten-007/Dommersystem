@@ -10,6 +10,22 @@
     display: none;
 }
 
+#judge-contestant-inner-container {
+	background: #443F3F;
+}
+
+	#judge-contestant-inner-container .button-container {
+		text-align: center;
+	}
+
+		#judge-contestant-inner-container .button-container button {
+			text-align: center;
+			min-width: 80%;
+			top: .7em;
+			position: relative;
+			border-radius: 10px;
+		}
+
 .slider-button {
 	display: inline-block;
 	height: @slider-button-size;
@@ -36,6 +52,7 @@
 .input-container {
     margin: 0;
     padding: .5em;
+	background: #F1F1F1;
 }
 
 section.main-content {
@@ -45,22 +62,31 @@ section.main-content {
 
 .ui-slider-handle {
     width: @handle-width !important;
-    height: 15px !important;
-    left: -10px !important;
+    height: 20px !important;
+    left: -5px !important;
     background: @highlighted 50% 50% repeat-x !important;
     border-radius: 10px;
+	text-align: center;
 }
 
 .ui-slider-handle:after {
-    content: '|||';
     color: #ffd1d1;
-    left: calc(@handle-width/2-7px);
-    top: -3px;
+    //left: calc(@handle-width/2-15px);
     position: relative;
+
+	content: "";
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important;
+
+
 }
 
 .ui-slider-range {
-    background: linear-gradient(to top, @footer-bg 0%, @highlighted 100%);
+    //background: linear-gradient(to top, @footer-bg 0%, @highlighted 100%);
+	background: red;//@highlighted;
 }
 
 /* Outer container box for all sliders*/
@@ -124,14 +150,21 @@ section.main-content {
 }
 
 #judging-footer {
-    text-align: right;
+    //text-align: center;
 }
 
+#judge-submit {
+	margin: 0;
+	padding: 0.5em;
+}
+
+#derp{height:1em;}
+
 .logged-in-as-box {
-    position: absolute;
+    /*position: absolute;
     bottom: 30px;
     left: 0;
-    margin: .5em;
+    margin: .5em;*/
 }
 
 #contestant-name {
@@ -205,7 +238,7 @@ section.main-content {
     }
 
     .ui-slider-handle:after {
-        left: calc(@handle-width * @factor /2-7px);
+        //left: calc(@handle-width * @factor /2-7px);
     }
     .label-value-pair {
         width: @labelbox-width * @factor ;

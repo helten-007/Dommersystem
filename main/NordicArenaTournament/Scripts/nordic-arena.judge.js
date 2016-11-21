@@ -34,7 +34,12 @@ nordicArena.judge.initGui = function () {
 	if (nordicArena.judge.judgeId == null) throw "Judge ID not set";
 	nordicArena.judge.initSliders();
 	nordicArena.judge.selectContestant(0);
-	//nordicArena.judge.initScreenHeight();
+
+	var timeoutId = setTimeout(function () {
+		nordicArena.judge.initScreenHeight();
+	}, 100);
+
+	clearTimeout(timeoutId);
 };
 
 nordicArena.judge.hideBrowserChrome = function () {
@@ -56,10 +61,14 @@ nordicArena.judge.selectContestant = function (contestantIx) {
 	$("#judge-contestant-container").find("button:eq(" + contestantIx + ")").toggleClass("selected", true);
 };
 
+$(window).resize(function () {
+	nordicArena.judge.resetHeight();
+});
+
 
 // Ensure the height of the bars fill the screen and that it is adjusted on change
 nordicArena.judge.initScreenHeight = function () {
-	window.onresize = nordicArena.judge.resetHeight;
+	//window.onresize = nordicArena.judge.resetHeight;
 	nordicArena.judge.resetHeight();
 };
 
@@ -110,11 +119,14 @@ nordicArena.judge.resetHeight = function () {
 	var height = document.documentElement.clientHeight;
 	var containerTop = $(".slider").first().position().top;
 	var sliderMargin = $(".slider").first().totalVerticalMargin();
+
+	var sliderButtonHeight = $('.slider-button').first().parent().outerHeight();
+
 	var footerHeight = $("#judging-footer").height();
 	var footerMargin = $("#judging-footer").totalVerticalMargin();
-	height = height - containerTop - footerHeight - sliderMargin - footerMargin;
+	height = height - containerTop - footerHeight - sliderMargin - footerMargin - (sliderButtonHeight * 2);
 	height -= nordicArena.judge.const.bottomSafetyMargin; // Remaining "unexplicable" height 
-	//nordicArena.log("nordicArena.judge.resetHeight() Height: " + height + " - containerTop, footerHeiht, sliderMargin, footerMargin:"  + containerTop + ","  +footerHeight + "," + sliderMargin +"," + footerMargin);
+	nordicArena.log("nordicArena.judge.resetHeight() Height: " + height + " - containerTop, footerHeiht, sliderMargin, footerMargin:"  + containerTop + ","  +footerHeight + "," + sliderMargin +"," + footerMargin);
 	if (height > 100) {
 		$(".slider").height(height);
 		//nordicArena.log("resizing to " + height);

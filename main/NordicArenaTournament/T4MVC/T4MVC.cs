@@ -517,6 +517,7 @@ namespace Links
         public static readonly string common_less = Url("common.less");
         public static readonly string common_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/common.min.css") ? Url("common.min.css") : Url("common.css");
              
+        public static readonly string common_css_map = Url("common.css.map");
         public static readonly string common_min_css = Url("common.min.css");
         public static readonly string font_awesome_min_css = Url("font-awesome.min.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -598,6 +599,7 @@ namespace Links
         public static readonly string site_less = Url("site.less");
         public static readonly string site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/site.min.css") ? Url("site.min.css") : Url("site.css");
              
+        public static readonly string site_css_map = Url("site.css.map");
         public static readonly string site_min_css = Url("site.min.css");
         public static readonly string skel_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skel.min.css") ? Url("skel.min.css") : Url("skel.css");
              

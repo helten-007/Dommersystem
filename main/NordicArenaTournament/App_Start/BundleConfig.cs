@@ -51,13 +51,7 @@ namespace NordicArenaTournament
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-			bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/skel.css",
-						"~/Content/style.css",
-						"~/Content/style-large.css",
-						"~/Content/style-medium.css",
-						"~/Content/style-small.css",
-						"~/Content/style-xlarge.css",
-						"~/Content/style-small.css")); //Include("~/Content/site.css"));
+			bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -74,8 +68,8 @@ namespace NordicArenaTournament
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
             bundles.Add(new StyleBundle("~/bundles/judge-styles").Include(
-                        //"~/Content/themes/base/jquery-ui.css"//,
-                        /*"~/Content/judge.css"*/));
+                        "~/Content/themes/base/jquery-ui.css",
+                        "~/Content/judge.css"));
 
 			bundles.Add(new StyleBundle("~/bundles/results-styles").Include(
 						"~/Content/themes/base/jquery-ui.css",

@@ -28,12 +28,12 @@
 			medium: {
 				media: '(max-width: 980px)',
 				href: '../../Content/style-medium.css',
-				containers: '90%'
+				containers: '100%'
 			},
 			small: {
 				media: '(max-width: 736px)',
 				href: '../../Content/style-small.css',
-				containers: '90%',
+				containers: '100%',
 				grid: { gutters: ['1.25em', 0] }
 			},
 			xsmall: {
@@ -41,7 +41,7 @@
 				href: '../../Content/style-xsmall.css',
 			}
 		},
-		plugins: {
+		/*plugins: {
 			layers: {
 				config: {
 					mode: 'transform'
@@ -67,7 +67,7 @@
 					width: '6em'
 				}
 			}
-		}
+		}*/
 	});
 
 	$(function() {

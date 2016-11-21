@@ -255,6 +255,9 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\common.css.map">
+      <DependentUpon>common.css</DependentUpon>
+    </Content>
     <None Include="Content\results.less" />
     <Compile Include="Controllers\LayoutControllerBase.cs" />
     <Compile Include="Controllers\TournamentControllerBase.cs" />
@@ -311,6 +314,9 @@
       <DependentUpon>judge.css</DependentUpon>
     </Content>
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeStatus.cshtml" />
+    <Content Include="Content\site.css.map">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\oslogames2014 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\oslogames2014 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Turneringssystem - FTP %282%29.pubxml" />

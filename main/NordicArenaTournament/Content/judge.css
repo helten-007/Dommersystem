@@ -3,6 +3,19 @@
 .banner {
   display: none;
 }
+#judge-contestant-inner-container {
+  background: #443F3F;
+}
+#judge-contestant-inner-container .button-container {
+  text-align: center;
+}
+#judge-contestant-inner-container .button-container button {
+  text-align: center;
+  min-width: 80%;
+  top: .7em;
+  position: relative;
+  border-radius: 10px;
+}
 .slider-button {
   display: inline-block;
   height: 1.9em;
@@ -25,6 +38,7 @@
 .input-container {
   margin: 0;
   padding: .5em;
+  background: #F1F1F1;
 }
 section.main-content {
   margin: 0;
@@ -32,20 +46,24 @@ section.main-content {
 }
 .ui-slider-handle {
   width: 71px !important;
-  height: 15px !important;
-  left: -10px !important;
-  background: #e84e4e 50% 50% repeat-x !important;
+  height: 20px !important;
+  left: -5px !important;
+  background: #03aaec 50% 50% repeat-x !important;
   border-radius: 10px;
+  text-align: center;
 }
 .ui-slider-handle:after {
-  content: '|||';
   color: #ffd1d1;
-  left: calc(28.5px);
-  top: -3px;
   position: relative;
+  content: "";
+  -webkit-font-smoothing: antialiased;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none !important;
 }
 .ui-slider-range {
-  background: linear-gradient(to top, #232323 0%, #e84e4e 100%);
+  background: red;
 }
 /* Outer container box for all sliders*/
 .slider-container {
@@ -67,7 +85,7 @@ section.main-content {
   margin: auto;
 }
 .ui-state-active {
-  background: #e84e4e !important;
+  background: #03aaec !important;
 }
 .label-value-pair {
   width: 95px;
@@ -87,7 +105,7 @@ section.main-content {
 }
 .score.disabled {
   background: none;
-  border: 1px #e84e4e solid;
+  border: 1px #03aaec solid;
 }
 #judging-container.disabled .ui-slider-handle {
   background: gray !important;
@@ -95,14 +113,18 @@ section.main-content {
 #judging-container.disabled .ui-slider-range {
   background: #262626 !important;
 }
-#judging-footer {
-  text-align: right;
+#judge-submit {
+  margin: 0;
+  padding: 0.5em;
+}
+#derp {
+  height: 1em;
 }
 .logged-in-as-box {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  margin: .5em;
+  /*position: absolute;
+    bottom: 30px;
+    left: 0;
+    margin: .5em;*/
 }
 #contestant-name {
   text-align: left;
@@ -124,7 +146,7 @@ section.main-content {
   float: right;
 }
 .judge-contestant-selector.selected {
-  background: #e84e4e;
+  background: #03aaec;
   color: white;
 }
 .averageBox {
@@ -162,9 +184,6 @@ section.main-content {
   }
   .ui-slider-handle {
     width: 56.8px !important;
-  }
-  .ui-slider-handle:after {
-    left: calc(21.4px);
   }
   .label-value-pair {
     width: 76px;
