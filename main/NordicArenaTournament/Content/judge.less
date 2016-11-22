@@ -4,7 +4,13 @@
 @labelbox-width: 95px;
 @handle-width: 71px;
 @slider-width: 60px;
-@slider-button-size: 1.9em;
+@slider-button-width: @slider-width;
+@slider-button-height: 1.9em;
+@slider-button-margin: 0.2em;
+
+:focus {
+	outline: none;
+}
 
 .banner {
     display: none;
@@ -14,29 +20,45 @@
 	background: #443F3F;
 }
 
-	#judge-contestant-inner-container .button-container {
+	.button-container {
 		text-align: center;
 	}
 
-		#judge-contestant-inner-container .button-container button {
+		.button-container button {
 			text-align: center;
 			min-width: 80%;
-			top: .7em;
 			position: relative;
-			border-radius: 10px;
+			border-radius: 5px;
 		}
+
+		#judge-contestant-inner-container .button-container button {
+			top: .7em;
+		}
+
+.rider-info {
+	position: relative;
+	top: .7em;
+}
 
 .slider-button {
 	display: inline-block;
-	height: @slider-button-size;
-	width: @slider-button-size;
+	width: @slider-button-width;
 	padding: 0;
 	margin: 0;
+	border: 2px solid black;
+	background: transparent;
+	border-radius: 5px;
+	font-size: 2.5em;
+	color: #666;
 }
 
-.slider-button-minus {
-	margin-right: 0.3em;
-}
+	.slider-button-plus {
+		margin-bottom: @slider-button-margin;
+	}
+
+	.slider-button-minus {
+		margin-top: @slider-button-margin;
+	}
 
 .ui-slider-vertical {
     width: @slider-width;
@@ -62,31 +84,32 @@ section.main-content {
 
 .ui-slider-handle {
     width: @handle-width !important;
-    height: 20px !important;
+    height: 35px !important;
     left: -5px !important;
-    background: @highlighted 50% 50% repeat-x !important;
+    background: /*@highlighted*/white 50% 50% repeat-x !important;
     border-radius: 10px;
 	text-align: center;
+	border: 2px solid black !important;
 }
 
 .ui-slider-handle:after {
     color: #ffd1d1;
     //left: calc(@handle-width/2-15px);
     position: relative;
-
+	top: 0;
 	content: "";
     -webkit-font-smoothing: antialiased;
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
-
-
+	color: #666;
+	font-size: 1.5em;
 }
 
 .ui-slider-range {
     //background: linear-gradient(to top, @footer-bg 0%, @highlighted 100%);
-	background: red;//@highlighted;
+	background: @highlighted;
 }
 
 /* Outer container box for all sliders*/
@@ -111,32 +134,46 @@ section.main-content {
 }
 
 .ui-state-active {
-    background: @highlighted !important;
+    //background: @highlighted !important;
 }
 
 
 .label-value-pair {
-    width: @labelbox-width;
+    width: calc(@labelbox-width + 0.5em);
+	background-color: transparent;
+	border: none;
+	font-size: 1.5em;
+	margin: 0 !important;
 }
 
 .criteria-name {
     display: block;
     padding: .3em;
+	color: #666;
+	font-weight: 600;
+	border: none;
 }
 
 .score {
     width: @labelbox-width - 10px;
     text-align: center;
-    border: 1px gray solid;
+    //border: 1px gray solid;
     padding: 4px !important;
     margin: 0px 0px !important;
     left: 0px;
     position: relative;
+
+	border: none !important;
+	color: #666;
+	font-size: 1.2em;
+	background-color: transparent !important;
 }
 
     .score.disabled {
         background: none;
-        border: 1px @highlighted solid;
+        //border: 1px @highlighted solid;
+		border: none !important;
+		background-color: transparent !important;
     }
 
 #judging-container.disabled {
@@ -158,7 +195,9 @@ section.main-content {
 	padding: 0.5em;
 }
 
-#derp{height:1em;}
+.clearfix{
+	height:1em;
+}
 
 .logged-in-as-box {
     /*position: absolute;
@@ -196,7 +235,7 @@ section.main-content {
 
 .averageBox {
     display: block; 
-    /*margin: 40px;*/
+    margin: 20px 0 20px 0;
     font-size: 40px;
     .avg-label {
         font-size: 80%;    

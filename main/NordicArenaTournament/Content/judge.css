@@ -1,35 +1,51 @@
 ﻿/* Judge-page-Wspecific styles
 -----------------------------------------------------------*/
+:focus {
+  outline: none;
+}
 .banner {
   display: none;
 }
 #judge-contestant-inner-container {
   background: #443F3F;
 }
-#judge-contestant-inner-container .button-container {
+.button-container {
   text-align: center;
 }
-#judge-contestant-inner-container .button-container button {
+.button-container button {
   text-align: center;
   min-width: 80%;
-  top: .7em;
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+#judge-contestant-inner-container .button-container button {
+  top: .7em;
+}
+.rider-info {
+  position: relative;
+  top: .7em;
 }
 .slider-button {
   display: inline-block;
-  height: 1.9em;
-  width: 1.9em;
+  width: 60px;
   padding: 0;
   margin: 0;
+  border: 2px solid black;
+  background: transparent;
+  border-radius: 5px;
+  font-size: 2.5em;
+  color: #666;
+}
+.slider-button-plus {
+  margin-bottom: 0.2em;
 }
 .slider-button-minus {
-  margin-right: 0.3em;
+  margin-top: 0.2em;
 }
 .ui-slider-vertical {
   width: 60px;
   height: 300px;
-  background: #232323;
+  background: #443f3f;
 }
 .secondary-header-bar {
   padding: .5em 0 .5em 0;
@@ -46,24 +62,28 @@ section.main-content {
 }
 .ui-slider-handle {
   width: 71px !important;
-  height: 20px !important;
+  height: 35px !important;
   left: -5px !important;
-  background: #03aaec 50% 50% repeat-x !important;
+  background: white 50% 50% repeat-x !important;
   border-radius: 10px;
   text-align: center;
+  border: 2px solid black !important;
 }
 .ui-slider-handle:after {
   color: #ffd1d1;
   position: relative;
+  top: 0;
   content: "";
   -webkit-font-smoothing: antialiased;
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
   text-transform: none !important;
+  color: #666;
+  font-size: 1.5em;
 }
 .ui-slider-range {
-  background: red;
+  background: #03aaec;
 }
 /* Outer container box for all sliders*/
 .slider-container {
@@ -84,28 +104,36 @@ section.main-content {
 .na-slider > div.slider {
   margin: auto;
 }
-.ui-state-active {
-  background: #03aaec !important;
-}
 .label-value-pair {
-  width: 95px;
+  width: calc(95.5px);
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  margin: 0 !important;
 }
 .criteria-name {
   display: block;
   padding: .3em;
+  color: #666;
+  font-weight: 600;
+  border: none;
 }
 .score {
   width: 85px;
   text-align: center;
-  border: 1px gray solid;
   padding: 4px !important;
   margin: 0px 0px !important;
   left: 0px;
   position: relative;
+  border: none !important;
+  color: #666;
+  font-size: 1.2em;
+  background-color: transparent !important;
 }
 .score.disabled {
   background: none;
-  border: 1px #03aaec solid;
+  border: none !important;
+  background-color: transparent !important;
 }
 #judging-container.disabled .ui-slider-handle {
   background: gray !important;
@@ -117,7 +145,7 @@ section.main-content {
   margin: 0;
   padding: 0.5em;
 }
-#derp {
+.clearfix {
   height: 1em;
 }
 .logged-in-as-box {
@@ -151,7 +179,7 @@ section.main-content {
 }
 .averageBox {
   display: block;
-  /*margin: 40px;*/
+  margin: 20px 0 20px 0;
   font-size: 40px;
 }
 .averageBox .avg-label {

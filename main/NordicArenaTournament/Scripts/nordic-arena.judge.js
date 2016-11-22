@@ -36,10 +36,8 @@ nordicArena.judge.initGui = function () {
 	nordicArena.judge.selectContestant(0);
 
 	var timeoutId = setTimeout(function () {
-		nordicArena.judge.initScreenHeight();
+		nordicArena.judge.initScreenHeight(timeoutId);
 	}, 100);
-
-	clearTimeout(timeoutId);
 };
 
 nordicArena.judge.hideBrowserChrome = function () {
@@ -67,9 +65,10 @@ $(window).resize(function () {
 
 
 // Ensure the height of the bars fill the screen and that it is adjusted on change
-nordicArena.judge.initScreenHeight = function () {
+nordicArena.judge.initScreenHeight = function (timeoutId) {
 	//window.onresize = nordicArena.judge.resetHeight;
 	nordicArena.judge.resetHeight();
+	clearTimeout(timeoutId);
 };
 
 nordicArena.judge.reloadPanels = function (tournamentId) {

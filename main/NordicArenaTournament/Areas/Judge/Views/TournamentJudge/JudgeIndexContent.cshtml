@@ -47,11 +47,11 @@
 							<div class="2u button-container">
 								<button onclick="nordicArena.judge.selectContestant(@i)" class="judge-contestant-selector">@contestantModel.ContestantName</button>
 							</div>
-							<h1 class="8u"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
+							<h1 class="8u rider-info"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
 						}
 						else if (i == 1)
 						{
-							<h1 style="display:none;" class="8u"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
+							<h1 style="display:none;" class="8u rider-info"><span>@contestantModel.ContestantName</span><span> | @contestantModel.Stance | </span><span>Beste run: @contestantModel.Contestant.TotalScore</span></h1>
 							<div class="2u button-container">
 								<button onclick="nordicArena.judge.selectContestant(@i)" class="judge-contestant-selector">@contestantModel.ContestantName</button>
 							</div>
@@ -120,11 +120,12 @@ else
 				</div>
 			</div>
 		}
-		<div class="clearfix"></div>
 		<div id="judging-footer" class="12u">
 			<div class="row">
-				<div id="derp" class="3u"></div>
-				<button id="judge-submit" class="6u" type="button" onclick="nordicArena.judge.submitScores()" @Html.DisableIf(!Model.CanJudge)>@Text.JudgeSubmitButtonText</button>
+				<div class="clearfix 3u"></div>
+				<div class="6u button-container">
+					<button id="judge-submit" type="button" onclick="nordicArena.judge.submitScores()" @Html.DisableIf(!Model.CanJudge)>@Text.JudgeSubmitButtonText</button>
+				</div>
 				<span class="logged-in-as-box 3u">@Text.LoggedInAs: <b>@Model.Judge.Name</b></span>
 			</div>
 		</div>
