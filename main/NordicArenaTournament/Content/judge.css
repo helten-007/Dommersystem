@@ -61,7 +61,7 @@ section.main-content {
   padding: 0;
 }
 .ui-slider-handle {
-  width: 71px !important;
+  width: 70px !important;
   height: 35px !important;
   left: -5px !important;
   background: white 50% 50% repeat-x !important;
@@ -212,7 +212,7 @@ section.main-content {
     width: 48px;
   }
   .ui-slider-handle {
-    width: 56.8px !important;
+    width: 56px !important;
   }
   .label-value-pair {
     width: 99px;
