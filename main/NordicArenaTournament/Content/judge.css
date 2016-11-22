@@ -129,6 +129,7 @@ section.main-content {
   color: #666;
   font-size: 1.2em;
   background-color: transparent !important;
+  height: initial !important;
 }
 .score.disabled {
   background: none;
@@ -179,7 +180,7 @@ section.main-content {
 }
 .averageBox {
   display: block;
-  margin: 20px 0 20px 0;
+  margin: 0 0 20px 0;
   font-size: 40px;
 }
 .averageBox .avg-label {
