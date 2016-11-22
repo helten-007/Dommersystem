@@ -1,7 +1,7 @@
 ﻿/* Must be loaded after nordic-arena.main */
 nordicArena.judge = nordicArena.judge || {};
 nordicArena.judge.const = {};
-nordicArena.judge.const.bottomSafetyMargin = 50;
+nordicArena.judge.const.bottomSafetyMargin = 10;
 nordicArena.judge.const.sliderZeroThreshold = 0.1;
 nordicArena.judge.const.sliderOffThreshold = 0.1;
 
