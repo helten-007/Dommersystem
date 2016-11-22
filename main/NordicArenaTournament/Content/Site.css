@@ -139,7 +139,7 @@ footer #footer-bar {
   bottom: 0px;
   width: 100%;
   height: 18px;
-  background: black;
+  background: #03aaec;
 }
 a,
 a:visited {
@@ -160,7 +160,7 @@ a:hover {
 }
 a.selected {
   font-family: 'Arial Narrow', 'Nimbus Sans L', sans-serif;
-  color: black;
+  color: #03aaec;
 }
 h1,
 h2 {
@@ -232,7 +232,7 @@ textarea {
 }
 .label-editor-pair,
 .label-value-pair {
-  background: black;
+  background: #03aaec;
   display: inline-block;
   margin: 0.3em;
   white-space: nowrap;
@@ -267,7 +267,7 @@ textarea {
 table {
   margin-top: 7px;
   margin-bottom: 7px;
-  border: solid 1px black;
+  border: solid 1px #03aaec;
   border-collapse: collapse;
 }
 table td {
@@ -278,7 +278,7 @@ table td {
 table th {
   padding: 6px 5px;
   text-align: left;
-  background-color: black;
+  background-color: #03aaec;
   color: white;
   border: solid 1px #c12b2b;
 }
@@ -432,7 +432,7 @@ button.next-white {
 }
 .speaker-control-container .header {
   text-size: 110%;
-  background: black;
+  background: #03aaec;
   color: white;
   padding: .3em;
   margin: 0 0 1em 0;
@@ -497,7 +497,7 @@ a.add {
   background-size: 28px;
 }
 a.selected {
-  color: black;
+  color: #03aaec;
 }
 #save-contestant-button {
   float: right;

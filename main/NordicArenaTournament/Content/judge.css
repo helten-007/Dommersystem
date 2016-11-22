@@ -83,7 +83,7 @@ section.main-content {
   font-size: 1.5em;
 }
 .ui-slider-range {
-  background: black;
+  background: #03aaec;
 }
 /* Outer container box for all sliders*/
 .slider-container {
@@ -92,7 +92,7 @@ section.main-content {
 }
 /* Slider containing box -including text field */
 .na-slider {
-  margin: 0em .7em 1em .7em;
+  margin: 0 .7em 1em .7em;
   text-align: center;
   display: inline-block;
   /* Text box */
@@ -175,7 +175,7 @@ section.main-content {
   float: right;
 }
 .judge-contestant-selector.selected {
-  background: black;
+  background: #03aaec;
   color: white;
 }
 .averageBox {
@@ -213,6 +213,9 @@ section.main-content {
   }
   .ui-slider-handle {
     width: 56.8px !important;
+  }
+  .label-value-pair {
+    width: 91px;
   }
   .score {
     width: 66px;
