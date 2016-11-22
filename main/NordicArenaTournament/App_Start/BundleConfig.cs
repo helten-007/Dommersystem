@@ -10,12 +10,11 @@ namespace NordicArenaTournament
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         //"~/Scripts/jquery-{version}.js",
-						//"~/Content/js/jquery.min.js",
+						"~/Content/js/jquery.min.js",
                         "~/Scripts/globalize/globalize.js",
                         "~/Scripts/globalize/cultures/globalize.culture.nb-NO.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/skel").Include(
-						"~/Content/js/jquery.min.js",
 						"~/Content/js/skel.min.js",
 						"~/Content/js/skel-layers.min.js",
 						"~/Content/js/init.js"));
@@ -52,6 +51,11 @@ namespace NordicArenaTournament
                         "~/Scripts/modernizr-*"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+
+			bundles.Add(new StyleBundle("~/Content/skel-css").Include(
+						"~/Content/skel.css",
+						"~/Content/style.css",
+						"~/Content/style-xlarge.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

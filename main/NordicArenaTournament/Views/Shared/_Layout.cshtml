@@ -11,18 +11,10 @@
 	@RenderSection("htmlheader", required: false)
 	<title>@ViewBag.Title</title>
 
-	<script src="/Dommer/Scripts/globalize/globalize.js"></script>
-	<script src="/Dommer/Scripts/globalize/cultures/globalize.culture.nb-NO.js"></script>
-
-
-	<script src="/Dommer/Content/js/jquery.min.js"></script>
-	<script src="/Dommer/Content/js/skel.min.js"></script>
-	<script src="/Dommer/Content/js/skel-layers.min.js"></script>
-	<script src="/Dommer/Content/js/init.js"></script>
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/skel")
 	<noscript>
-		<link rel="stylesheet" href="/Dommer/Content/skel.css" />
-		<link rel="stylesheet" href="/Dommer/Content/style.css" />
-		<link rel="stylesheet" href="/Dommer/Content/style-xlarge.css" />
+		@Styles.Render("~/Content/skel-css")
 	</noscript>
 
 	@Styles.Render("~/Content/css")
