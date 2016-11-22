@@ -105,7 +105,7 @@ section.main-content {
   margin: auto;
 }
 .label-value-pair {
-  width: calc(95.5px);
+  width: calc(95px + 1.5em);
   background-color: transparent;
   border: none;
   font-size: 1.5em;
@@ -215,7 +215,7 @@ section.main-content {
     width: 56.8px !important;
   }
   .label-value-pair {
-    width: 190px;
+    width: 99px;
   }
   .score {
     width: 66px;
