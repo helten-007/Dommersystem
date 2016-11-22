@@ -21,7 +21,7 @@
 			large: {
 				media: '(max-width: 1280px)',
 				href: '../../Content/style-large.css',
-				containers: 960,
+				containers: '100%',
 				grid: { gutters: ['1.5em', 0] },
 				viewport: { scalable: false }
 			},

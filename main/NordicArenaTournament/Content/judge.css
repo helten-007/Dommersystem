@@ -83,7 +83,7 @@ section.main-content {
   font-size: 1.5em;
 }
 .ui-slider-range {
-  background: #03aaec;
+  background: black;
 }
 /* Outer container box for all sliders*/
 .slider-container {
@@ -175,7 +175,7 @@ section.main-content {
   float: right;
 }
 .judge-contestant-selector.selected {
-  background: #03aaec;
+  background: black;
   color: white;
 }
 .averageBox {
