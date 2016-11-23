@@ -161,6 +161,13 @@ section.main-content {
   padding-left: 4em;
   Color: #393939;
 }
+#visible-contestants {
+  list-style-type: none;
+}
+#visible-contestants li {
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+}
 .judge-contestant-selector {
   display: inline-block;
   margin: 0;

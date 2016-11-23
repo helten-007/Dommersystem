@@ -456,13 +456,11 @@ fieldset.speaker {
 }
 div.judge-status-done,
 div.judge-status-waiting {
-  width: 48px;
-  height: 16px;
-  border-radius: 2px;
+  padding-top: 80%;
+  width: 80%;
+  margin-top: 10%;
+  border-radius: 100%;
   background: red;
-  border: 1px black solid;
-  margin-right: 8px;
-  box-shadow: #ccc 1px 1px;
 }
 div.judge-status-done {
   background: green;

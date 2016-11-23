@@ -2,22 +2,22 @@
 @using NordicArenaDomainModels.Resources
 @using NordicArenaTournament.Common
 @{
-    ViewBag.Title = NaHtml.PageTitle(Text.JudgePageTitle);
+	ViewBag.Title = NaHtml.PageTitle(Text.JudgePageTitle);
 }
 @section htmlheader {
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 }
 
 <div id="judge-main-container" class="container">
-	@Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent)
+	@Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent);
 </div>
 
 @section Scripts {
-    @Styles.Render("~/bundles/judge-styles")
-    @Scripts.Render("~/bundles/judge-scripts")
-    @Scripts.Render("~/signalr/hubs")
-} 
+	@Styles.Render("~/bundles/judge-styles")
+	@Scripts.Render("~/bundles/judge-scripts")
+	@Scripts.Render("~/signalr/hubs")
+}
 @section jqueryonload {
-    nordicArena.judge.reloadUrl = '@Html.Raw(Url.Action(MVC.Judge.TournamentJudge.JudgeIndexContent(Model.Tournament.Id, Model.Judge.Id)))';    
+	nordicArena.judge.reloadUrl = '@Html.Raw(Url.Action(MVC.Judge.TournamentJudge.JudgeIndexContent(Model.Tournament.Id, Model.Judge.Id)))';
 	nordicArena.judge.judgeStatusReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.JudgeStatus, new { tournamentId = Model.Tournament.Id, runNo = Model.Tournament.GetRoundCounter().GetRunNo() }))';
 }

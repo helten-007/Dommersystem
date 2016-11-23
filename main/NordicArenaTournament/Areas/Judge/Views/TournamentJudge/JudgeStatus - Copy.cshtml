@@ -1,0 +1,20 @@
+﻿@model IEnumerable<NordicArenaTournament.Areas.Speaker.ViewModels.JudgeHasScoredTuple>
+@using NordicArenaDomainModels.Resources
+@using NordicArenaTournament.Common
+
+@if (Model != null)
+{ 
+    <table class="clean">
+        @foreach (var tuple in Model)
+        {
+			if (!tuple.IsHeadJudge)
+			{
+				var cssClassName = tuple.HasJudged ? "judge-status-done" : "judge-status-waiting";                
+				<tr>
+					<td width="1">@(tuple.JudgeName + ": ")</td>
+					<td width="1"><div class="@cssClassName"></div></td>
+				</tr>
+			}
+        }
+    </table>
+}

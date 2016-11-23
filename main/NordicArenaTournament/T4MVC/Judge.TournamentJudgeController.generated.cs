@@ -182,15 +182,19 @@ namespace NordicArenaTournament.Areas.Judge.Controllers
                 public readonly string _JudgeIndexContent = "_JudgeIndexContent";
                 public readonly string ClosestContestants = "ClosestContestants";
                 public readonly string JudgeIndex = "JudgeIndex";
+                public readonly string JudgeIndexContent___Copy = "JudgeIndexContent - Copy";
                 public readonly string JudgeIndexContent = "JudgeIndexContent";
                 public readonly string JudgementList = "JudgementList";
+                public readonly string JudgeStatus___Copy = "JudgeStatus - Copy";
                 public readonly string JudgeStatus = "JudgeStatus";
             }
             public readonly string _JudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/_JudgeIndexContent.cshtml";
             public readonly string ClosestContestants = "~/Areas/Judge/Views/TournamentJudge/ClosestContestants.cshtml";
             public readonly string JudgeIndex = "~/Areas/Judge/Views/TournamentJudge/JudgeIndex.cshtml";
+            public readonly string JudgeIndexContent___Copy = "~/Areas/Judge/Views/TournamentJudge/JudgeIndexContent - Copy.cshtml";
             public readonly string JudgeIndexContent = "~/Areas/Judge/Views/TournamentJudge/JudgeIndexContent.cshtml";
             public readonly string JudgementList = "~/Areas/Judge/Views/TournamentJudge/JudgementList.cshtml";
+            public readonly string JudgeStatus___Copy = "~/Areas/Judge/Views/TournamentJudge/JudgeStatus - Copy.cshtml";
             public readonly string JudgeStatus = "~/Areas/Judge/Views/TournamentJudge/JudgeStatus.cshtml";
         }
     }
