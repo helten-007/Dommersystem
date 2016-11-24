@@ -258,7 +258,6 @@
     <Content Include="Content\common.css.map">
       <DependentUpon>common.css</DependentUpon>
     </Content>
-    <Content Include="Areas\Judge\Views\TournamentJudge\HeadJudgeIndexContent.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent - Copy.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeStatus - Copy.cshtml" />
     <None Include="Content\results.less" />

@@ -259,7 +259,7 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Did Not Skate.
+        ///   Looks up a localized string similar to DNS.
         /// </summary>
         public static string DidNotSkate {
             get {

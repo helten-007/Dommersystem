@@ -142,7 +142,12 @@ nordicArena.judge.initSliders = function () {
 	var sliderCount = $("#criteriaCount").val();
 	var contestantCount = $("#contestantCount").val();
 	nordicArena.judge.sliderCount = sliderCount;
+
 	for (var contIx = 0; contIx < contestantCount; contIx++) {
+		var sliderData = nordicArena.judge.getSliderDataFor(contIx, "master");
+		if (sliderData.value)
+			nordicArena.judge.initSlider(sliderData, true);
+
 		for (var critIx = 0; critIx < sliderCount; critIx++) {
 			var sliderData = nordicArena.judge.getSliderDataFor(contIx, critIx);
 			nordicArena.judge.initSlider(sliderData, true);
@@ -236,9 +241,22 @@ nordicArena.judge.showProgressBar = function (show) {
 
 nordicArena.judge.onSliderUpdated = function (event, ui) {
 	// Update text of self
-	var sliderId = this.id;
+
+	var element = this;
+	var sliderId = element.id;
+	var jQueryElement = $('#' + sliderId);
+
 	setTimeout(function () {
 		nordicArena.judge.updateLabelForSlider("#" + sliderId);
+		var splitStr = sliderId.split('_');
+		var contIx = splitStr[1];
+		if (splitStr[2] == 'master') {
+			var sliderCount = $("#criteriaCount").val();
+			for (var index = 0; index < sliderCount; index++) {
+				var slider = $("#slider_" + contIx + '_' + index);
+				slider.slider("value", jQueryElement.slider('value'));
+			}
+		}
 	}, 10); // Workaround for laggy updating of the value property
 };
 
@@ -309,11 +327,11 @@ nordicArena.judge.getAverageValue = function (contestantIx, decimals) {
 	return average;
 };
 
-nordicArena.judge.renderCloseOpponents = function (inAverage, contestantName) {
+nordicArena.judge.renderCloseOpponents = function (inAverage, contestantName, contestantIx) {
 	nordicArena.judge.sortCloseOpponents(inAverage, contestantName);
 
-	var hiddenElement = $('#closest-contestants #hidden-contestants li').clone();
-	var visibleElement = $('#closest-contestants #visible-contestants');
+	var hiddenElement = $('#closest-contestants_' + contestantIx + ' #hidden-contestants li').clone();
+	var visibleElement = $('#closest-contestants_' + contestantIx + ' #visible-contestants');
 
 	var score = 0.0;
 	var name = "";
@@ -345,7 +363,7 @@ nordicArena.judge.renderCloseOpponents = function (inAverage, contestantName) {
 			nameIndex = index;
 	});
 
-	var newElement = $('#closest-contestants #hidden-contestants').clone();
+	var newElement = $('#closest-contestants_' + contestantIx + ' #hidden-contestants').clone();
 	newElement.empty();
 
 	var index = nameIndex - 5 >= 0 ? nameIndex - 5 : 0;
@@ -384,9 +402,11 @@ nordicArena.judge.updateCloseOpponents = function (inAverage, contestantIx, deci
 	setTimeout(function () {
 		var newAverage = nordicArena.judge.getAverageValue(contestantIx, decimals);
 		if (inAverage == newAverage) {
-			inAverage = nordicArena.common.parseFloat(inAverage);
-			var contestantName = $("#judge-contestant-container button:eq(" + contestantIx + ")").text().trim().split(' ')[0];
-			nordicArena.judge.renderCloseOpponents(inAverage, contestantName);
+			inAverage = nordicArena.common.parseFloat(inAverage); 
+			
+			var contestantName = $('#meter_' + contestantIx + '_master').find('.criteria-name').first().text();
+			//var contestantName = $("#judge-contestant-container button:eq(" + contestantIx + ")").text().trim().split(' ')[0];
+			nordicArena.judge.renderCloseOpponents(inAverage, contestantName, contestantIx);
 		}
 	}, 1000);
 };

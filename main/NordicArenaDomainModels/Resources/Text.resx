@@ -306,7 +306,7 @@
     <value>Hoveddommer</value>
   </data>
   <data name="DidNotSkate" xml:space="preserve">
-    <value>Did Not Skate</value>
+    <value>DNS</value>
   </data>
   <data name="ContestantsOnScoreBoard" xml:space="preserve">
     <value>Antall deltaker på resultatlisten</value>

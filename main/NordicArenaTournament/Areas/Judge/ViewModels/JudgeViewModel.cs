@@ -24,6 +24,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 		public ICollection<NordicArenaDomainModels.Models.Judge> Judges { get; set; }
 		public List<JudgeViewModel> JudgeViewModels { get; set; }
 		public List<decimal?> AverageCriteriaScore { get; set; }
+		public List<decimal?> AverageTotalScore { get; set; }
 		public List<JudgeHasScoredTuple> JudgeStatus { get; set; }
 		public ClosestContestantsViewModel ClosestContestants {get; set;}
 		public bool HasHeadJudgeJudged { get; set; }
@@ -44,6 +45,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 			if (Judge.IsHeadJudge)
 			{
 				AverageCriteriaScore = new List<decimal?>();
+				AverageTotalScore = new List<decimal?>();
 				RemoveHeadJudgeFromJudgeList(Tournament.Judges, Judge.Id);
 				Judges = Tournament.Judges;
 
@@ -122,6 +124,25 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 					counter = 0;
 					score = 0;
 				}
+			}
+			
+			counter = 0;
+			decimal? averageTotal = 0.0m;
+
+			for (var i = 0; i < contestantCount; i++)
+			{
+				for (var j = 0; j < critCount; j++)
+				{
+					var temp = AverageCriteriaScore[(i * critCount) + j];
+					if (temp != null)
+					{
+						averageTotal += temp;
+						counter++;
+					}
+				}
+				AverageTotalScore.Add(averageTotal / counter);
+				averageTotal = 0.0m;
+				counter = 0;
 			}
 		}
     }

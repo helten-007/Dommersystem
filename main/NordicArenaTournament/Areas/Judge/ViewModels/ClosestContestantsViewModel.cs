@@ -20,7 +20,6 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 				int index = 1;
                 foreach (var contestant in round.GetContestantEntriesScoreSorted())
                 {
-					System.Diagnostics.Debug.WriteLine("index: " + index);
                     var contestantModel = new ContestantRoundResultViewModel(contestant);
 					contestantModel.Position = index;
                     Contestants.Add(contestantModel);

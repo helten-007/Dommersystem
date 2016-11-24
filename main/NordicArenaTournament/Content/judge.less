@@ -93,7 +93,7 @@ section.main-content {
 }
 
 .ui-slider-handle:after {
-    color: #ffd1d1;
+    //color: #ffd1d1;
     //left: calc(@handle-width/2-15px);
     position: relative;
 	top: 0;
@@ -133,10 +133,17 @@ section.main-content {
         }
 }
 
+.na-slider.master{
+	margin: 0;
+}
+
+.na-slider.hidden{
+	display: none;
+}
+
 .ui-state-active {
     //background: @highlighted !important;
 }
-
 
 .label-value-pair {
     width: calc(@labelbox-width ~"+ 1em");
@@ -216,12 +223,21 @@ section.main-content {
 
 #visible-contestants {
 	list-style-type: none;
+	padding: 0;
 }
 
 	#visible-contestants li {
 		padding: 0.2em 0.5em;
 		border-radius: 5px;
 	}
+
+#hidden-contestants {
+	display: none;
+}
+
+.placement-heading {
+	margin-top: 8em;
+}
 
 .judge-contestant-selector {
     display:inline-block;
