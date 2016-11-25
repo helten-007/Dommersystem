@@ -18,15 +18,20 @@ form {
 }
 
 #body-container {
-   min-height:100%;
-   position:relative;
-    text-transform: uppercase;
+	min-height:100%;
+	position:relative;
+	text-transform: uppercase;
 }
 
 section.main-content {
-    padding: 1em;
+    //padding: 1em;
     padding-bottom: calc(2em + @footer-height);
 }
+
+header {
+	background: @header-bg;
+}
+
 header, footer, nav, section {
     display: block;
 }
@@ -159,7 +164,7 @@ a,a:visited {
     text-decoration: none;
     display: inline-block;
     padding: 0.3em;
-    color: @text;
+    color: @background-color;
     text-transform: uppercase;
 }
 

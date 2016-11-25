@@ -1,8 +1,10 @@
 ﻿p {
   font-size: 1.4em;
+  color: #443f3f;
 }
 .button-container {
   text-align: left;
+  padding-bottom: 1em;
 }
 .button-container button {
   position: relative;
