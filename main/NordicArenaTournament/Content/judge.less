@@ -17,7 +17,7 @@
 }
 
 #judge-contestant-inner-container {
-	background: #443F3F;
+	background: @header-bg;
 }
 
 	.button-container {
@@ -36,8 +36,20 @@
 		}
 
 .rider-info {
+	color: @background-color;
 	position: relative;
 	top: .7em;
+}
+
+#dns-first {
+	padding-left: 0;
+}
+
+.did-not-skate {
+	color: @background-color;
+	background: @header-bg;
+	padding: 0.7em 1em;
+	border-radius: 10px;
 }
 
 .slider-button {
@@ -246,7 +258,7 @@ section.main-content {
     font-size: 150%;
     min-width: 200px;
     border: 1px gray solid;
-    background: white;
+    background: @background-color;
     color: #666;
 }
 	.judge-contestant-selector.right {

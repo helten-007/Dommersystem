@@ -143,7 +143,7 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 				if (counter > 0)
 					AverageTotalScore.Add(averageTotal / counter);
 				else
-					AverageTotalScore.Add(null);
+					AverageTotalScore.Add(0.0m);
 				averageTotal = 0.0m;
 				counter = 0;
 			}

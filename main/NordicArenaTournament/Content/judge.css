@@ -7,7 +7,7 @@
   display: none;
 }
 #judge-contestant-inner-container {
-  background: #443F3F;
+  background: #443f3f;
 }
 .button-container {
   text-align: center;
@@ -22,8 +22,18 @@
   top: .7em;
 }
 .rider-info {
+  color: #f1f1f1;
   position: relative;
   top: .7em;
+}
+#dns-first {
+  padding-left: 0;
+}
+.did-not-skate {
+  color: #f1f1f1;
+  background: #443f3f;
+  padding: 0.7em 1em;
+  border-radius: 10px;
 }
 .slider-button {
   display: inline-block;
@@ -187,7 +197,7 @@ section.main-content {
   font-size: 150%;
   min-width: 200px;
   border: 1px gray solid;
-  background: white;
+  background: #f1f1f1;
   color: #666;
 }
 .judge-contestant-selector.right {

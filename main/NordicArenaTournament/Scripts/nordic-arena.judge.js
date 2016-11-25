@@ -419,27 +419,23 @@ nordicArena.judge.isInOffZone = function (val, min, max) {
 
 nordicArena.judge.getSliderDataForDidNotSkate = function (contestantIx, criteriaIx) {
 	var slider = {};
-	var judgingContainer = $("#judging-container-" + contestantIx);
+	var index = "_" + contestantIx + "_" + criteriaIx;
 
-	if (judgingContainer[0].style.display !== 'none') {
-		var index = "_" + contestantIx + "_" + criteriaIx;
-		slider.amountSelector = "#amount" + index;
-		$(slider.amountSelector).val(-1);
-	}
+	slider.amountSelector = "#amount" + index;
+	$(slider.amountSelector).val(-1);
 };
 
-nordicArena.judge.setDidNotSkateScore = function () {
+nordicArena.judge.setDidNotSkateScore = function (contIx) {
 	var sliderCount = $("#criteriaCount").val();
 	var contestantCount = $("#contestantCount").val();
-	for (var contIx = 0; contIx < contestantCount; contIx++) {
-		for (var critIx = 0; critIx < sliderCount; critIx++) {
-			var sliderData = nordicArena.judge.getSliderDataForDidNotSkate(contIx, critIx);
-		}
+	for (var critIx = 0; critIx < sliderCount; critIx++) {
+		var sliderData = nordicArena.judge.getSliderDataForDidNotSkate(contIx, critIx);
 	}
+	var sliderData = nordicArena.judge.getSliderDataForDidNotSkate(contIx, 'master');
 };
 
-nordicArena.judge.didNotSkate = function () {
-	nordicArena.judge.setDidNotSkateScore();
+nordicArena.judge.didNotSkate = function (contIx) {
+	nordicArena.judge.setDidNotSkateScore(contIx);
 };
 
 nordicArena.judge.submitScores = function () {

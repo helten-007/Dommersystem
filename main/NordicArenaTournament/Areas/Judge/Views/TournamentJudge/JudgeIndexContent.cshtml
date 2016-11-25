@@ -58,8 +58,8 @@
 
 							@if (contIx == 0)
 							{
-								<div class="4u">
-									<button id="did-not-skate" type="button" onclick="nordicArena.judge.didNotSkate()">@Text.DidNotSkate</button>
+								<div id="dns-first" class="4u">
+									<button class="did-not-skate" type="button" onclick="nordicArena.judge.didNotSkate(@contIx)">@Text.DidNotSkate</button>
 								</div>
 								<div id="closest-contestants_@contIx" style="display: inline-block;" class="4u">
 									<h2 class="placement-heading">Plassering:</h2>
@@ -128,7 +128,7 @@
 									@{ Html.RenderPartial(MVC.Judge.TournamentJudge.Views.ClosestContestants, Model.ClosestContestants);}
 								</div>
 								<div class="4u" >
-									<button id="did-not-skate" type="button" onclick="nordicArena.judge.didNotSkate()">@Text.DidNotSkate</button>
+									<button class="did-not-skate" type="button" onclick="nordicArena.judge.didNotSkate(@contIx)">@Text.DidNotSkate</button>
 								</div>
 							}
 						</div>
