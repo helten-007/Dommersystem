@@ -140,7 +140,10 @@ namespace NordicArenaTournament.Areas.Judge.ViewModels
 						counter++;
 					}
 				}
-				AverageTotalScore.Add(averageTotal / counter);
+				if (counter > 0)
+					AverageTotalScore.Add(averageTotal / counter);
+				else
+					AverageTotalScore.Add(null);
 				averageTotal = 0.0m;
 				counter = 0;
 			}
