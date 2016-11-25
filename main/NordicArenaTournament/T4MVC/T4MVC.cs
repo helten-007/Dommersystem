@@ -603,6 +603,11 @@ namespace Links
         public static readonly string site_min_css = Url("site.min.css");
         public static readonly string skel_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skel.min.css") ? Url("skel.min.css") : Url("skel.css");
              
+        public static readonly string speaker_less = Url("speaker.less");
+        public static readonly string speaker_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/speaker.min.css") ? Url("speaker.min.css") : Url("speaker.css");
+             
+        public static readonly string speaker_css_map = Url("speaker.css.map");
+        public static readonly string speaker_min_css = Url("speaker.min.css");
         public static readonly string style_large_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style-large.min.css") ? Url("style-large.min.css") : Url("style-large.css");
              
         public static readonly string style_medium_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/style-medium.min.css") ? Url("style-medium.min.css") : Url("style-medium.css");

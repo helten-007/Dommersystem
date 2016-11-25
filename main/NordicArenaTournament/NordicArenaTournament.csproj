@@ -261,6 +261,10 @@
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent - Copy.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeStatus - Copy.cshtml" />
     <None Include="Content\results.less" />
+    <Content Include="Content\speaker.css.map">
+      <DependentUpon>speaker.css</DependentUpon>
+    </Content>
+    <None Include="Content\speaker.less" />
     <Compile Include="Controllers\LayoutControllerBase.cs" />
     <Compile Include="Controllers\TournamentControllerBase.cs" />
     <Compile Include="Common\TestDataFactory.cs" />
@@ -271,6 +275,12 @@
       <DependentUpon>results.css</DependentUpon>
     </Content>
     <Content Include="Content\skel.css" />
+    <Content Include="Content\speaker.css">
+      <DependentUpon>speaker.less</DependentUpon>
+    </Content>
+    <Content Include="Content\speaker.min.css">
+      <DependentUpon>speaker.css</DependentUpon>
+    </Content>
     <Content Include="Content\style-large.css" />
     <Content Include="Content\style-medium.css" />
     <Content Include="Content\style-small.css" />

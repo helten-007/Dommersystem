@@ -75,6 +75,9 @@ namespace NordicArenaTournament
                         "~/Content/themes/base/jquery-ui.css",
                         "~/Content/judge.css"));
 
+			bundles.Add(new StyleBundle("~/bundles/speaker-styles").Include(
+						"~/Content/speaker.css"));
+
 			bundles.Add(new StyleBundle("~/bundles/results-styles").Include(
 						"~/Content/themes/base/jquery-ui.css",
 						"~/Content/results.css"));

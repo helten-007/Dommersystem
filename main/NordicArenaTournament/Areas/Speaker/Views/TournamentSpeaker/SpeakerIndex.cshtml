@@ -7,94 +7,148 @@
 @using NordicArenaTournament.Areas.Speaker.Controllers
 
 @{
-    ViewBag.Title = NaHtml.PageTitle(Text.SpeakerPageTitle);
+	ViewBag.Title = NaHtml.PageTitle(Text.SpeakerPageTitle);
 }
 <h2>@Model.Tournament.Name - @Model.Round.Title</h2>
+
+
+<div class="container">
+	<div class="row">
+		<div class="10u">
+			<div class="row">
+				<div class="6u" style="border-right: 5px solid black;">
+					<div style="height: 300px;">
+						<h1>KARSTEN KLEPPAN</h1>
+						<h1>Regular | 25 ÅR | LOMMEDALEN</h1>
+						<p>
+							SPONSORER: NIKE SB, PEPSI COLA, SKATEMENTAL, WACKYMAG, SESSION, MAMMA, LÅNEKASSEN<br><br>
+							BEST SCORE:
+						</p>
+						<div class="2u button-container">
+							<button>7.91</button>
+						</div>
+					</div>
+				</div>
+				<div class="6u">
+					<div style="height: 300px;">
+						<h1>KENT JESUS</h1>
+						<h1>Regular | 25 ÅR | LOMMEDALEN</h1>
+						<p>
+							SPONSORER: NIKE SB, PEPSI COLA, SKATEMENTAL, WACKYMAG, SESSION, MAMMA, LÅNEKASSEN<br><br>
+							BEST SCORE:
+						</p>
+						<div class="2u button-container">
+							<button>6.23</button>
+						</div>
+					</div>
+				</div>
+				<div class="12u" style="border-top: 5px solid black;">
+					<div style=" height: 500px; background: yellow;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="2u" style="border-left: 5px solid black;">
+			<div style="height: 800px; background: red;"></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 @* Administrative controls *@
 <section id="speaker-controls" class="noprint">
-    <div id="speaker-timer-container" class="speaker-control-container">
-        <div class="header">Run @Model.CurrentRunNo / @Model.Round.RunsPerContestant </div>
+	<div id="speaker-timer-container" class="speaker-control-container">
+		<div class="header">Run @Model.CurrentRunNo / @Model.Round.RunsPerContestant </div>
 
-        <input type="button" value="Start" onclick="nordicArena.speaker.startTimer();" @Html.DisableIf(Model.DisableStartButton) />
-        <div class="speaker-timer-text"></div>
-    </div>
+		<input type="button" value="Start" onclick="nordicArena.speaker.startTimer();" @Html.DisableIf(Model.DisableStartButton) />
+		<div class="speaker-timer-text"></div>
+	</div>
 
-    <div class="speaker-control-container">
-        <div class="header">@Text.JudgeStatus:</div><br />
-        <div id="judge-status-container">
-            @{ Html.RenderPartial(MVC.Speaker.TournamentSpeaker.Views.JudgeStatus, Model.JudgeStatus);}
-        </div>
-    </div>
-    @using (Html.BeginForm())
-    {
-        <div class="speaker-control-container" id="speaker-contestant-controls">
-            @{ Html.RenderPartial(MVC.Speaker.TournamentSpeaker.Views.RunControlPanel, Model.RunControlModel); }
-        </div>
-    }
-    <div class="speaker-control-container" id="speaker-round-controls">
-        <div class="header">@Text.Round @Model.Round.RoundNo / @Model.RoundCount</div>
-        @using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
-        {
-            <button name="roundNo" type="submit" class="nav-button-grey previous-grey" value="@(Model.Round.RoundNo - 1)" @Html.DisableIf(!Model.HasPreviousRound)></button>
-            <button name="roundNo" type="submit" class="nav-button-grey next-grey" value="@(Model.Round.RoundNo + 1)" @Html.DisableIf(!Model.HasNextRound)></button><br />
-        }
-        @using (Html.BeginForm(MVC.Speaker.TournamentSpeaker.ActionNames.EndRound, Html.CurrentController()))
-        {
-            <input type="hidden" id="tournamentId" name="tournamentId" value="@Model.Tournament.Id" />
-            <input type="hidden" name="roundNo" value="@Model.Round.RoundNo" />
-            if (Model.Round.Status == TournamentStatus.Running)
-            {
-                <button name="endRoundButton" type="submit" style="min-width: 142px">@Text.EndRound</button>
-            }
-        }
-    </div>
+	<div class="speaker-control-container">
+		<div class="header">@Text.JudgeStatus:</div><br />
+		<div id="judge-status-container">
+			@{ Html.RenderPartial(MVC.Speaker.TournamentSpeaker.Views.JudgeStatus, Model.JudgeStatus);}
+		</div>
+	</div>
+	@using (Html.BeginForm())
+	{
+		<div class="speaker-control-container" id="speaker-contestant-controls">
+			@{ Html.RenderPartial(MVC.Speaker.TournamentSpeaker.Views.RunControlPanel, Model.RunControlModel); }
+		</div>
+	}
+	<div class="speaker-control-container" id="speaker-round-controls">
+		<div class="header">@Text.Round @Model.Round.RoundNo / @Model.RoundCount</div>
+		@using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
+		{
+			<button name="roundNo" type="submit" class="nav-button-grey previous-grey" value="@(Model.Round.RoundNo - 1)" @Html.DisableIf(!Model.HasPreviousRound)></button>
+			<button name="roundNo" type="submit" class="nav-button-grey next-grey" value="@(Model.Round.RoundNo + 1)" @Html.DisableIf(!Model.HasNextRound)></button><br />
+		}
+		@using (Html.BeginForm(MVC.Speaker.TournamentSpeaker.ActionNames.EndRound, Html.CurrentController()))
+		{
+			<input type="hidden" id="tournamentId" name="tournamentId" value="@Model.Tournament.Id" />
+			<input type="hidden" name="roundNo" value="@Model.Round.RoundNo" />
+			if (Model.Round.Status == TournamentStatus.Running)
+			{
+				<button name="endRoundButton" type="submit" style="min-width: 142px">@Text.EndRound</button>
+			}
+		}
+	</div>
 </section>
 
 <div class="clearfix"></div>
 
-    @* Current contestant *@
-    @if (Model.CurrentContestants != null && Model.CurrentContestants.Count > 0)
-    {
-        for (int i = 0; i < Model.CurrentContestants.Count; i++)
-        {
-            <div class="secondary-header-bar">
-                @Model.CurrentContestants[i].Name
-
-                <div class="details">
-                    @Html.DisplayPairFor(p => p.CurrentContestants[i].AgeYears)
-                    @Html.DisplayPairFor(p => p.CurrentContestants[i].Location)
-                    @Html.DisplayPairFor(p => p.CurrentContestants[i].Sponsors)
-					@Html.DisplayPairFor(p => p.CurrentContestants[i].Stance)
-                </div>
-            </div>
-            <br>
-        }
-    }
-
- 
-    @* List of contestants *@
-    @if (@Model.DisplayContestantList)
-    {
-        <div id="speaker-contestants-list">
-            @Html.Partial(MVC.Speaker.TournamentSpeaker.Views.NextContestantsList, Model)
-        </div>
-    }
-    else
-    {
-        @* Round not started *@
-        @Text.RoundNotStarted
-    }
-
-@section Scripts {
-    @Scripts.Render("~/bundles/speaker-scripts")
-    @Scripts.Render("~/signalr/hubs")
-}
- 
-@section jqueryonload
+@* Current contestant *@
+@if (Model.CurrentContestants != null && Model.CurrentContestants.Count > 0)
 {
-    nordicArena.speaker.initTimer(@Model.Round.SecondsPerRun);    
-    nordicArena.speaker.judgeStatusReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.JudgeStatus, new { tournamentId = Model.Tournament.Id, runNo = Model.CurrentRunNo }))';    
-    nordicArena.speaker.runControlsReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.RunControlPanel, new { tournamentId = Model.Tournament.Id, roundNo = Model.Round.RoundNo }))';
-    nordicArena.speaker.contestantListReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.NextContestantsList, new { tournamentId = Model.Tournament.Id, roundNo = Model.Round.RoundNo }))';    
-    nordicArena.speaker.initHub();
+	for (int i = 0; i < Model.CurrentContestants.Count; i++)
+	{
+		<div class="secondary-header-bar">
+			@Model.CurrentContestants[i].Name
+
+			<div class="details">
+				@Html.DisplayPairFor(p => p.CurrentContestants[i].AgeYears)
+				@Html.DisplayPairFor(p => p.CurrentContestants[i].Location)
+				@Html.DisplayPairFor(p => p.CurrentContestants[i].Sponsors)
+				@Html.DisplayPairFor(p => p.CurrentContestants[i].Stance)
+			</div>
+		</div>
+		<br>
+	}
 }
+
+
+		@* List of contestants *@
+		@if (@Model.DisplayContestantList)
+		{
+			<div id="speaker-contestants-list">
+				@Html.Partial(MVC.Speaker.TournamentSpeaker.Views.NextContestantsList, Model)
+			</div>
+		}
+		else
+		{
+			@* Round not started *@
+			@Text.RoundNotStarted
+		}
+
+		@section Scripts {
+			@Styles.Render("~/bundles/speaker-styles")
+			@Scripts.Render("~/bundles/speaker-scripts")
+			@Scripts.Render("~/signalr/hubs")
+		}
+
+		@section jqueryonload
+{
+			nordicArena.speaker.initTimer(@Model.Round.SecondsPerRun);
+			nordicArena.speaker.judgeStatusReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.JudgeStatus, new { tournamentId = Model.Tournament.Id, runNo = Model.CurrentRunNo }))';
+			nordicArena.speaker.runControlsReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.RunControlPanel, new { tournamentId = Model.Tournament.Id, roundNo = Model.Round.RoundNo }))';
+			nordicArena.speaker.contestantListReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.NextContestantsList, new { tournamentId = Model.Tournament.Id, roundNo = Model.Round.RoundNo }))';
+			nordicArena.speaker.initHub();
+		}
