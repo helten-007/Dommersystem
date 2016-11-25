@@ -108,6 +108,7 @@ nav.admin-header a,
 nav.admin-supernavigation a {
   font-weight: 600;
   margin: .4em;
+  color: #f1f1f1;
 }
 footer {
   width: 100%;
@@ -150,7 +151,7 @@ a:visited {
   text-decoration: none;
   display: inline-block;
   padding: 0.3em;
-  color: #f1f1f1;
+  color: #393939;
   text-transform: uppercase;
 }
 a:hover {
@@ -162,7 +163,7 @@ a:hover {
 }
 a.selected {
   font-family: 'Arial Narrow', 'Nimbus Sans L', sans-serif;
-  color: #03aaec;
+  color: #03aaec !important;
 }
 h1,
 h2 {
