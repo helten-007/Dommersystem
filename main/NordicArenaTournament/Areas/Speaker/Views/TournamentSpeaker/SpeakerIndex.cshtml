@@ -9,89 +9,98 @@
 @{
 	ViewBag.Title = NaHtml.PageTitle(Text.SpeakerPageTitle);
 }
-<!--<h2>@Model.Tournament.Name - @Model.Round.Title</h2>-->
-
 
 <div class="container">
 	<div class="row">
 		<div class="10u">
 			<div class="row">
-				<div class="6u" style="border-right: 5px solid #443F3F;">
-					<div>
-						<h1>KARSTEN KLEPPAN</h1>
-						<h1>Regular | 25 ÅR | LOMMEDALEN</h1>
-						<p style="margin-bottom: 0.5em;">
-							SPONSORER: NIKE SB, PEPSI COLA, SKATEMENTAL, WACKYMAG, SESSION, MAMMA, LÅNEKASSEN<br><br>
-							BEST SCORE:
-						</p>
-						<div class="2u button-container">
-							<button>7.91</button>
+
+				@if (Model.CurrentContestants != null && Model.CurrentContestants.Count > 0)
+				{
+					var borderClass = "border-right";
+					for (int i = 0; i < Model.CurrentContestants.Count; i++)
+					{
+						<div class="6u current-rider-container @if(i == 0){@borderClass}">
+							<div class="current-rider">
+								@{var rider = (i + 1);}
+								<h2>Rider: @rider</h2>
+								<h1>@Model.CurrentContestants[i].Name</h1>
+								<h1>@Model.CurrentContestants[i].Stance | 25<!--Model.CurrentContestants[i].AgeYears--> | @Model.CurrentContestants[i].Location</h1>
+								<p>
+									SPONSORER: @Model.CurrentContestants[i].Sponsors<br><br>
+								</p>
+								<div class="button-container">
+									BEST SCORE: <button>7.91</button>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="6u">
-					<div>
-						<h1>KENT JESUS</h1>
-						<h1>Regular | 25 ÅR | LOMMEDALEN</h1>
-						<p style="margin-bottom: 0.5em;">
-							SPONSORER: NIKE SB, PEPSI COLA, SKATEMENTAL, WACKYMAG, SESSION, MAMMA, LÅNEKASSEN<br><br>
-							BEST SCORE:
-						</p>
-						<div class="2u button-container">
-							<button>6.23</button>
-						</div>
-					</div>
-				</div>
-				<div class="12u" style="max-height: 500px; overflow-y: scroll; border-top: 5px solid #443F3F;">
+					}
+				}
+
+				<div id="next-contestants" class="12u">
 					<div class="row">
-						<div class="6u">
-							<div>
-								<h1>KENT JESUS</h1>
-								<h1>Regular | 25 ÅR | LOMMEDALEN</h1>
-								<p style="margin-bottom: 0.5em;">
-									SPONSORER: NIKE SB, PEPSI COLA, SKATEMENTAL, WACKYMAG, SESSION, MAMMA, LÅNEKASSEN<br><br>
-									BEST SCORE:
-								</p>
-								<div class="2u button-container">
-									<button>6.23</button>
+						@if (Model.CurrentHeatNo < Model.Heats.Count)
+						{
+							foreach (var cont in Model.Heats[Model.CurrentHeatNo].Contestants)
+							{
+								<div class="6u">
+									<div class="current-rider">
+										<h1>@cont.Name</h1>
+										<h1>@cont.Contestant.Stance | 25 ÅR | @cont.Contestant.Location</h1>
+										<p>
+											SPONSORER: @cont.Contestant.Sponsors<br><br>
+										</p>
+										<div class="button-container">
+											BEST SCORE: <button>7.91</button>
+										</div>
+									</div>
+								</div>
+							}
+						}
+						else
+						{
+							<div class="12u no-contestants">
+								<div class="current-rider">
+									<h1>Ingen flere deltakere.</h1>
 								</div>
 							</div>
-						</div>
-						<div class="6u$">
-							<div>
-								<h1>KENT JESUS</h1>
-								<h1>Regular | 25 ÅR | LOMMEDALEN</h1>
-								<p style="margin-bottom: 0.5em;">
-									SPONSORER: NIKE SB, PEPSI COLA, SKATEMENTAL, WACKYMAG, SESSION, MAMMA, LÅNEKASSEN<br><br>
-									BEST SCORE:
-								</p>
-								<div class="2u button-container">
-									<button>6.23</button>
-								</div>
-							</div>
-						</div>
+						}
+						<div id="upcoming-contestants" class="12u">
+							<div class="divider"></div>
 
-						<div class="12u" style="margin-top: 3em;">
-							<div style="padding-top: 3em; border-top: 2px solid #444; width: 60%; position: relative; margin: 0 auto;"></div>
-
-							<ul style="text-align:center; list-style-type: none;">
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
-								<li><span style="margin-right: 2em;">Joakim</span><span>Joakim</span></li>
+							@{var contIndex = 0;}
+							<ul>
+								@for (var i = Model.CurrentHeatNo + 1; i < Model.Heats.Count(); i++)
+								{
+									<li class="row">
+										@foreach (var cont in Model.Heats[i].Contestants)
+										{
+											if (contIndex == 0)
+											{
+												<span class="6u align-right">
+													@cont.Name
+												</span>
+											}
+											else
+											{
+												<span class="6u">@cont.Name</span>
+											}
+											contIndex++;
+										}
+										@{contIndex = 0;}
+									</li>
+								}
 							</ul>
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
-		<div class="2u" style="border-left: 5px solid #443F3F;">
-			<div style="height: 800px; background: red;"></div>
+		<div class="2u" style="border-left: 5px solid #443F3F; height: 800px;">
+			<h2>@Model.Tournament.Name - @Model.Round.Title</h2>
+
+
 		</div>
 	</div>
 </div>

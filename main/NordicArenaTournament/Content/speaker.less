@@ -9,6 +9,7 @@ p {
 .button-container {
 	text-align: left;
 	padding-bottom: 1em;
+	font-size: 1.5em;
 }
 
 	.button-container button {
@@ -18,4 +19,51 @@ p {
 		color: @background-color;
 		background: @header-bg;
 		padding: 0.7em 1em;
+		font-size: 1.0em;
 	}
+
+.current-rider-container.border-right {
+	border-right: 5px solid @header-bg;
+}
+
+.current-rider {
+	padding-top: 1em;
+
+	h1, h2 {
+		margin-bottom: 0.3em;
+	}
+
+	p {
+		margin-bottom: 0.5em;
+	}
+}
+
+ul, li {
+	padding-left: 0 !important;
+}
+
+.no-contestants {
+	text-align: center;
+}
+
+#next-contestants {
+	height: 500px;
+	overflow-y: auto;
+	border-top: 5px solid #443F3F;
+}
+
+#upcoming-contestants {
+	margin-top: 3em;
+
+	.divider{
+		padding-top: 3em;
+		border-top: 2px solid #444;
+		width: 60%;
+		position: relative;
+		margin: 0 auto;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+}
