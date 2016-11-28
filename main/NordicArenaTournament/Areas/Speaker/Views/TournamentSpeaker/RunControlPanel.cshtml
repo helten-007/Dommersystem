@@ -3,6 +3,10 @@
 @using NordicArenaDomainModels.Resources
 @using NordicArenaTournament.Common
 
-<div class="header">@Text.Heat @Model.HeatNo / @Model.HeatCount , @Text.Run: @Model.RunNo / @Model.RunCount </div>
-<button type="submit" name="action:PreviousContestant" class="nav-button-grey previous-grey" @Html.DisableIf(!Model.EnablePreviousRun) ></button>
-<button type="submit" name="action:NextContestant" class="nav-button-grey next-grey" @Html.DisableIf(!Model.EnableNextRun) ></button>
+<div class="button-container">
+	<button type="submit" name="action:NextContestant" @Html.DisableIf(!Model.EnableNextRun)>Neste</button>
+</div>
+
+<div class="button-container">
+	<button type="submit" name="action:PreviousContestant" class="button-grey" @Html.DisableIf(!Model.EnablePreviousRun)>Tilbake</button>
+</div>

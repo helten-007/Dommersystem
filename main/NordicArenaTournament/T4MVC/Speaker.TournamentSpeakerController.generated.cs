@@ -193,13 +193,17 @@ namespace NordicArenaTournament.Areas.Speaker.Controllers
             {
                 public readonly string JudgeStatus = "JudgeStatus";
                 public readonly string NextContestantsList = "NextContestantsList";
+                public readonly string RunControlPanel___Copy = "RunControlPanel - Copy";
                 public readonly string RunControlPanel = "RunControlPanel";
+                public readonly string SpeakerIndex___Copy = "SpeakerIndex - Copy";
                 public readonly string SpeakerIndex = "SpeakerIndex";
                 public readonly string TournamentNotRunning = "TournamentNotRunning";
             }
             public readonly string JudgeStatus = "~/Areas/Speaker/Views/TournamentSpeaker/JudgeStatus.cshtml";
             public readonly string NextContestantsList = "~/Areas/Speaker/Views/TournamentSpeaker/NextContestantsList.cshtml";
+            public readonly string RunControlPanel___Copy = "~/Areas/Speaker/Views/TournamentSpeaker/RunControlPanel - Copy.cshtml";
             public readonly string RunControlPanel = "~/Areas/Speaker/Views/TournamentSpeaker/RunControlPanel.cshtml";
+            public readonly string SpeakerIndex___Copy = "~/Areas/Speaker/Views/TournamentSpeaker/SpeakerIndex - Copy.cshtml";
             public readonly string SpeakerIndex = "~/Areas/Speaker/Views/TournamentSpeaker/SpeakerIndex.cshtml";
             public readonly string TournamentNotRunning = "~/Areas/Speaker/Views/TournamentSpeaker/TournamentNotRunning.cshtml";
         }

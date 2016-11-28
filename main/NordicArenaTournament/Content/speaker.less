@@ -7,7 +7,6 @@ p {
 }
 
 .button-container {
-	text-align: left;
 	padding-bottom: 1em;
 	font-size: 1.5em;
 }
@@ -20,6 +19,11 @@ p {
 		background: @header-bg;
 		padding: 0.7em 1em;
 		font-size: 1.0em;
+	}
+
+	.button-grey{
+		background: transparent !important;
+		color: @header-bg !important;
 	}
 
 .current-rider-container.border-right {
@@ -66,4 +70,20 @@ ul, li {
 	ul {
 		list-style-type: none;
 	}
+}
+
+div.judge-status-done, div.judge-status-waiting {
+    padding-top: 22%;
+	width: 22%;
+	margin-left: 39%;
+    border-radius: 100%;
+	margin-bottom: 2em;
+}
+
+.speaker-timer-text {
+	margin-bottom: 1.5em;
+}
+
+#side-bar {
+	border-left: 5px solid #443F3F; height: 800px;
 }
