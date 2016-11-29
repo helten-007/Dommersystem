@@ -10,7 +10,7 @@
 		breakpoints: {
 			global: {
 				href: '../../Content/style.css',
-				containers: 1400,
+				containers: 1200,
 				grid: { gutters: ['2em', 0] }
 			},
 			xlarge: {
@@ -21,7 +21,7 @@
 			large: {
 				media: '(max-width: 1280px)',
 				href: '../../Content/style-large.css',
-				containers: '100%',
+				containers: 960,
 				grid: { gutters: ['1.5em', 0] },
 				viewport: { scalable: false }
 			},

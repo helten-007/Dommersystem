@@ -261,6 +261,7 @@
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeIndexContent - Copy.cshtml" />
     <Content Include="Areas\Judge\Views\TournamentJudge\JudgeStatus - Copy.cshtml" />
     <Content Include="Areas\Speaker\Views\TournamentSpeaker\SpeakerIndex - Copy.cshtml" />
+    <Content Include="Areas\Speaker\Views\TournamentSpeaker\RunControlPanel - Copy.cshtml" />
     <None Include="Content\results.less" />
     <Content Include="Content\speaker.css.map">
       <DependentUpon>speaker.css</DependentUpon>
