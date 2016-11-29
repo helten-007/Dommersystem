@@ -28,12 +28,12 @@
 			medium: {
 				media: '(max-width: 980px)',
 				href: '../../Content/style-medium.css',
-				containers: '100%'
+				containers: '90%'
 			},
 			small: {
 				media: '(max-width: 736px)',
 				href: '../../Content/style-small.css',
-				containers: '100%',
+				containers: '90%',
 				grid: { gutters: ['1.25em', 0] }
 			},
 			xsmall: {
