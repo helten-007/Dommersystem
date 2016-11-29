@@ -1,6 +1,63 @@
 ﻿@model NordicArenaTournament.Areas.Speaker.ViewModels.SpeakerViewModel
 @using NordicArenaDomainModels.Resources
 
+
+
+
+
+
+
+@if (Model.CurrentContestants != null && Model.CurrentContestants.Count > 0)
+{
+	var borderClass = "border-right";
+	<div class="row">
+		@for (int i = 0; i < Model.CurrentContestants.Count; i++)
+		{
+			<div class="6u current-rider-container @if(i == 0){@borderClass}">
+				<div class="current-rider">
+					@{var rider = (i + 1);}
+					<h2>Rider: @rider</h2>
+					<h1>@Model.CurrentContestants[i].Name</h1>
+					<h1>@Model.CurrentContestants[i].Stance | 25<!--Model.CurrentContestants[i].AgeYears--> | @Model.CurrentContestants[i].Location</h1>
+					<p>SPONSORER: @Model.CurrentContestants[i].Sponsors<br><br></p>
+					<div class="button-container">
+						@{
+							string score = "";
+							if (Model.Heats[Model.CurrentHeatNo - 1].Contestants[i].TotalScore != null)
+							{
+								score = Model.Heats[Model.CurrentHeatNo - 1].Contestants[i].TotalScore.ToString();
+							}
+							else
+							{
+								score = "---";
+							}
+						}
+						BEST SCORE: <button>@score</button>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
 <h2>@Text.NextContestants</h2>
 @* Multiple heats *@
 @if (Model.HasHeats)
@@ -49,3 +106,5 @@ else
         }
     </table>
 }
+
+-->

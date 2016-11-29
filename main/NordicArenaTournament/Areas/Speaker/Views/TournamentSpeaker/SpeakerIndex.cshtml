@@ -15,108 +15,88 @@
 		<div class="9u">
 			<div class="row">
 
-				@if (Model.CurrentContestants != null && Model.CurrentContestants.Count > 0)
-				{
-					var borderClass = "border-right";
-					for (int i = 0; i < Model.CurrentContestants.Count; i++)
-					{
-						<div class="6u current-rider-container @if(i == 0){@borderClass}">
-							<div class="current-rider">
-								@{var rider = (i + 1);}
-								<h2>Rider: @rider</h2>
-								<h1>@Model.CurrentContestants[i].Name</h1>
-								<h1>@Model.CurrentContestants[i].Stance | 25<!--Model.CurrentContestants[i].AgeYears--> | @Model.CurrentContestants[i].Location</h1>
-								<p>
-									SPONSORER: @Model.CurrentContestants[i].Sponsors<br><br>
-								</p>
-								<div class="button-container">
-									@{
-										string score = "";
-										if (Model.Heats[Model.CurrentHeatNo - 1].Contestants[i].TotalScore != null)
-										{
-											score = Model.Heats[Model.CurrentHeatNo - 1].Contestants[i].TotalScore.ToString();
-										}
-										else
-										{
-											score = "---";
-										}
-									}
-									BEST SCORE: <button>@score</button>
-								</div>
-							</div>
-						</div>
-					}
-				}
 
-				<div id="next-contestants" class="12u">
-					<div class="row">
-						@if (Model.CurrentHeatNo < Model.Heats.Count)
-						{
-							foreach (var cont in Model.Heats[Model.CurrentHeatNo].Contestants)
+				@* List of contestants *@
+				@if (@Model.DisplayContestantList)
+				{
+					<div id="current-riders" class="12u">
+						@Html.Partial(MVC.Speaker.TournamentSpeaker.Views.NextContestantsList, Model)
+					</div>
+
+					<div id="next-contestants" class="12u">
+						<div class="row">
+							@if (Model.CurrentHeatNo < Model.Heats.Count)
 							{
-								<div class="6u">
-									<div class="current-rider">
-										<h1>@cont.Name</h1>
-										<h1>@cont.Contestant.Stance | 25 ÅR | @cont.Contestant.Location</h1>
-										<p>
-											SPONSORER: @cont.Contestant.Sponsors<br><br>
-										</p>
-										<div class="button-container">
-											@{
-												string score = "";
-												if (cont.TotalScore != null)
-												{
-													score = cont.TotalScore.ToString();
+								foreach (var cont in Model.Heats[Model.CurrentHeatNo].Contestants)
+								{
+									<div class="6u">
+										<div class="current-rider">
+											<h1>@cont.Name</h1>
+											<h1>@cont.Contestant.Stance | 25 ÅR | @cont.Contestant.Location</h1>
+											<p>
+												SPONSORER: @cont.Contestant.Sponsors<br><br>
+											</p>
+											<div class="button-container">
+												@{
+									string score = "";
+									if (cont.TotalScore != null)
+									{
+										score = cont.TotalScore.ToString();
+									}
+									else
+									{
+										score = "---";
+									}
 												}
-												else
-												{
-													score = "---";
-												}
-											}
-											BEST SCORE: <button>@score</button>
+												BEST SCORE: <button>@score</button>
+											</div>
 										</div>
+									</div>
+								}
+							}
+							else
+							{
+								<div class="12u no-contestants">
+									<div class="current-rider">
+										<h1>Ingen flere deltakere.</h1>
 									</div>
 								</div>
 							}
-						}
-						else
-						{
-							<div class="12u no-contestants">
-								<div class="current-rider">
-									<h1>Ingen flere deltakere.</h1>
-								</div>
-							</div>
-						}
-						<div id="upcoming-contestants" class="12u">
-							<div class="divider"></div>
+							<div id="upcoming-contestants" class="12u">
+								<div class="divider"></div>
 
-							@{var contIndex = 0;}
-							<ul>
-								@for (var i = Model.CurrentHeatNo + 1; i < Model.Heats.Count(); i++)
-								{
-									<li class="row">
-										@foreach (var cont in Model.Heats[i].Contestants)
-										{
-											if (contIndex == 0)
+								@{var contIndex = 0;}
+								<ul>
+									@for (var i = Model.CurrentHeatNo + 1; i < Model.Heats.Count(); i++)
+									{
+										<li class="row">
+											@foreach (var cont in Model.Heats[i].Contestants)
 											{
-												<span class="6u align-right">
-													@cont.Name
-												</span>
+												if (contIndex == 0)
+												{
+													<span class="6u align-right">
+														@cont.Name
+													</span>
+												}
+												else
+												{
+													<span class="6u">@cont.Name</span>
+												}
+												contIndex++;
 											}
-											else
-											{
-												<span class="6u">@cont.Name</span>
-											}
-											contIndex++;
-										}
-										@{contIndex = 0;}
-									</li>
-								}
-							</ul>
+											@{contIndex = 0;}
+										</li>
+									}
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
-
+				}
+				else
+				{
+					@* Round not started *@
+					@Text.RoundNotStarted
+				}
 			</div>
 		</div>
 		<div id="side-bar" class="3u align-center">
@@ -147,17 +127,18 @@
 			{
 				<button name="roundNo" type="submit" class="nav-button-grey previous-grey" value="@(Model.Round.RoundNo - 1)" @Html.DisableIf(!Model.HasPreviousRound)></button>
 				<button name="roundNo" type="submit" class="nav-button-grey next-grey" value="@(Model.Round.RoundNo + 1)" @Html.DisableIf(!Model.HasNextRound)></button><br />
-			}
+			}-->
 			@using (Html.BeginForm(MVC.Speaker.TournamentSpeaker.ActionNames.EndRound, Html.CurrentController()))
 			{
 				<input type="hidden" id="tournamentId" name="tournamentId" value="@Model.Tournament.Id" />
 				<input type="hidden" name="roundNo" value="@Model.Round.RoundNo" />
+				<!--
 				if (Model.Round.Status == TournamentStatus.Running)
 				{
 					<button name="endRoundButton" type="submit" style="min-width: 142px">@Text.EndRound</button>
 				}
+				-->
 			}
-			-->
 
 		</div>
 	</div>
@@ -186,5 +167,5 @@ else
 	nordicArena.speaker.judgeStatusReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.JudgeStatus, new { tournamentId = Model.Tournament.Id, runNo = Model.CurrentRunNo }))';
 	nordicArena.speaker.runControlsReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.RunControlPanel, new { tournamentId = Model.Tournament.Id, roundNo = Model.Round.RoundNo }))';
 	nordicArena.speaker.contestantListReloadUrl = '@Html.Raw(Url.Action(MVC.Speaker.TournamentSpeaker.ActionNames.NextContestantsList, new { tournamentId = Model.Tournament.Id, roundNo = Model.Round.RoundNo }))';
-	nordicArena.speaker.initHub();
+	nordicArena.speaker.init();
 }

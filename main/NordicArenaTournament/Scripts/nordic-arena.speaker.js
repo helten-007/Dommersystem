@@ -5,6 +5,39 @@ nordicArena.speaker.startTimer = function () {
     nordicArena.speaker.intervalHandle = setInterval(nordicArena.speaker.updateTimer, 100);
 };
 
+nordicArena.speaker.init = function () {
+	nordicArena.speaker.initHub();
+	setTimeout(function () {
+		nordicArena.speaker.initHeight();
+	}, 200);
+};
+
+
+nordicArena.speaker.initHeight = function () {
+	$("footer").hide();
+	$('.current-rider-container').each(function () {
+		$(this).outerHeight(nordicArena.speaker.getHighestRiderCont());
+	});
+
+	var screenHeight = document.documentElement.clientHeight;
+	var position = $('#next-contestants').offset();
+
+	$('#next-contestants').outerHeight(screenHeight - position.top - 1);
+	$('#side-bar').outerHeight(screenHeight - $('header').outerHeight() - 1);
+
+};
+
+nordicArena.speaker.getHighestRiderCont = function () {
+	var maxHeight = 0;
+	$('.current-rider-container').each(function () {
+		var temp = $(this).outerHeight();
+		if (temp > maxHeight) {
+			maxHeight = temp;
+		}
+	});
+	return maxHeight;
+};
+
 nordicArena.speaker.updateTimer = function (totalSeconds) {
     if (totalSeconds == undefined) {
         // Load seconds by calculating start time
@@ -29,16 +62,16 @@ nordicArena.speaker.initTimer = function (totalSeconds) {
 };
 
 nordicArena.speaker.reloadPanels = function (tournamentId) {
-    if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
+	if (!nordicArena.common.isCurrentTournament(tournamentId)) return;
 	// Some optimization potential here... reload entire model in one request instead of three. 
     nordicArena.common.get(nordicArena.speaker.judgeStatusReloadUrl).done(function (data) {
         $("#judge-status-container").html(data);
     });
-    nordicArena.common.get(nordicArena.speaker.runControlsReloadUrl).done(function (data) {
+    /*nordicArena.common.get(nordicArena.speaker.runControlsReloadUrl).done(function (data) {
         $("#speaker-contestant-controls").html(data);
-    });
+    });*/
     nordicArena.common.get(nordicArena.speaker.contestantListReloadUrl).done(function (data) {
-        $("#speaker-contestants-list").html(data);
+        $("#current-riders").html(data);
     });
 };
 
