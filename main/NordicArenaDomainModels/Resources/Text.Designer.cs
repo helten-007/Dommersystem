@@ -61,6 +61,15 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Legg til utøver.
         /// </summary>
         public static string AddContestant {
@@ -120,6 +129,15 @@ namespace NordicArenaDomainModels.Resources {
         public static string Average {
             get {
                 return ResourceManager.GetString("Average", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Velg turnering.
+        /// </summary>
+        public static string ChooseTournament {
+            get {
+                return ResourceManager.GetString("ChooseTournament", resourceCulture);
             }
         }
         
@@ -482,6 +500,24 @@ namespace NordicArenaDomainModels.Resources {
         public static string RemoveContestant {
             get {
                 return ResourceManager.GetString("RemoveContestant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se resultatliste.
+        /// </summary>
+        public static string ResultPage {
+            get {
+                return ResourceManager.GetString("ResultPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resultater.
+        /// </summary>
+        public static string Results {
+            get {
+                return ResourceManager.GetString("Results", resourceCulture);
             }
         }
         

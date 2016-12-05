@@ -311,4 +311,16 @@
   <data name="ContestantsOnScoreBoard" xml:space="preserve">
     <value>Antall deltaker på resultatlisten</value>
   </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="ChooseTournament" xml:space="preserve">
+    <value>Velg turnering</value>
+  </data>
+  <data name="ResultPage" xml:space="preserve">
+    <value>Se resultatliste</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Resultater</value>
+  </data>
 </root>

@@ -90,9 +90,11 @@ namespace NordicArenaTournament.Areas.Admin.Controllers
             public class _ViewNamesClass
             {
                 public readonly string CreateTournament = "CreateTournament";
+                public readonly string TournamentList___Copy = "TournamentList - Copy";
                 public readonly string TournamentList = "TournamentList";
             }
             public readonly string CreateTournament = "~/Areas/Admin/Views/Main/CreateTournament.cshtml";
+            public readonly string TournamentList___Copy = "~/Areas/Admin/Views/Main/TournamentList - Copy.cshtml";
             public readonly string TournamentList = "~/Areas/Admin/Views/Main/TournamentList.cshtml";
         }
     }

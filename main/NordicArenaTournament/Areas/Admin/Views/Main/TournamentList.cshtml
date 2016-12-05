@@ -1,38 +1,48 @@
 ﻿@model NordicArenaTournament.Areas.Admin.ViewModels.TournamentListViewModel
 @using NordicArenaDomainModels.Resources
 @using NordicArenaTournament.Common
+@using NordicArenaDomainModels.Models
+
 @{
     ViewBag.Title = NaHtml.PageTitle(Text.TournamentListPageTitle);
 }
 
-<h2>@Text.TournamentListPageTitle</h2>
+<div class="container">
+	<div class="row">
+		<p class="3u" style="margin-top: 3em;">
+			@Html.ActionLink(Text.CreateNew, MVC.Admin.Main.CreateTournament())
+		</p>
 
-<p>
-    @Html.ActionLink(Text.CreateNew, MVC.Admin.Main.CreateTournament()) 
-</p>
+		@if (Model.Tournaments.Count() > 0)
+		{
+			<div class="12u">
+				<table>
+					<tr>
+						<th>@Text.ChooseTournament</th>
+						<th>@Html.LabelFor(p => p.Tournaments.FirstOrDefault().Status)</th>
+						<th>@Text.Results</th>
+						<th>@Text.Action</th>
+					</tr>
 
-@if (Model.Tournaments.Count() > 0) { 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>@Text.Name</th>
-            <th>@Html.LabelFor(p => p.Tournaments.FirstOrDefault().Status)</th>
-        </tr>
-
-        @foreach (var tournament in Model.Tournaments)
-        {
-            <tr>
-                <td>
-                    @tournament.Id
-                </td>
-                <td>
-                    @Html.ActionLink(@tournament.Name, MVC.Admin.TournamentAdmin.EditTournament(tournament.Id))
-                </td>
-                <td>
-                    @NaHtml.EnumValueFor(tournament.Status)
-                </td>
-            </tr>
-        }
-
-    </table>
-}
+					@foreach (var tournament in Model.Tournaments)
+					{
+						<tr>
+							<td>
+								@Html.ActionLink(@tournament.Name, MVC.Admin.TournamentAdmin.EditTournament(tournament.Id))
+							</td>
+							<td>
+								@NaHtml.EnumValueFor(tournament.Status)
+							</td>
+							<td>
+								@if (tournament.Status != TournamentStatus.Prestart)
+								{
+									@Html.ActionLink(Text.ResultPage, MVC.Admin.TournamentAdmin.Results(tournament.Id))
+								}
+							</td>
+						</tr>
+					}
+				</table>
+			</div>
+		}
+	</div>
+</div>
