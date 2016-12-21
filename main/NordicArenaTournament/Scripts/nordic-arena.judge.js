@@ -261,14 +261,33 @@ nordicArena.judge.onSliderUpdated = function (event, ui) {
 };
 
 var intervalId;
+var intervalIds = [];
+var element;
+var startSpeed = 200;
+var speed = startSpeed;
+
 $('.slider-button').mousedown(function () {
-	var element = $(this)[0];
-	intervalId = setInterval(function () {
-		nordicArena.judge.adjustSlider(element, element.value);
-	}, 200);
+	element = $(this)[0];
+	intervalId = setTimeout(function () {
+		nordicArena.judge.adjustSliderRecursive();
+	}, startSpeed);
 }).bind('mouseup mouseleave', function () {
 	clearTimeout(intervalId);
+	nordicArena.judge.clearTimeouts();
+	speed = startSpeed;
 });
+
+nordicArena.judge.clearTimeouts = function () {
+	for (var i = 0; i < intervalIds.length; i++) {
+		clearTimeout(intervalIds[i]);
+	}
+};
+
+nordicArena.judge.adjustSliderRecursive = function () {
+	nordicArena.judge.adjustSlider(element, element.value);
+	intervalIds.push(setTimeout(nordicArena.judge.adjustSliderRecursive, speed));
+	speed = speed > 5 ? speed * 0.9 : 5;
+};
 
 nordicArena.judge.adjustSlider = function (element, inAmount) {
 	var amount = parseFloat(inAmount);
@@ -289,9 +308,7 @@ nordicArena.judge.updateLabelForSlider = function (sliderSelector) {
 	var max = sliderRes.attr("max");
 	var min = sliderRes.attr("min");
 	var decimals = sliderRes.attr("decimals");
-	var val = rawVal;
-	val = Math.min(max, val);
-	val = Math.max(min, val);
+	var val = Math.max(min, Math.min(max, rawVal));
 	var valStr = Globalize.format(parseFloat(val), "N" + decimals);
 	var enableValue = false;
 	if (nordicArena.judge.isInOffZone(rawVal, min, max)) {
