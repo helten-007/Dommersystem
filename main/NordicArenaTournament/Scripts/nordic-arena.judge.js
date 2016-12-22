@@ -38,6 +38,15 @@ nordicArena.judge.initGui = function () {
 	var timeoutId = setTimeout(function () {
 		nordicArena.judge.initScreenHeight(timeoutId);
 	}, 100);
+
+	$('#overlay').find('#btnYes').on('click', function () {
+		$('#overlay').hide();
+		nordicArena.judge.submitScores(true);
+	});
+	$('#overlay').find('#btnNo').on('click', function () {
+		$('#overlay').hide();
+		nordicArena.judge.submitScores(false);
+	});
 };
 
 nordicArena.judge.hideBrowserChrome = function () {
@@ -160,11 +169,19 @@ nordicArena.judge.validateScores = function () {
 	// Check if judge has forgotten to score all contestants
 	var sliderCount = $("#criteriaCount").val();
 	var contestantCount = $("#contestantCount").val();
+	var contestantNames = [];
+	var contestantScores = [];
+	var isHeadJudge = false;
+
 	for (var contIx = 0; contIx < contestantCount; contIx++) {
 		var scoreCount = 0;
 		var contestantName = $("#judge-contestant-container button:eq(" + contIx + ")").text().trim();
-		if (contestantName === '' || contestantName === undefined)
+		if (contestantName === '' || contestantName === undefined) {
 			contestantName = $('#meter_' + contIx + '_master').find('.criteria-name').first().text().trim();
+			contestantNames.push(contestantName);
+			contestantScores.push(nordicArena.judge.getSliderDataFor(contIx, 'master').value);
+			isHeadJudge = true;
+		}
 		// Find the number of scores actually given (non-null) for all contestantts
 		for (var critIx = 0; critIx < sliderCount; critIx++) {
 			var sliderData = nordicArena.judge.getSliderDataFor(contIx, critIx);
@@ -173,13 +190,14 @@ nordicArena.judge.validateScores = function () {
 		// If anyone have ZERO scores, show confirm dialog
 		if (scoreCount == 0) {
 			var warningText = $("#ContestantNoScoreWarning").text();
-			//var answer = confirm(warningText.replace("{0}", contestantName));
-			//return answer;
-			nordicArena.judge.confirm(warningText.replace("{0}", contestantName), nordicArena.judge.submitScores);
-			return false;
+			var answer = confirm(warningText.replace("{0}", contestantName));
+			return answer;
 		}
 	}
-	return true;
+
+	if (isHeadJudge)
+		nordicArena.judge.confirm(contestantNames, contestantScores);
+	return !isHeadJudge;
 };
 
 nordicArena.judge.resizeOverlayInner = function () {
@@ -187,9 +205,15 @@ nordicArena.judge.resizeOverlayInner = function () {
 	inner.height($(window).height() - (inner.offset().top * 2));
 };
 
-nordicArena.judge.confirm = function (text, callback) {
-	
+nordicArena.judge.confirm = function (conts, scores) {
 	var overlay = $('#overlay');
+	overlay.find('.rider-confirm-name').each(function (index) {
+		$(this).find('h2').first().text(conts[index]);
+	});
+
+	overlay.find('.rider-confirm-score').each(function (index) {
+		$(this).find('h2').first().text(scores[index]);
+	});
 	overlay.show();
 	nordicArena.judge.resizeOverlayInner();
 
