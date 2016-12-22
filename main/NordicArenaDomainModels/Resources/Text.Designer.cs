@@ -422,7 +422,7 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Send.
+        ///   Looks up a localized string similar to Send inn.
         /// </summary>
         public static string JudgeSubmitButtonText {
             get {

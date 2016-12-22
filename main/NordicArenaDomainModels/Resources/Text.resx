@@ -193,7 +193,7 @@
     <value>Dommere</value>
   </data>
   <data name="JudgeSubmitButtonText" xml:space="preserve">
-    <value>Send</value>
+    <value>Send inn</value>
   </data>
   <data name="JudgingCriterions" xml:space="preserve">
     <value>Dommerkriterier</value>

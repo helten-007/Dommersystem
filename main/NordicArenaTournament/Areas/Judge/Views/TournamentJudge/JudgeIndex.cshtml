@@ -8,9 +8,77 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 }
 
+@if (Model.Judge.IsHeadJudge)
+{
+	<style>
+		#overlay {
+			display:none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: rgba(0,0,0,0.6);
+			z-index: 5000;
+			width: 100%;
+			height: 100%;
+		}
+
+		#overlay .overlay-inner-container {
+			background: #03aaec;
+			height: 70%;
+			margin-top: 10%;
+		}
+
+		#overlay .overlay-inner-container .rider-confirm {
+			padding-top: 7em;
+			padding-bottom: 7em;
+		}
+
+		#overlay .overlay-inner-container h2 {
+			text-align: center;
+			color: #f1f1f1;
+			font-size: 3em;
+		}
+
+		#overlay .overlay-inner-container .button-container button {
+			color: #f1f1f1;
+			background: #443f3f;
+			padding: 0.7em 1em;
+			border-radius: 5px;
+		}
+	</style>
+	
+	<div id="overlay">
+		<div class="container">
+			<div class="row">
+				<div class="12u">
+					<div class="overlay-inner-container">
+						<div class="row">
+							<div class="4u -2u 5u(large) -1u(large) rider-confirm">
+								<h2>Karsten Kleppan</h2>
+								<h2>7,8</h2>
+							</div>
+							<div class="4u$ 5u$(large) rider-confirm">
+								<h2>Alex Holm</h2>
+								<h2>4,5</h2>
+							</div>
+							<div class="button-container 2u -3u">
+								<button id="btnYes" type="button">OK</button>
+							</div>
+							<div class="button-container 2u -2u">
+								<button id="btnNo">Tilbake</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
 <div id="judge-main-container" class="container">
 	@Html.Partial(MVC.Judge.TournamentJudge.Views.JudgeIndexContent);
 </div>
+
 
 @section Scripts {
 	@Styles.Render("~/bundles/judge-styles")

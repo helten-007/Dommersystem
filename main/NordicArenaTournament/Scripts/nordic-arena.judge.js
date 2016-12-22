@@ -130,6 +130,7 @@ nordicArena.judge.resetHeight = function () {
 		$(".slider").height(height);
 		//nordicArena.log("resizing to " + height);
 	}
+	nordicArena.judge.resizeOverlayInner();
 	//nordicArena.log("nordicArena.judge.resetHeight() end");
 };
 
@@ -162,6 +163,8 @@ nordicArena.judge.validateScores = function () {
 	for (var contIx = 0; contIx < contestantCount; contIx++) {
 		var scoreCount = 0;
 		var contestantName = $("#judge-contestant-container button:eq(" + contIx + ")").text().trim();
+		if (contestantName === '' || contestantName === undefined)
+			contestantName = $('#meter_' + contIx + '_master').find('.criteria-name').first().text().trim();
 		// Find the number of scores actually given (non-null) for all contestantts
 		for (var critIx = 0; critIx < sliderCount; critIx++) {
 			var sliderData = nordicArena.judge.getSliderDataFor(contIx, critIx);
@@ -170,11 +173,48 @@ nordicArena.judge.validateScores = function () {
 		// If anyone have ZERO scores, show confirm dialog
 		if (scoreCount == 0) {
 			var warningText = $("#ContestantNoScoreWarning").text();
-			var answer = confirm(warningText.replace("{0}", contestantName));
-			return answer;
+			//var answer = confirm(warningText.replace("{0}", contestantName));
+			//return answer;
+			nordicArena.judge.confirm(warningText.replace("{0}", contestantName), nordicArena.judge.submitScores);
+			return false;
 		}
 	}
 	return true;
+};
+
+nordicArena.judge.resizeOverlayInner = function () {
+	var inner = $('#overlay').find('.overlay-inner-container').first();
+	inner.height($(window).height() - (inner.offset().top * 2));
+};
+
+nordicArena.judge.confirm = function (text, callback) {
+	
+	var overlay = $('#overlay');
+	overlay.show();
+	nordicArena.judge.resizeOverlayInner();
+
+	/*var innerOverlay = $('<div></div>');
+	innerOverlay.css({ 'height': '400px', 'width': '400px', 'background': 'white', 'margin': 'auto' });
+	innerOverlay.append($('<div></div>').text(text));
+	innerOverlay.append($('<button></button>')
+		.attr('id', 'btnYes')
+		.text('Ja')
+		.on('click', function () {
+			$('#overlay').remove();
+			callback(true);
+		}
+	));
+
+	innerOverlay.append($('<button></button>')
+		.attr('id', 'btnNo')
+		.text('Nei')
+		.on('click', function () {
+			$('#overlay').remove();
+			callback(false);
+		}
+	));
+	overlay.append(innerOverlay);
+	$('#skel-layers-wrapper').append(overlay);*/
 };
 
 nordicArena.judge.getSliderDataFor = function(contestantIx, criteriaIx) {
@@ -455,8 +495,9 @@ nordicArena.judge.didNotSkate = function (contIx) {
 	nordicArena.judge.setDidNotSkateScore(contIx);
 };
 
-nordicArena.judge.submitScores = function () {
-	var ok = nordicArena.judge.validateScores();
+nordicArena.judge.submitScores = function (ok) {
+	if (ok === '' || ok === undefined)
+		ok = nordicArena.judge.validateScores();
 	if (ok) {
 		nordicArena.judge.enableSliders(false);
 		nordicArena.judge.showProgressBar(true);
