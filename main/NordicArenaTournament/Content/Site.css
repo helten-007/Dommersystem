@@ -267,23 +267,24 @@ textarea {
   display: none;
 }
 /* Standard table */
-table {
-  margin-top: 7px;
-  margin-bottom: 7px;
-  border: solid 1px #03aaec;
-  border-collapse: collapse;
+table th {
+  padding: 1em;
+}
+table th label {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 600;
 }
 table td {
-  padding: 5px;
-  color: Black;
-  border: solid 1px #c12b2b;
+  background: #03aaec;
+  padding: 1.5em 1em;
+  color: #f1f1f1;
+  border-top: 0.5em solid #f1f1f1;
 }
-table th {
-  padding: 6px 5px;
-  text-align: left;
-  background-color: #03aaec;
-  color: white;
-  border: solid 1px #c12b2b;
+table td a,
+table td a:visited {
+  color: #f1f1f1;
+  padding: 0;
 }
 table.clean {
   border: none;

@@ -1,9 +1,26 @@
-﻿.result-table {
+﻿html {
+  height: 100%;
+}
+body {
+  font-size: .85em;
+  font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#body-container {
+  min-height: 100%;
+  position: relative;
+  text-transform: uppercase;
+}
+.result-table {
   background: #696969;
   border: none;
   font-size: 200%;
   font-weight: bold;
   margin: 0;
+  border-collapse: collapse;
 }
 .result-table tr th {
   background: #f1f1f1;
@@ -13,6 +30,7 @@
   border-left: none;
   color: #696969;
   font-weight: bold;
+  padding: 6px 5px;
 }
 .result-table tr td {
   background: #696969;
@@ -22,6 +40,7 @@
   border-left: none;
   color: #f1f1f1;
   font-weight: bold;
+  padding: 5px;
 }
 .first {
   border-right: 5px solid #f1f1f1 !important;

@@ -4,12 +4,31 @@
 @mainBorderBottom: 5px solid @background-color;
 @fontColor: @background-color;
 
+html {
+    height: 100%;
+}
+body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    background-color: @background-color;
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+#body-container {
+	min-height:100%;
+	position:relative;
+	text-transform: uppercase;
+}
+
 .result-table {
 	background: @mainColor;
 	border: none;
 	font-size: 200%;
 	font-weight: bold;
 	margin: 0;
+	border-collapse: collapse;
 }
 
 .result-table tr th {
@@ -20,6 +39,7 @@
 	border-left: none;
 	color: @mainColor;
 	font-weight: bold;
+	padding: 6px 5px;
 }
 
 .result-table tr td {
@@ -30,6 +50,7 @@
 	border-left: none;
 	color: @fontColor;
 	font-weight: bold;
+	padding: 5px;
 }
 
 .first {

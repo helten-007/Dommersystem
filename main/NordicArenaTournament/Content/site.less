@@ -304,28 +304,33 @@ textarea {
 /* Standard table */
 table
 {
-    margin-top: 7px;
-    margin-bottom: 7px;
-    border: solid 1px @highlighted;
-    border-collapse: collapse;
-}
-
-
-table td
-{
-    padding: 5px;
-    color:Black;
-    border: solid 1px @highlighted-darker;
+    
 }
 
 table th
 {
-    padding: 6px 5px;
-    text-align: left;
-    background-color: @highlighted;
-    color: @highlighted-fg;
-    border: solid 1px @highlighted-darker;
+	padding: 1em;
 }
+
+	table th label
+	{
+		margin: 0;
+		font-size: 1.8em;
+		font-weight: 600;
+	}
+
+table td
+{
+	background: @highlighted;
+    padding: 1.5em 1em;
+	color: @background-color;
+	border-top: 0.5em solid @background-color;
+}
+
+	table td a, table td a:visited {
+		color: @background-color;
+		padding: 0;
+	}
 
 table.clean {
     border: none;

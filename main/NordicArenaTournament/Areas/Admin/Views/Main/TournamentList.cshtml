@@ -18,10 +18,10 @@
 			<div class="12u">
 				<table>
 					<tr>
-						<th>@Text.ChooseTournament</th>
+						<th><label>@Text.ChooseTournament</label></th>
 						<th>@Html.LabelFor(p => p.Tournaments.FirstOrDefault().Status)</th>
-						<th>@Text.Results</th>
-						<th>@Text.Action</th>
+						<th><label>@Text.Results</label></th>
+						<th><label>@Text.Action</label></th>
 					</tr>
 
 					@foreach (var tournament in Model.Tournaments)
@@ -39,6 +39,7 @@
 									@Html.ActionLink(Text.ResultPage, MVC.Admin.TournamentAdmin.Results(tournament.Id))
 								}
 							</td>
+							<td>Startliste</td>
 						</tr>
 					}
 				</table>
