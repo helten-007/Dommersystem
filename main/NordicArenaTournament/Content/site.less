@@ -69,7 +69,7 @@ img.normal-margin {
 }
 
 /* Buttons */
-button,input[type='button'],input[type='submit'] {
+button,input[type='button'],input[type='submit'], .button {
     margin: 0.4em;
     font-size: 1.5em;
     text-transform:uppercase;
@@ -78,7 +78,7 @@ button,input[type='button'],input[type='submit'] {
     border: none;
     padding: .4em;
 }
-button:hover, input[type='button']:hover, input[type='submit']:hover {
+button:hover, input[type='button']:hover, input[type='submit']:hover, .button:hover {
     background: @button-bg-hover;
 }
 button[disabled='disabled'], input[type='button'][disabled='disabled'], input[type='submit'][disabled='disabled']{
@@ -116,6 +116,10 @@ nav.admin-header, nav.admin-supernavigation {
         margin: .4em;
 		color: @background-color;
     }
+	a:hover {
+		background: @normal-hover;
+		text-decoration: underline;
+	}
 }
 
 footer {
@@ -157,7 +161,6 @@ footer {
         background: @highlighted;
     }
 }
-
 
 a,a:visited {
     /*font-family: "LeagueGothicCondensed", "Arial Narrow", sans-serif;*/
@@ -325,12 +328,17 @@ table td
     padding: 1.5em 1em;
 	color: @background-color;
 	border-top: 0.5em solid @background-color;
-}
-
-	table td a, table td a:visited {
+	
+	a, a:visited {
 		color: @background-color;
 		padding: 0;
 	}
+
+	a:hover {
+		background: @table-hover;
+		text-decoration: underline;
+	}
+}
 
 table.clean {
     border: none;

@@ -5,51 +5,65 @@
 @{
     ViewBag.Title = NaHtml.PageTitle(Text.JudgementListPageTitle);
 }
-<div class="noprint floatright">
-    @using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
-    {
-        <button name="roundNo" type="submit" class="nav-button-grey previous-grey" value="@(Model.RoundNo - 1)" @Html.DisableIf(!Model.HasPreviousRound)></button>
-        <button name="roundNo" type="submit" class="nav-button-grey next-grey" value="@(Model.RoundNo + 1)" @Html.DisableIf(!Model.HasNextRound)></button><br />
-    }
+
+<div class="container">
+	<div class="row">
+		<h1 class="10u">@Html.ValueFor(model => model.TournamentName) - @Model.RoundTitle</h1>
+
+		<!--<div class="noprint floatright 2u">-->
+		<div class="noprint 2u">
+			@using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
+			{
+				<button name="roundNo" type="submit" class="nav-button-grey previous-grey" value="@(Model.RoundNo - 1)" @Html.DisableIf(!Model.HasPreviousRound)></button>
+				<button name="roundNo" type="submit" class="nav-button-grey next-grey" value="@(Model.RoundNo + 1)" @Html.DisableIf(!Model.HasNextRound)></button><br />
+			}
+		</div>
+		<div class="12u">
+			@using (Html.BeginForm())
+			{
+				@Html.HiddenFor(p => p.TournamentId)
+				@Html.HiddenFor(p => p.RoundNo)
+				<div class="row">
+					<div class="10u">
+						<table id="judgementlist">
+							<tr>
+								<th>@Text.Judge</th>
+								<th>@Text.Contestant</th>
+								<th>@Text.Run</th>
+								@foreach (var crit in Model.Criteria)
+								{
+									<th>@crit.Title</th>
+								}
+								<th class="highlighted-column">@Text.Average</th>
+							</tr>
+
+							@for (int i = 0; i < Model.Judgements.Count; i++)
+							{
+								var judgement = Model.Judgements[i];
+								<tr>
+									<td>@judgement.JudgeName</td>
+									<td>@judgement.ContestantName</td>
+									<td>@Html.ValueFor(p => p.Judgements[i].RunNo) </td>
+									@Html.HiddenFor(p => p.Judgements[i].RunNo)
+									@Html.HiddenFor(p => p.Judgements[i].JudgeId)
+									@Html.HiddenFor(p => p.Judgements[i].RoundContestantId)
+									@for (int j = 0; j < Model.Judgements[i].Scores.Count; j++)
+									{
+										<td>@Html.EditorFor(p => p.Judgements[i].Scores[j])</td>
+									}
+									@if (@judgement.RunJudgeScore != null)
+									{
+										<td class="highlighted-column">@Html.DisplayFor(p => p.Judgements[i].RunJudgeScore)</td>
+									}
+								</tr>
+							}
+						</table>
+					</div>
+					<div class="2u">
+						<input type="Submit" value="@Text.Update" />
+					</div>
+				</div>
+			}
+		</div>
+	</div>
 </div>
-<h1>@Html.ValueFor(model => model.TournamentName) - @Model.RoundTitle</h1>
-
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(p => p.TournamentId)
-    @Html.HiddenFor(p => p.RoundNo)
-    <table id="judgementlist">
-        <tr>
-            <th>@Text.Judge</th>
-            <th>@Text.Contestant</th>
-            <th>@Text.Run</th>
-            @foreach (var crit in Model.Criteria)
-            {
-                <th>@crit.Title</th>
-            }
-            <th class="highlighted-column">@Text.Average</th>
-        </tr>    
-
-        @for (int i = 0; i < Model.Judgements.Count; i++)
-{
-    var judgement = Model.Judgements[i];
-    <tr>
-        <td>@judgement.JudgeName</td>
-        <td>@judgement.ContestantName</td>
-        <td>@Html.ValueFor(p => p.Judgements[i].RunNo) </td>
-        @Html.HiddenFor(p => p.Judgements[i].RunNo)
-        @Html.HiddenFor(p => p.Judgements[i].JudgeId)
-        @Html.HiddenFor(p => p.Judgements[i].RoundContestantId)
-        @for (int j = 0; j < Model.Judgements[i].Scores.Count; j++)
-        {
-            <td>@Html.EditorFor(p => p.Judgements[i].Scores[j])</td>
-        }
-        @if (@judgement.RunJudgeScore != null)
-        {
-            <td class="highlighted-column">@Html.DisplayFor(p => p.Judgements[i].RunJudgeScore)</td>
-        }
-    </tr>
-}
-    </table>
-    <input type="Submit" value="@Text.Update" />
-}

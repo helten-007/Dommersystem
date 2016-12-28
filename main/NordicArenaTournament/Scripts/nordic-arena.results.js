@@ -11,7 +11,6 @@ $(function () {
 	if ($('#body-container').innerHeight() > $(window).height()) {
 		$(".main-content").css("padding-bottom", "5em");
 	}
-
 });
 
 nordicArena.results.initSignalRHub = function () {
@@ -47,6 +46,7 @@ nordicArena.results.scroll = function () {
 	var minWait = 50;
 	var maxWait = 3000;
 	var wait = minWait;
+	console.log("scroll!");
 
 	var myFunction = function () {
 		wait = minWait;
@@ -55,8 +55,7 @@ nordicArena.results.scroll = function () {
 		var pos = div.scrollTop();
 		pos += direction;
 		div.scrollTop(pos);
-
-		if (div[0].scrollHeight - div.scrollTop() == div.outerHeight() || div.scrollTop() <= 0) {
+		if (parseInt(div[0].scrollHeight - div.scrollTop()) == div.outerHeight() || div.scrollTop() <= 0) {
 			direction *= -1;
 			wait = maxWait;
 		}

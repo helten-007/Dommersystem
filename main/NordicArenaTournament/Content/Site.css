@@ -63,7 +63,8 @@ img.normal-margin {
 /* Buttons */
 button,
 input[type='button'],
-input[type='submit'] {
+input[type='submit'],
+.button {
   margin: 0.4em;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -74,7 +75,8 @@ input[type='submit'] {
 }
 button:hover,
 input[type='button']:hover,
-input[type='submit']:hover {
+input[type='submit']:hover,
+.button:hover {
   background: #444444;
 }
 button[disabled='disabled'],
@@ -109,6 +111,11 @@ nav.admin-supernavigation a {
   font-weight: 600;
   margin: .4em;
   color: #f1f1f1;
+}
+nav.admin-header a:hover,
+nav.admin-supernavigation a:hover {
+  background: #565151;
+  text-decoration: underline;
 }
 footer {
   width: 100%;
@@ -285,6 +292,10 @@ table td a,
 table td a:visited {
   color: #f1f1f1;
   padding: 0;
+}
+table td a:hover {
+  background: #03aaec;
+  text-decoration: underline;
 }
 table.clean {
   border: none;
