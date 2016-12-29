@@ -59,6 +59,7 @@ namespace T4MVC
     {
         public readonly string Name = "Public";
         public NordicArenaTournament.Areas.Public.Controllers.TournamentPublicController TournamentPublic = new NordicArenaTournament.Areas.Public.Controllers.T4MVC_TournamentPublicController();
+        public T4MVC.Public.PublicUserController PublicUser = new T4MVC.Public.PublicUserController();
         public T4MVC.Public.SharedController Shared = new T4MVC.Public.SharedController();
     }
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
