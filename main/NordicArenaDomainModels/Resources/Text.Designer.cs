@@ -250,6 +250,15 @@ namespace NordicArenaDomainModels.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opprett bruker.
+        /// </summary>
+        public static string CreateUserPageTitle {
+            get {
+                return ResourceManager.GetString("CreateUserPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kjører nå.
         /// </summary>
         public static string CurrentContestant {

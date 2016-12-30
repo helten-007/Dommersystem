@@ -323,4 +323,7 @@
   <data name="Results" xml:space="preserve">
     <value>Resultater</value>
   </data>
+  <data name="CreateUserPageTitle" xml:space="preserve">
+    <value>Opprett bruker</value>
+  </data>
 </root>
