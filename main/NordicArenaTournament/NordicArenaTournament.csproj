@@ -263,7 +263,6 @@
     <Content Include="Areas\Speaker\Views\TournamentSpeaker\SpeakerIndex - Copy.cshtml" />
     <Content Include="Areas\Speaker\Views\TournamentSpeaker\RunControlPanel - Copy.cshtml" />
     <Content Include="Areas\Admin\Views\Main\TournamentList - Copy.cshtml" />
-    <Content Include="Areas\Public\Views\PublicUser\CreateUser.cshtml" />
     <None Include="Content\results.less" />
     <Content Include="Content\speaker.css.map">
       <DependentUpon>speaker.css</DependentUpon>
@@ -294,9 +293,6 @@
     <Content Include="Scripts\ai.1.0.0-build00159.js" />
     <Content Include="Scripts\ai.1.0.0-build00159.min.js" />
     <Content Include="Scripts\nordic-arena.results.js" />
-    <Compile Include="T4MVC\Public.PublicUserController.generated.cs">
-      <DependentUpon>T4MVC.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\LoggedElmahErrorViewModel.cs" />
     <Compile Include="ViewModels\_LayoutViewModel.cs" />
     <Content Include="Content\images\banner1.jpg" />
