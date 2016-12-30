@@ -56,6 +56,7 @@
     <Compile Include="Helpers\PassThroughListSorter.cs" />
     <Compile Include="Helpers\RandomizedListSorter.cs" />
     <Compile Include="Interfaces\IListSorter.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="TournamentProgression\CounterSet.cs" />
     <Compile Include="Lang\LangUtilities.cs" />
     <Compile Include="ObjectValidation\ResultReasonTuple.cs" />

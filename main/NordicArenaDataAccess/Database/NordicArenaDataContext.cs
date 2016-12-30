@@ -13,6 +13,7 @@ namespace NordicArenaTournament.Database
         public IDbSet<Round> Rounds { get; set; }
         public IDbSet<RunJudging> RunJudgings { get; set; }
         public IDbSet<JudgingCriterion> Criteria { get; set; }
+		public IDbSet<User> User { get; set; }
 
         public NordicArenaDataContext() : base("name=Data")
         {                
