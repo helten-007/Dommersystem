@@ -12,6 +12,8 @@ namespace NordicArenaDomainModels.Models
     /// </summary>
 	public class User
 	{
+		public User() { }
+		/*
 		public long Id { get; set; }
         [Required]
         public String Name { get; set; }
@@ -64,5 +66,6 @@ namespace NordicArenaDomainModels.Models
         {
             return String.Format("{0}/{1}", Id, Name);
         }
+		*/
 	}
 }
