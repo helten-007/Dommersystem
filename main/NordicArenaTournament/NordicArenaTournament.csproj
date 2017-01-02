@@ -231,6 +231,7 @@
     <Compile Include="Areas\Judge\ViewModels\JudgeViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\ContestantRunViewModel.cs" />
     <Compile Include="Areas\Judge\ViewModels\RunJudgementViewModel.cs" />
+    <Compile Include="Areas\Public\ViewModels\UserViewModel.cs" />
     <Compile Include="Areas\Speaker\ViewModels\JudgeHasScoredTuple.cs" />
     <Compile Include="Areas\Speaker\ViewModels\NextContestantViewModel.cs" />
     <Content Include="Content\font-awesome.min.css" />
@@ -965,7 +966,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Judge\Views\Shared\" />
-    <Folder Include="Areas\Public\Models\" />
     <Folder Include="Areas\Public\Views\Shared\" />
     <Folder Include="Areas\Speaker\Models\" />
     <Folder Include="Areas\Speaker\Views\Shared\" />
