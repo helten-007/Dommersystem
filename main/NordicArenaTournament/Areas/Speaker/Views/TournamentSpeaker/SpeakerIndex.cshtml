@@ -15,7 +15,6 @@
 		<div class="9u">
 			<div class="row">
 
-
 				@* List of contestants *@
 				@if (@Model.DisplayContestantList)
 				{
@@ -32,21 +31,21 @@
 									<div class="6u">
 										<div class="current-rider">
 											<h1>@cont.Name</h1>
-											<h1>@cont.Contestant.Stance | 25 ÅR | @cont.Contestant.Location</h1>
+											<h1>@cont.Contestant.Stance | <!--25 ÅR |--> @cont.Contestant.Location</h1>
 											<p>
 												SPONSORER: @cont.Contestant.Sponsors<br><br>
 											</p>
 											<div class="button-container">
 												@{
-									string score = "";
-									if (cont.TotalScore != null)
-									{
-										score = cont.TotalScore.ToString();
-									}
-									else
-									{
-										score = "---";
-									}
+													string score = "";
+													if (cont.TotalScore != null)
+													{
+														score = cont.TotalScore.ToString();
+													}
+													else
+													{
+														score = "---";
+													}
 												}
 												BEST SCORE: <button>@score</button>
 											</div>
@@ -120,7 +119,6 @@
 				</div>
 			}
 
-
 			<!--
 			<div class="header">@Text.Round @Model.Round.RoundNo / @Model.RoundCount</div>
 			@using (Html.BeginForm(Html.CurrentAction(), Html.CurrentController(), method: FormMethod.Get))
@@ -139,7 +137,6 @@
 				}
 				-->
 			}
-
 		</div>
 	</div>
 </div>

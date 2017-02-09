@@ -1,12 +1,6 @@
 ﻿@model NordicArenaTournament.Areas.Speaker.ViewModels.SpeakerViewModel
 @using NordicArenaDomainModels.Resources
 
-
-
-
-
-
-
 @if (Model.CurrentContestants != null && Model.CurrentContestants.Count > 0)
 {
 	var borderClass = "border-right";
@@ -18,7 +12,7 @@
 					@{var rider = (i + 1);}
 					<h2>Rider: @rider</h2>
 					<h1>@Model.CurrentContestants[i].Name</h1>
-					<h1>@Model.CurrentContestants[i].Stance | 25<!--Model.CurrentContestants[i].AgeYears--> | @Model.CurrentContestants[i].Location</h1>
+					<h1>@Model.CurrentContestants[i].Stance<!-- | 25Model.CurrentContestants[i].AgeYears--> | @Model.CurrentContestants[i].Location</h1>
 					<p>SPONSORER: @Model.CurrentContestants[i].Sponsors<br><br></p>
 					<div class="button-container">
 						@{
@@ -39,22 +33,6 @@
 		}
 	</div>
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--
 
@@ -106,5 +84,4 @@ else
         }
     </table>
 }
-
 -->
